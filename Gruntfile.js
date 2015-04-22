@@ -7,33 +7,6 @@ var createTplBundle = require('./lib/create-tpl-bundle'),
     ;
 
 module.exports = function(grunt) {
-    var createJadeData = function(host) {
-        var process = grunt.template.process.bind(grunt.template),
-            hostData = { data : { host : host }}
-            ;
-
-        return {
-            built : {
-                css : '/styles.css',
-                    templates : '/templates.js',
-                    js : '/build.js'
-            },
-            external : {
-                jquery : process('<%= externalAssets.jquery %>'),
-                    angular : process('<%= externalAssets.angular %>'),
-                    ngRoute : process('<%= externalAssets.ngRoute %>'),
-                    ngSanitize : process('<%= externalAssets.ngSanitize %>'),
-                    uiBootstrap : process('<%= externalAssets.uiBootstrap %>')
-            },
-            endpoints : {
-                root : process('<%= host %>/', hostData),
-                api : process('<%= host %>/api/', hostData),
-                public : process('<%= host %>/api/public/', hostData),
-                secure : process('<%= host %>/api/', hostData)
-            }
-        }
-    }
-
     grunt.initConfig({
         pkg : grunt.file.readJSON('package.json'),
         fversion : 'whaam',
@@ -42,7 +15,8 @@ module.exports = function(grunt) {
             build : 'build',
             support : 'test-support',
             dist : 'dist',
-            tmp : 'tmp'
+            tmp : 'tmp',
+            examples : 'examples'
         },
         externalAssets : {
             jquery : 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js',
@@ -67,13 +41,7 @@ module.exports = function(grunt) {
             templates : '<%= baseDirs.src %>/**/*.html',
             specs : '<%= baseDirs.src %>/**/*-spec.js',
             specsSupport : '<%= baseDirs.src %>/test-support/index.js',
-            lib : '<%= baseDirs.src %>/crunch/index.js',
-            mainPage : '<%= baseDirs.src %>/index.jade',
-            assets : {
-                icons : '<%= baseDirs.src %>/*.ico',
-                fonts : '<%= baseDirs.src %>/*.ttf'
-            }
-
+            lib : '<%= baseDirs.src %>/crunch/index.js'
         },
         tmp : {
             styles : '<%= baseDirs.tmp %>/all.styl',
@@ -85,9 +53,7 @@ module.exports = function(grunt) {
                 styles : '<%= build.dev.base %>/styles.css',
                 templates : '<%= build.dev.base %>/templates.js',
                 templatesList : '<%= build.dev.base %>/templates-list.js',
-                lib : '<%= build.dev.base %>/build.js',
-                mainPage : '<%= build.dev.base %>/index.html',
-                assets : '<%= build.dev.base %>'
+                lib : '<%= build.dev.base %>/build.js'
             }
 
             , prod : {
@@ -96,8 +62,6 @@ module.exports = function(grunt) {
                 templates : '<%= build.prod.base %>/templates.js',
                 templatesList : '<%= build.prod.base %>/templates-list.js',
                 lib : '<%= build.prod.base %>/build.js',
-                mainPage : '<%= build.prod.base %>/index.html',
-                assets : '<%= build.prod.base %>',
                 manifest : '<%= build.prod.base %>/manifest.json'
             }
 
@@ -176,28 +140,6 @@ module.exports = function(grunt) {
             }
         },
 
-        jade : {
-            dev : {
-                options : {
-                    pretty : true,
-                    data : function() {
-                        return createJadeData(grunt.file.read('host.info'))
-                    }
-                },
-                src : ['<%= src.mainPage %>'],
-                dest : '<%= build.dev.mainPage %>'
-            },
-            prod : {
-                options : {
-                    data : function() {
-                        return createJadeData('')
-                    }
-                },
-                src : ['<%= src.mainPage %>'],
-                dest : '<%= build.prod.mainPage %>'
-            }
-        },
-
         copy : {
             dev : {
                 files : [
@@ -258,7 +200,7 @@ module.exports = function(grunt) {
                         './<%= src.externalModules.angular %>:angular',
                         './<%= src.externalModules.vega %>:vega',
                         './<%= src.externalModules.canvas %>:canvas',
-                        './<%= src.lib %>:crunch'
+                        './<%= src.lib %>:crunch-js-components'
                     ],
                     browserifyOptions : {
                         debug : true,
@@ -275,7 +217,7 @@ module.exports = function(grunt) {
                         './<%= src.externalModules.angular %>:angular',
                         './<%= src.externalModules.vega %>:vega',
                         './<%= src.externalModules.canvas %>:canvas',
-                        './<%= src.lib %>:crunch'
+                        './<%= src.lib %>:crunch-js-components'
                     ],
                     browserifyOptions : {
                         fullPaths : false
@@ -284,7 +226,6 @@ module.exports = function(grunt) {
                 src : [],
                 dest : '<%= build.prod.lib %>'
             },
-
             specsSupport : {
                 options : {
                     alias : [
@@ -342,23 +283,6 @@ module.exports = function(grunt) {
             }
         },
 
-        compress : {
-            dist : {
-                options : {
-                    mode : 'tgz',
-                    archive : '<%= dist.packageName %>'
-                },
-                files : [
-                    {
-                        expand : true,
-                        src : ['<%= build.prod.base %>/*'],
-                        dest : '/',
-                        flatten : true
-                    }
-                ]
-            }
-        },
-
         mkdir : {
             reports : {
                 options : {
@@ -407,42 +331,15 @@ module.exports = function(grunt) {
         connect : {
             dev : {
                 options : {
-                    base : '<%= build.dev.base %>',
+                    base : [
+                        '<%= build.dev.base %>',
+                        '<%= baseDirs.examples %>'
+                    ],
                     open : true,
                     hostname : 'local.crunch.io',
-                    livereload : true
+                    livereload : true,
+                    keepalive : true
                 }
-            }
-        },
-
-        watch : {
-            styles : {
-                files : [
-                    '<%= src.styles.common %>',
-                    '<%= src.styles.icons %>',
-                    '<%= src.styles.fonts %>',
-                    '<%= src.styles.class %>'
-                ],
-                tasks : ['styles:dev']
-            },
-
-            hostInfo : {
-                files : [
-                    'host.info'
-                ],
-                tasks : ['jade:dev']
-            },
-
-            livereload : {
-                options : {
-                    livereload : true
-                },
-                files : [
-                    '<%= build.dev.styles %>',
-                    '<%= build.dev.templates %>',
-                    '<%= build.dev.lib %>',
-                    '<%= build.dev.mainPage %>'
-                ]
             }
         }
     })
@@ -505,8 +402,6 @@ module.exports = function(grunt) {
         'styles:dev',
         'templates:dev',
         'browserify:libDev',
-        'jade:dev',
-        'copy:dev',
         'clean:tmp'
     ])
 
@@ -517,15 +412,12 @@ module.exports = function(grunt) {
         'templates:prod',
         'browserify:libProd',
         'uglify',
-        'jade:prod',
-        'copy:prod',
         'clean:tmp'
     ])
 
-    grunt.registerTask('serve', 'Serves the application in your local environment', [
+    grunt.registerTask('serve:examples', [
         'build:dev',
-        'connect:dev',
-        'watch'
+        'connect:dev'
     ])
 
     grunt.registerTask('dist', 'Creates a distribution build', [

@@ -7,7 +7,7 @@ function buildModule(moduleName) {
         ,_ = require('lodash')
         ;
 
-    moduleName = moduleName || 'crunch';
+    moduleName = moduleName || 'crunch-js-components';
 
     var features = require('./features-list')({})
 

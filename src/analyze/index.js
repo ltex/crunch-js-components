@@ -19,7 +19,6 @@ function buildModule(moduleName, cfg) {
         return _
     })
 
-    mod.controller('analyzeContextCtrl', require('./analyze-context-ctrl'))
     mod.directive('analyzeTitle', require('./analyze-title-directive'))
     mod.directive('bivariateContext',require('./bivariate-context-directive'))
     mod.directive('emptyAnalysis', require('./empty-analysis-directive'))

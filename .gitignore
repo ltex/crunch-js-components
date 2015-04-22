@@ -45,3 +45,5 @@ e2e/bins
 e2e/logs
 tmp
 host.info
+
+examples/secrets.js
