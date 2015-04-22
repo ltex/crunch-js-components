@@ -4,33 +4,46 @@ FilterBuilderCtrl.$inject = [
     '$scope'
     , 'currentDataset'
     , 'FilterBuilder'
+    , 'iFetchHierarchicalVariables'
+    , 'signin'
     //, 'ShareFilter'
 ]
 
-function FilterBuilderCtrl($scope, currentDataset, FilterBuilder){//, ShareFilter) {
+function FilterBuilderCtrl($scope, currentDataset, FilterBuilder, iFetchHierarchicalVariables, signin){//, ShareFilter) {
     var dataset
         , filterBuilder
         , shareFilter
 
     this.init = function(){
 
-        currentDataset.fetch()
-            .then(function (ds) {
-                dataset = ds
-
-                filterBuilder = $scope.filterBuilder = FilterBuilder.create({
-                    dataset: dataset
-                    // use iFetchDatasetFilters to get a filter and
-                    // add to a filter argument here
-                    //, filter: filter
+        signin.apply(signin, secrets.credentials)
+            .then(function() {
+                return iFetchHierarchicalVariables({
+                    datasetId : secrets.dataset
                 })
+            })
+            .then(function(variables) {
+                $scope.variables = variables
 
-                /*
-                 //this creates a sharing togle for the filter
-                 shareFilter = $scope.shareFilter = ShareFilter.create({
-                 dataset : dataset
-                 , share : false
-                 })*/
+                currentDataset.fetch()
+                    .then(function (ds) {
+                        dataset = ds
+
+                        filterBuilder = $scope.filterBuilder = FilterBuilder.create({
+                            dataset: dataset
+                            // use iFetchDatasetFilters to get a filter and
+                            // add to a filter argument here
+                            //, filter: filter
+                        })
+
+                        /*
+                         //this creates a sharing togle for the filter
+                         shareFilter = $scope.shareFilter = ShareFilter.create({
+                         dataset : dataset
+                         , share : false
+                         })*/
+                    })
+
             })
 
         /*
