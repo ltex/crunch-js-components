@@ -28,6 +28,8 @@ function AnalyzeContextCtrl($scope, iFetchHierarchicalVariables, analyzeContextM
             })
     }
 
+    this.visible = true
+
     function setupEvents() {
         analyzeContextManager.on('analysis.changed', initData)
         analyzeContextManager.on('settings.changed', initData)
