@@ -2,14 +2,12 @@
 
 var createTplBundle = require('./lib/create-tpl-bundle'),
     filterTestFile = require('./lib/filter-test-file'),
-    createStylesImporter = require('./lib/create-styles-importer'),
-    stat = require('./lib/stat')
+    createStylesImporter = require('./lib/create-styles-importer')
     ;
 
 module.exports = function(grunt) {
     grunt.initConfig({
         pkg : grunt.file.readJSON('package.json'),
-        fversion : 'whaam',
         baseDirs : {
             src : 'src',
             build : 'build',
@@ -137,36 +135,6 @@ module.exports = function(grunt) {
             prod : {
                 src :  ['<%= src.templates.ngTemplates %>'],
                 dest:   '<%= build.prod.templatesList %>'
-            }
-        },
-
-        copy : {
-            dev : {
-                files : [
-                    {
-                        expand: true,
-                        src: [
-                            '<%= src.assets.icons %>',
-                            '<%= src.assets.fonts %>'
-                        ],
-                        dest: '<%= build.dev.assets %>',
-                        flatten : true
-                    }
-                ]
-            },
-
-            prod : {
-                files : [
-                    {
-                        expand: true,
-                        src: [
-                            '<%= src.assets.icons %>',
-                            '<%= src.assets.fonts %>'
-                        ],
-                        dest: '<%= build.prod.assets %>',
-                        flatten : true
-                    }
-                ]
             }
         },
 
@@ -345,17 +313,6 @@ module.exports = function(grunt) {
 
     grunt.registerMultiTask('createTplBundle', createTplBundle(grunt))
     grunt.registerMultiTask('createStylesImporter', createStylesImporter(grunt))
-    grunt.registerTask('manifest', 'Creates a compressed package of the application', function() {
-        var done = this.async()
-            ;
-
-        stat().then(function(manifest) {
-            grunt.config.set('fversion', manifest.fversion)
-            grunt.file.write(grunt.config.process('<%= build.prod.manifest %>'),
-                JSON.stringify(manifest))
-            done()
-        })
-    })
 
     grunt.registerTask('styles:dev', 'Creates a development mode css bundle', [
         'createStylesImporter:all',
@@ -419,22 +376,15 @@ module.exports = function(grunt) {
         'connect:dev'
     ])
 
-    grunt.registerTask('dist', 'Creates a distribution build', [
-        'clean:dist',
-        'build:prod',
-        'manifest',
-        'compress:dist'
+    grunt.registerTask('dist', [
+        'build:prod'
     ])
 
     grunt.loadNpmTasks('grunt-karma')
-    grunt.loadNpmTasks('grunt-contrib-copy')
     grunt.loadNpmTasks('grunt-contrib-clean')
     grunt.loadNpmTasks('grunt-contrib-stylus')
     grunt.loadNpmTasks('grunt-browserify')
     grunt.loadNpmTasks('grunt-contrib-uglify')
-    grunt.loadNpmTasks('grunt-contrib-jade')
     grunt.loadNpmTasks('grunt-contrib-connect')
-    grunt.loadNpmTasks('grunt-contrib-watch')
-    grunt.loadNpmTasks('grunt-contrib-compress')
     grunt.loadNpmTasks('grunt-mkdir')
 }
