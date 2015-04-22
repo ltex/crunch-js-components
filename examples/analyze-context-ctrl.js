@@ -15,7 +15,8 @@ function AnalyzeContextCtrl($scope, iFetchHierarchicalVariables, analyzeContextM
                     datasetId : secrets.dataset
                 })
             })
-            .then(function() {
+            .then(function(variables) {
+                $scope.variables = variables
                 analyzeContextManager.handle('initialize', params)
 
                 $scope.settings = settings = analyzeContextManager.viewSettings

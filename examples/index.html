@@ -5,8 +5,15 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
     </head>
-    <body ng-app="componentsDemo">
-        <section class="analyze" ng-controller="AnalyzeContextCtrl as ctrl" ng-init="ctrl.init()">
+    <body ng-app="componentsDemo" ng-controller="AnalyzeContextCtrl as ctrl" ng-init="ctrl.init()">
+        <div class="variable-sidebar">
+            <div ng-repeat="variable in variables.slice(0,20)" ng-if="variable.hierarchicalType === 'variable'">
+                <span dragit="variable" dragit-operation="link">
+                    {{variable.fullName}}
+                </span>
+            </div>
+        </div>
+        <section class="analyze">
             <div class="section-wrapper" ng-if="analyzeContextManager">
                 <div class="analyze-error" ng-if="analyzeContextManager.error">
                     <span>Something went wrong. <br />We can’t display this analysis.</span>
