@@ -42,6 +42,10 @@ function AnalysisTitleDirective() {
         }
     }
 
+    AnalysisTitleCtrl.$inject = [
+        '$scope'
+    ]
+
     return {
         templateUrl : '/analyze/analyze-title.html'
         , controller : AnalysisTitleCtrl
