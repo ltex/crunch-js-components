@@ -1,0 +1,141 @@
+.drop-zone2
+    position absolute
+    height 90%
+    top 0
+    bottom 0
+    left 0
+    right 30px
+    z-index 20/* above grid providing drop targets when covered */
+    background rgba(255, 255, 255, 0.6)
+    display flex
+    flex-direction column
+    padding 0
+
+    .container
+        display flex
+        flex-grow 1
+
+        strong
+            font-weight font-weight-heavy
+
+        .drag-wrapper
+            flex-grow 1
+            display flex
+
+        .drop-target
+            background rgba(243, 243, 243, 0.58)
+            font-weight inherit
+            font-size font-size-xxl
+            color font-color-dark-grey
+            border 1px solid gray-border-color-medium
+            padding 5px 10px
+            border-radius 5px
+            margin-bottom 10px
+            min-height 115px
+            line-height 1.75
+            text-overflow ellipsis
+            overflow hidden
+            display flex
+            flex-direction column
+            justify-content center
+            flex-wrap wrap
+            transition border 0.2s linear
+
+
+            &.drag-over /* for drop targets when expanded */
+                color color-green
+                border 1px solid color-green
+
+            .zone-content
+                width 100%
+                font-weight 300
+                text-align center
+
+        &.table
+            flex-direction column
+
+            .dragcolumn
+                flex-shrink 0
+
+            .dragrow
+                flex-grow 1
+                flex-shrink 0
+
+            .dragtable, .dragcell
+                flex-grow 2
+                flex-shrink 0
+                margin-left 10px
+
+            .drag-wrapper
+
+                .dragrow
+                    width 40%
+
+                .dragtable
+                    width 54%
+
+                &.drag-numeric
+
+                    .dragrow, .dragtable, .dragcell
+                        width 30.5%
+
+                &.drag-measure
+
+                    .dragrow, .dragcell
+                        width 47%
+
+        &.graph
+
+            .dragrow
+                flex-grow 1
+                width 33%
+                flex-shrink 0
+
+            .dragslice
+                flex-grow 1
+                flex-shrink 0
+                width 33%
+                margin-left 10px
+
+            .draggroup
+                flex-grow 1
+                width 33%
+                flex-shrink 0
+                margin-left 10px
+
+            .dragnewgraph
+                margin-left 10px
+                flex-grow 2
+                flex-shrink 0
+                height 60%
+
+            .dragmean
+                margin-left 10px
+                flex-grow 1
+                flex-shrink 0
+
+            .drag-wrapper
+                height 40%
+
+                .dragslice, .draggroup
+                    width 45%
+
+                &.drag-numeric
+                    height 50%
+
+                    .dragmean, .dragnewgraph
+                        width 45%
+                        height auto
+                        flex-grow 1
+
+                &.drag-measure
+                    height auto
+
+                    .dragrow, .dragmean
+                        width 47%
+                        flex-grow 1
+
+            .graph-wrapper
+                display flex
+                flex-direction column
+                width 70%

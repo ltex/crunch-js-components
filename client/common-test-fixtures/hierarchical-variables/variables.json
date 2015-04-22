@@ -1,0 +1,955 @@
+{
+   "element":"shoji:catalog",
+   "self":"/api/datasets/123/variables/",
+   "specification":"/api/specifications/variables/",
+   "description":"List of Variables of this dataset",
+   "index":{
+      "economytrend/":{
+         "name":"EconomyTrend",
+         "discarded":false,
+         "alias":"economytrend",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"economytrend",
+         "description":"Overall, do you think the economy is getting better or worse?"
+      },
+      "leadershipMatrix/":{
+         "name":"Leadership array",
+         "subvariables":[
+            "leadershipclinton/",
+            "leadershipbiden/",
+            "leadershipobama/"
+         ],
+         "discarded":false,
+         "alias":"leadershipMatrix",
+         "is_subvar":null,
+         "type":"categorical_array",
+         "id":"leadershipMatrix",
+         "description":"Testing"
+      },
+      "childrenunder18/":{
+         "name":"ChildrenUnder18",
+         "discarded":false,
+         "alias":"childrenunder18",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"childrenunder18",
+         "description":"Are you the parent or guardian of any children under the age of 18?"
+      },
+      "bornagain/":{
+         "name":"BornAgain",
+         "discarded":false,
+         "alias":"bornagain",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"bornagain",
+         "description":"Would you describe yourself as a \"born-again\" or evangelical Christian, or not?"
+      },
+      "immigrationnaturalization/":{
+         "name":"ImmigrationNaturalization",
+         "discarded":false,
+         "alias":"immigrationnaturalization",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"immigrationnaturalization",
+         "description":"Do you favor or oppose providing a way for illegal immigrants already in the United States to become U.S. citizens? "
+      },
+      "workhours/":{
+         "name":"WorkHours",
+         "discarded":false,
+         "alias":"workhours",
+         "is_subvar":null,
+         "type":"numeric",
+         "id":"workhours",
+         "description":"In a typical week, about how many hours do you work for pay?  "
+      },
+      "directionofcountry/":{
+         "name":"DirectionOfCountry",
+         "discarded":false,
+         "alias":"directionofcountry",
+         "is_subvar":null,
+         "type":"numeric",
+         "id":"directionofcountry",
+         "description":"Would you say things in this country today are..."
+      },
+      "syriamilitaryaction/":{
+         "name":"SyriaMilitaryAction",
+         "discarded":false,
+         "alias":"syriamilitaryaction",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"syriamilitaryaction",
+         "description":"Will President Obama order military action against the government of Syria?"
+      },
+      "shutdownobamacare/":{
+         "name":"ShutdownObamacare",
+         "discarded":false,
+         "alias":"shutdownobamacare",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"shutdownobamacare",
+         "description":"Do you think the disagreement between President Obama and the Republicans in Congress over funding Obamacare will lead t"
+      },
+      "debtceiling/":{
+         "name":"DebtCeiling",
+         "discarded":false,
+         "alias":"debtceiling",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"debtceiling",
+         "description":"Do you approve or disapprove of the Republicans in Congress using debt ceiling legislation to force President Obama to r"
+      },
+      "compromisecongress/":{
+         "name":"CompromiseCongress",
+         "discarded":false,
+         "alias":"compromisecongress",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"compromisecongress",
+         "description":"If you had to choose, would you rather have a member of Congress who..."
+      },
+      "baselinepartyidentification/":{
+         "name":"BaselinePartyIdentification",
+         "discarded":false,
+         "alias":"baselinepartyidentification",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"baselinepartyidentification",
+         "description":"Generally speaking, do you think of yourself as a ...?"
+      },
+      "pdlcong2010/":{
+         "name":"PDLCong2010",
+         "discarded":false,
+         "alias":"pdlcong2010",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"pdlcong2010",
+         "description":"In the elections for U.S. Congress did you vote for the Democratic or the Republican candidate?"
+      },
+      "worryaboutjob/":{
+         "name":"WorryAboutJob",
+         "discarded":false,
+         "alias":"worryaboutjob",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"worryaboutjob",
+         "description":"How worried are you about losing your job?"
+      },
+      "ukparliament/":{
+         "name":"UKParliament",
+         "discarded":false,
+         "alias":"ukparliament",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"ukparliament",
+         "description":"The British Parliament voted against using military force in Syria.  Were they right or wrong?"
+      },
+      "age4/":{
+         "name":"Age4",
+         "discarded":false,
+         "alias":"age4",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"age4",
+         "description":"4 Category Age"
+      },
+      "congresionalapproval/":{
+         "name":"CongresionalApproval",
+         "discarded":false,
+         "alias":"congresionalapproval",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"congresionalapproval",
+         "description":"Overall, do you approve or disapprove of the way that the United States Congress is handling its job?"
+      },
+      "qccomments/":{
+         "name":"QCComments",
+         "discarded":false,
+         "alias":"qccomments",
+         "is_subvar":null,
+         "type":"text",
+         "id":"qccomments",
+         "description":"Do you have any comments on your experience of taking this survey (optional)? In the case that you would like a response"
+      },
+      "stockmarketexpectations/":{
+         "name":"StockMarketExpectations",
+         "discarded":false,
+         "alias":"stockmarketexpectations",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"stockmarketexpectations",
+         "description":"Do you think the stock market will be higher or lower 12 months from now?"
+      },
+      "obamaperformance/":{
+         "name":"Obama Performance",
+         "discarded":false,
+         "alias":"obamaperformance",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"obamaperformance",
+         "description":"Since taking office, do you think Barack Obama has accomplished..."
+      },
+      "judgmentclinton/":{
+         "name":"JudgmentClinton",
+         "discarded":false,
+         "alias":"judgmentclinton",
+         "is_subvar":true,
+         "type":"categorical",
+         "id":"judgmentclinton",
+         "description":"Do you think Hillary Clinton has good judgment?"
+      },
+      "phoneservice/":{
+         "name":"PhoneService",
+         "discarded":false,
+         "alias":"phoneservice",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"phoneservice",
+         "description":"Thinking about your phone service, do you have ...?"
+      },
+      "syriaknowledgechemicalweapons/":{
+         "name":"SyriaKnowledgeChemicalWeapons",
+         "discarded":false,
+         "alias":"syriaknowledgechemicalweapons",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"syriaknowledgechemicalweapons",
+         "description":"How much have you heard about the use of chemical weapons in the fighting between government forces and rebels in Syria?"
+      },
+      "leadershipbiden/":{
+         "name":"LeadershipBiden",
+         "discarded":false,
+         "alias":"leadershipbiden",
+         "is_subvar":true,
+         "type":"categorical",
+         "id":"leadershipbiden",
+         "description":"Do you think Joe Biden has strong qualities of leadership?"
+      },
+      "shutdownbudget/":{
+         "name":"ShutdownBudget",
+         "discarded":false,
+         "alias":"shutdownbudget",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"shutdownbudget",
+         "description":"Do you think the budget disagreement between President Obama and the Republicans in Congress will lead to a shutdown of "
+      },
+      "happywithjob/":{
+         "name":"HappyWithJob",
+         "discarded":false,
+         "alias":"happywithjob",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"happywithjob",
+         "description":"How happy would you say you are with your current job?"
+      },
+      "changeobamacare/":{
+         "name":"ChangeObamaCare",
+         "discarded":false,
+         "alias":"changeobamacare",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"changeobamacare",
+         "description":"Do you believe the Affordable Care Act, also known as Obamacare, should be completely repealed, changed a little, change"
+      },
+      "jobprospective/":{
+         "name":"JobProspective",
+         "discarded":false,
+         "alias":"jobprospective",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"jobprospective",
+         "description":"Six months from now do you think there will be... "
+      },
+      "changeinhomevalue/":{
+         "name":"ChangeInHomeValue",
+         "discarded":false,
+         "alias":"changeinhomevalue",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"changeinhomevalue",
+         "description":"Do you think the value of your home has increased or decreased in the last year?"
+      },
+      "jobavailability/":{
+         "name":"JobAvailability",
+         "discarded":false,
+         "alias":"jobavailability",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"jobavailability",
+         "description":"If you lost your job, how hard would it be for you to find a new job that paid as much as you are making now?"
+      },
+      "respondentideology/":{
+         "name":"RespondentIdeology",
+         "discarded":false,
+         "alias":"respondentideology",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"respondentideology",
+         "description":"In general, how would you describe your own political viewpoint?"
+      },
+      "raceethnicity/":{
+         "name":"RaceEthnicity",
+         "discarded":false,
+         "alias":"raceethnicity",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"raceethnicity",
+         "description":"What racial or ethnic group best describes you?"
+      },
+      "qcoverall/":{
+         "name":"QCOverall",
+         "discarded":false,
+         "alias":"qcoverall",
+         "is_subvar":null,
+         "type":"numeric",
+         "id":"qcoverall",
+         "description":"Please rate this questionnaire overall. On a scale of 1 to 9 where 1 means the questionnaire was 'Poor' and 9 means the "
+      },
+      "obamaapprovalsyria/":{
+         "name":"ObamaApprovalSyria",
+         "discarded":false,
+         "alias":"obamaapprovalsyria",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"obamaapprovalsyria",
+         "description":"Do you approve or disapprove of the way President Obama is handling the situation in Syria?"
+      },
+      "familyincome/":{
+         "name":"FamilyIncome",
+         "discarded":false,
+         "alias":"familyincome",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"familyincome",
+         "description":"Thinking back over the last year, what was your family's annual income?"
+      },
+      "careobama/":{
+         "name":"CareObama",
+         "discarded":false,
+         "alias":"careobama",
+         "is_subvar":true,
+         "type":"categorical",
+         "id":"careobama",
+         "description":"Do you think Barack Obama cares about the needs and problems of people like you?"
+      },
+      "partyidentification/":{
+         "name":"PartyIdentification",
+         "discarded":false,
+         "alias":"partyidentification",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"partyidentification",
+         "description":"Generally speaking, do you think of yourself as a ...?"
+      },
+      "stateofresidence/":{
+         "name":"StateOfResidence",
+         "discarded":false,
+         "alias":"stateofresidence",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"stateofresidence",
+         "description":"What is your State of Residence?"
+      },
+      "syriausechemicalweapons/":{
+         "name":"SyriaUseChemicalWeapons",
+         "discarded":false,
+         "alias":"syriausechemicalweapons",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"syriausechemicalweapons",
+         "description":"From what you know, do you think the Syrian government used chemical weapons against its own people?"
+      },
+      "careclinton/":{
+         "name":"CareClinton",
+         "discarded":false,
+         "alias":"careclinton",
+         "is_subvar":true,
+         "type":"categorical",
+         "id":"careclinton",
+         "description":"Do you think Hillary Clinton cares about the needs and problems of people like you?"
+      },
+      "obamaapproval/":{
+         "name":"ObamaApproval",
+         "discarded":false,
+         "alias":"obamaapproval",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"obamaapproval",
+         "description":"Do you approve or disapprove of the way Barack Obama is handling his job as President?"
+      },
+      "student/":{
+         "name":"Student",
+         "discarded":false,
+         "alias":"student",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"ccf2128566da4693b1c61552cd4453be",
+         "description":"Are you currently enrolled as a student?"
+      },
+      "pdlrepnom2012/":{
+         "name":"PDLRepNom2012",
+         "discarded":false,
+         "alias":"pdlrepnom2012",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"31f080856c1649e1a5b6bec80b66ff50",
+         "description":"If you had to choose one, which of these individuals would you want to be the Republican nominee for president in 2012?"
+      },
+      "pdldemnom2012/":{
+         "name":"PDLDemNom2012",
+         "discarded":false,
+         "alias":"pdldemnom2012",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"154a215a5d174c6081a7e358331d13a3",
+         "description":"In the 2012 presidential election, would you prefer that Barack Obama or someone else run as the Democratic nominee for "
+      },
+      "studentjob/":{
+         "name":"StudentJob",
+         "discarded":false,
+         "alias":"studentjob",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"b1504d2c4c5c4da9a56692c2c8aef0ef",
+         "description":"Do you have a job outside of school?"
+      },
+      "churchattendance/":{
+         "name":"ChurchAttendance",
+         "discarded":false,
+         "alias":"churchattendance",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"f524ec118ba542d3afe84a60368720ba",
+         "description":"Aside from weddings and funerals, how often do you attend religious services?"
+      },
+      "percentskipped/":{
+         "name":"PercentSkipped",
+         "discarded":false,
+         "alias":"percentskipped",
+         "is_subvar":null,
+         "type":"numeric",
+         "id":"percentskipped",
+         "description":"Percent Skipped",
+         "subvariables":[
+            "leadershipclinton/",
+            "leadershipbiden/",
+            "leadershipobama/"
+         ]
+      },
+      "personalfinanceretrospective/":{
+         "name":"PersonalFinanceRetrospective",
+         "discarded":false,
+         "alias":"personalfinanceretrospective",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"ab752c17e8ca441899d5204f16d55a48",
+         "description":"Would you say that you and your family are..."
+      },
+      "qcfair/":{
+         "name":"QCFair",
+         "discarded":false,
+         "alias":"qcfair",
+         "is_subvar":null,
+         "type":"numeric",
+         "id":"fa89074004b4457dab561963d19e9c2f",
+         "description":"Overall, how biased or unbiased did you find the questions? On a scale of 1 to 9 where 1 means 'all of the questions wer"
+      },
+      "useofforce/":{
+         "name":"UseOfForce",
+         "discarded":false,
+         "alias":"useofforce",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"811c4a2a026e4f4891388c6c9e83b7ab",
+         "description":"When considering the President's authority to use military force, which statement do you agree with most?"
+      },
+      "householdincomeprospective/":{
+         "name":"HouseholdIncomeProspective",
+         "discarded":false,
+         "alias":"householdincomeprospective",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"4d8bf133555c420da40b61bec61e6f46",
+         "description":"How would you guess your total family income to be six months from now?"
+      },
+      "maritalstatus/":{
+         "name":"MaritalStatus",
+         "discarded":false,
+         "alias":"maritalstatus",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"502f4d44bc074aa18b522fc1468041bd",
+         "description":"What is your marital status?"
+      },
+      "leadershipclinton/":{
+         "name":"LeadershipClinton",
+         "discarded":false,
+         "alias":"leadershipclinton",
+         "is_subvar":true,
+         "type":"categorical",
+         "id":"57969a664a21411eb7bf4aa99fcae585",
+         "description":"Do you think Hillary Clinton has strong qualities of leadership?"
+      },
+      "multiplejobs/":{
+         "name":"MultipleJobs",
+         "discarded":false,
+         "alias":"multiplejobs",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"ee04176e364a4b929c0ea3c5fa269a63",
+         "description":"Do you currently have more than one job?  "
+      },
+      "pdlpres08/":{
+         "name":"PDLPres08",
+         "discarded":false,
+         "alias":"pdlpres08",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"f9fc52c60be941c9b45fd1448f026889",
+         "description":"Which candidate did you vote for in the 2008 Presidential election?"
+      },
+      "homepurchaseplans/":{
+         "name":"HomePurchasePlans",
+         "discarded":false,
+         "alias":"homepurchaseplans",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"5b9114d2f3a741e1b1158ba7df5eef41",
+         "description":"Do you plan to buy a home in the next 12 months?"
+      },
+      "partyidothers/":{
+         "name":"PartyIDOthers",
+         "discarded":false,
+         "alias":"partyidothers",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"feae5077eeb44a85a14bcd02b283d44b",
+         "description":"Do you think of yourself as closer to the Democratic or the Republican Party?"
+      },
+      "leadershipobama/":{
+         "name":"LeadershipObama",
+         "discarded":false,
+         "alias":"leadershipobama",
+         "is_subvar":true,
+         "type":"categorical",
+         "id":"97b63f1008f54025824f5e890d7ab426",
+         "description":"Do you think Barack Obama has strong qualities of leadership?"
+      },
+      "weaponsresponsibility/":{
+         "name":"WeaponsResponsibility",
+         "discarded":false,
+         "alias":"weaponsresponsibility",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"8b05a2276ed74cff8fb9528d2966f429",
+         "description":"Does the interational community have a responsibility to stop nations from using chemical weapons?"
+      },
+      "pdlvoted2010/":{
+         "name":"PDLVoted2010",
+         "discarded":false,
+         "alias":"pdlvoted2010",
+         "is_subvar":null,
+         "type":"text",
+         "id":"9b67fcd172e240a0bf43b46c659f2408",
+         "description":"Did you vote in the midterm elections in November 2010?"
+      },
+      "caseid/":{
+         "name":"CaseID",
+         "discarded":false,
+         "alias":"caseid",
+         "is_subvar":null,
+         "type":"numeric",
+         "id":"71632cc1687144e2a32025ec4d96a302",
+         "description":"Case ID"
+      },
+      "birthyear/":{
+         "name":"BirthYear",
+         "discarded":false,
+         "alias":"birthyear",
+         "is_subvar":null,
+         "type":"numeric",
+         "id":"b45d678f567e4bd4bc77324758b86d18",
+         "description":"In what year were you born?"
+      },
+      "prayer/":{
+         "name":"Prayer",
+         "discarded":false,
+         "alias":"prayer",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"40a4b6e21f28447fabfa2d9ba82c45c7",
+         "description":"People practice their religion in different ways. Outside of attending religious services, how often do you pray?"
+      },
+      "changeminimumwage/":{
+         "name":"ChangeMinimumWage",
+         "discarded":false,
+         "alias":"changeminimumwage",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"7e76aaeb2f394f72bcac3bc332c04b25",
+         "description":"Do you think the federal minimum wage should be changed?"
+      },
+      "pdlvoted2008/":{
+         "name":"PDLVoted2008",
+         "discarded":false,
+         "alias":"pdlvoted2008",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"91b5598d0de04db3a9dd9f0b9e8ca405",
+         "description":"Did you vote in the Presidential elections in November 2008?\r"
+      },
+      "judgmentbiden/":{
+         "name":"JudgmentBiden",
+         "discarded":false,
+         "alias":"judgmentbiden",
+         "is_subvar":true,
+         "type":"categorical",
+         "id":"6f8ea40845cf4e8abd1f45030e88b3ba",
+         "description":"Do you think Joe Biden has good judgment?"
+      },
+      "immigrationborderfences/":{
+         "name":"ImmigrationBorderFences",
+         "discarded":false,
+         "alias":"immigrationborderfences",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"2515152213ae485c8a0d7b06d8bfc4de",
+         "description":"Do you support building more border fences?"
+      },
+      "qcproblems/":{
+         "name":"QCProblems",
+         "discarded":false,
+         "alias":"qcproblems",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"e3d71ade0e6d4e9aba6f420617cdb0d3",
+         "description":"Did you experience any technical problems in this questionnaire?"
+      },
+      "politicalinterest/":{
+         "name":"PoliticalInterest",
+         "discarded":false,
+         "alias":"politicalinterest",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"ba3f08161c2b4a839daf2fe3230303bd",
+         "description":"Some people seem to follow what's going on in government and public affairs most of the time, whether there's an electio"
+      },
+      "obamasincerity/":{
+         "name":"ObamaSincerity",
+         "discarded":false,
+         "alias":"obamasincerity",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"28c5e3432f58486a851ff5c5373dcf8e",
+         "description":"Do you think Barack Obama..."
+      },
+      "baselineideology/":{
+         "name":"BaselineIdeology",
+         "discarded":false,
+         "alias":"baselineideology",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"14cba8df898844188a827875c6799c53",
+         "description":"Thinking about politics these days, how would you describe your own political viewpoint?"
+      },
+      "weight/":{
+         "name":"Weight",
+         "discarded":false,
+         "alias":"weight",
+         "is_subvar":null,
+         "type":"numeric",
+         "id":"3d54208c55a54572b6687a230bb0f39d",
+         "description":"Respondent Weight"
+      },
+      "exhaustsavings/":{
+         "name":"ExhaustSavings",
+         "discarded":false,
+         "alias":"exhaustsavings",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"455a12a87479455581937fe229b5f6b0",
+         "description":"If you lost your job, how long would it be before you exhausted your savings?"
+      },
+      "voterregistration/":{
+         "name":"VoterRegistration",
+         "discarded":false,
+         "alias":"voterregistration",
+         "is_subvar":null,
+         "type":"numeric",
+         "id":"359f1ca153824f6da8d3e01f239e77e1",
+         "description":"Are you registered to vote?"
+      },
+      "qcinteresting/":{
+         "name":"QCInteresting",
+         "discarded":false,
+         "alias":"qcinteresting",
+         "is_subvar":null,
+         "type":"numeric",
+         "id":"0560e622094f4f259b524310dc62340a",
+         "description":"Overall, how boring or interesting did you find the questionnaire? On a scale of 1 to 9 where 1 means you found the ques"
+      },
+      "age/":{
+         "name":"Age",
+         "discarded":false,
+         "alias":"age",
+         "is_subvar":null,
+         "type":"numeric",
+         "id":"e7de3d8cebcd493a93463c57ec0d0ffb",
+         "description":"Respondent's Age (Computed from Birth Year)"
+      },
+      "region/":{
+         "name":"Region",
+         "discarded":false,
+         "alias":"region",
+         "is_subvar":null,
+         "type":"numeric",
+         "id":"57fdc586c9c44ef285e550132f16c0f0",
+         "description":"Census Region (Combined from State)"
+      },
+      "ownhome/":{
+         "name":"OwnHome",
+         "discarded":false,
+         "alias":"ownhome",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"21cd3d0d5a894b9ba81383b1a728c3a9",
+         "description":"Is the place where you live owned or rented?"
+      },
+      "obamaideology/":{
+         "name":"ObamaIdeology",
+         "discarded":false,
+         "alias":"obamaideology",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"0aeca244f19b494286206d130dcf6875",
+         "description":"Would you say Barack Obama is..."
+      },
+      "obamaleadership/":{
+         "name":"ObamaLeadership",
+         "discarded":false,
+         "alias":"obamaleadership",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"ea6cf069c6a3429284c95b8e717a819b",
+         "description":"Would you say Barack Obama is a strong or a weak leader?"
+      },
+      "gender/":{
+         "name":"Gender",
+         "discarded":false,
+         "alias":"gender",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"5106b2cd342745acb138106f5b84247b",
+         "description":"Are you male or female?"
+      },
+      "shutdownblame/":{
+         "name":"ShutdownBlame",
+         "discarded":false,
+         "alias":"shutdownblame",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"b19add77c84c4aeabda44a3f61110100",
+         "description":"If President Obama and the Republicans in Congress do not reach a budget agreement in time to avoid a shutdown of the fe"
+      },
+      "changeinareahomevalues/":{
+         "name":"ChangeInAreaHomeValues",
+         "discarded":false,
+         "alias":"changeinareahomevalues",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"813d0c47906a4a388614c41b0ae50cb0",
+         "description":"Do you think home prices in your area have increased or decreased in the last year?"
+      },
+      "syrianrebelassistance/":{
+         "name":"SyrianRebelAssistance",
+         "discarded":false,
+         "alias":"syrianrebelassistance",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"41eee8a45ef2452b865ba368a06bb2d6",
+         "description":"Should the U.S. engage in military action to punish the Syrian government for using chemical weapons or should it stay o"
+      },
+      "usforeignpolicy/":{
+         "name":"USForeignPolicy",
+         "discarded":false,
+         "alias":"usforeignpolicy",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"56f81acd14df47fc8975ffdeed4bb6fd",
+         "description":"In today's world, does the United Nations have a responsibility to intervene militarily in trouble spots around the glob"
+      },
+      "carebiden/":{
+         "name":"CareBiden",
+         "discarded":false,
+         "alias":"carebiden",
+         "is_subvar":true,
+         "type":"categorical",
+         "id":"9c751fd419f0473fb3e59e72321be713",
+         "description":"Do you think Joe Biden cares about the needs and problems of people like you?"
+      },
+      "judgmentMatrix/":{
+         "name":"Judgment (Array!)",
+         "subvariables":[
+            "judgmentclinton/",
+            "judgmentbiden/",
+            "judgmentobama/"
+         ],
+         "discarded":false,
+         "alias":"judgmentMatrix",
+         "is_subvar":null,
+         "type":"categorical_array",
+         "id":"Judgment (Matrix!)",
+         "description":null
+      },
+      "employment/":{
+         "name":"Employment",
+         "discarded":false,
+         "alias":"employment",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"1cfb5c343cb243e89b2e92ebf1ce18bb",
+         "description":"Which of the following best describes your current employment status?"
+      },
+      "qcunderstand/":{
+         "name":"QCUnderstand",
+         "discarded":false,
+         "alias":"qcunderstand",
+         "is_subvar":null,
+         "type":"numeric",
+         "id":"a2265fb2675541fba2203be6a351e090",
+         "description":"Overall, how easy or difficult did you find it to understand the questions? On a scale of 1 to 9 where 1 means the quest"
+      },
+      "obamaapprovalforeignpolicy/":{
+         "name":"ObamaApprovalForeignPolicy",
+         "discarded":false,
+         "alias":"obamaapprovalforeignpolicy",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"bb4ef7b245e44e6686fefd11e4e80ecf",
+         "description":"Do you approve or disapprove of the way Barack Obama is handling foreign policy?"
+      },
+      "careMatrix/":{
+         "name":"Care array",
+         "subvariables":[
+            "careclinton/",
+            "carebiden/",
+            "careobama/"
+         ],
+         "discarded":false,
+         "alias":"careMatrix",
+         "is_subvar":null,
+         "type":"categorical_array",
+         "id":"Care matrix",
+         "description":null
+      },
+      "pdlcong2012/":{
+         "name":"PDLCong2012",
+         "discarded":false,
+         "alias":"pdlcong2012",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"6724b3f2e74042f79059b0ba20efaa90",
+         "description":"If an election for U.S. Congress were being held today, who would you vote for in the district where you live?"
+      },
+      "baselineobamaapproval/":{
+         "name":"BaselineObamaApproval",
+         "discarded":false,
+         "alias":"baselineobamaapproval",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"2fe0705c66404091a1dac8b7339d821e",
+         "description":"Do you approve or disapprove of the way Barack Obama is handling his job as President?"
+      },
+      "obamalikeability/":{
+         "name":"ObamaLikeability",
+         "discarded":false,
+         "alias":"obamalikeability",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"03396eb90d094c86b03ab2d4bd74af15",
+         "description":"Regardless of whether you agree with him, do you like Barack Obama as a person? "
+      },
+      "obamalegacy/":{
+         "name":"ObamaLegacy",
+         "discarded":false,
+         "alias":"obamalegacy",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"d620d0110e904f50ab0eb4b0f79354c8",
+         "description":"As a President, how do you think Barack Obama will go down in history?"
+      },
+      "expectedchangeinareahomevalues/":{
+         "name":"ExpectedChangeInAreaHomeValueslonger",
+         "discarded":false,
+         "alias":"expectedchangeinareahomevalues",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"expectedchangeinareahomevalues",
+         "description":"Thinking ahead, do you think home prices in your area will increase or decrease in the next year?"
+      },
+      "religiousimportance/":{
+         "name":"ReligiousImportance",
+         "discarded":false,
+         "alias":"religiousimportance",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"religiousimportance",
+         "description":"How important is religion in your life?"
+      },
+      "warcrime/":{
+         "name":"WarCrime",
+         "discarded":false,
+         "alias":"warcrime",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"warcrime",
+         "description":"Do you consider the use of chemical weapons to be a war crime?"
+      },
+      "worryaboutmortgage/":{
+         "name":"WorryAboutMortgage",
+         "discarded":false,
+         "alias":"worryaboutmortgage",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"worryaboutmortgage",
+         "description":"How worried are you about making your mortgage payments?"
+      },
+      "baselinepartyregistration/":{
+         "name":"BaselinePartyRegistration",
+         "discarded":false,
+         "alias":"baselinepartyregistration",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"baselinepartyregistration",
+         "description":"Are you registered to vote as..."
+      },
+      "education/":{
+         "name":"Education",
+         "discarded":false,
+         "alias":"education",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"education",
+         "description":"What is the highest level of education you have completed?"
+      },
+      "judgmentobama/":{
+         "name":"JudgmentObama",
+         "discarded":false,
+         "alias":"judgmentobama",
+         "is_subvar":true,
+         "type":"categorical",
+         "id":"judgmentobama",
+         "description":"Do you think Barack Obama has good judgment?"
+      }
+   },
+   "views":{
+      "hierarchical_order":"/api/datasets/123/variables/hierarchical/"
+   },
+   "orders":{
+      "hier":"/api/datasets/123/variables/hier"
+   },
+   "catalogs":{
+      "private":"/api/datasets/123/variables/private"
+   }
+}

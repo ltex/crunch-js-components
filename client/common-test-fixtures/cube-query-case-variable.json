@@ -1,0 +1,133 @@
+{
+  "element": "shoji:view",
+  "self": "/api/datasets/123/whole_buncha_args",
+  "value": {
+    "query": {
+      "measures": {
+        "count": {
+          "function": "cube_count",
+          "args": []
+        }
+      },
+      "weight": null,
+      "dimensions": [
+        {
+          "function": "case",
+          "args": [
+            {
+              "column": [
+                0,
+                1
+              ],
+              "type": {
+                "value": {
+                  "ordinal": false,
+                  "class": "categorical",
+                  "categories": [
+                    {
+                      "missing": false,
+                      "id": 0,
+                      "name": "xis"
+                    },
+                    {
+                      "missing": false,
+                      "id": 1,
+                      "name": "yis"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "function": "in",
+              "args": [
+                {
+                  "variable": "/api/datasets/123/variables/000000/"
+                },
+                {
+                  "value": [
+                    1
+                  ]
+                }
+              ]
+            },
+            {
+              "function": "in",
+              "args": [
+                {
+                  "variable": "/api/datasets/123/variables/000001/"
+                },
+                {
+                  "value": [
+                    "1776-07-04T00:00:00"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "filters": []
+    },
+    "result": {
+      "dimensions": [
+        {
+          "references": {},
+          "derived": false,
+          "type": {
+            "ordinal": false,
+            "class": "categorical",
+            "categories": [
+              {
+                "missing": false,
+                "id": 0,
+                "name": "xis"
+              },
+              {
+                "missing": false,
+                "id": 1,
+                "name": "yis"
+              },
+              {
+                "numeric_value": null,
+                "id": -1,
+                "name": "No Data",
+                "missing": true
+              }
+            ]
+          }
+        }
+      ],
+      "missing": 5,
+      "measures": {
+        "count": {
+          "data": [
+            1,
+            0,
+            5
+          ],
+          "n_missing": 5,
+          "metadata": {
+            "references": {},
+            "derived": true,
+            "type": {
+              "integer": true,
+              "class": "numeric",
+              "missing_reasons": {
+                "No Data": -1
+              },
+              "missing_rules": {}
+            }
+          }
+        }
+      },
+      "element": "crunch:cube",
+      "margins": {
+        "data": [
+          6
+        ]
+      },
+      "n": 6
+    }
+  }
+}

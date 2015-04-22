@@ -1,0 +1,11 @@
+<div class="zone-content" ng-hide="hidden">
+    <span class="zone-variable current" ng-hide="draggedVisible">
+        <strong>{{dropZone.current.getVariableName(zone)}}</strong>
+        <span ng-hide="!dropZone.current.getVariableName(zone)">as</span>
+        {{zoneLabel}}
+    </span>
+    <span class="zone-variable dragged" ng-show="draggedVisible">
+        <strong>{{dropZone.current.getVariableName('dragged')}}</strong>
+        as {{zoneLabel}}
+    </span>
+</div>

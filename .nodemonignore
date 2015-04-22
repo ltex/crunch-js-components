@@ -1,0 +1,6 @@
+/.git/*
+*.css
+.DS_Store
+app/font/*
+app/css/*
+app/lib/ui-bootstrap*

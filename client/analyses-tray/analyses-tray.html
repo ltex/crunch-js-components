@@ -1,0 +1,42 @@
+<div class="wrapper">
+    <a
+        title="Export deck to Excel"
+        data-ng-if="!!deck.slides.length"
+        href="{{deck.xlsxExportUrl}}"
+        data-ng-click="checkDownloadProgress()"
+        class="download"
+        download="export.xlsx"
+        target="_self"
+        >
+        <span>Export to Excel</span>
+        <span class="icon-download"></span>
+    </a>
+    <ul class="slides-list" ng-if="deck.slides.length">
+        <li ng-repeat="slide in deck.slides"
+            class="slide"
+            ng-class="{ selected : slide.state==='selected' }"
+            >
+            <button
+                class="slide-btn"
+                type="button"
+                data-title="{{slide.title}}"
+                data-subtitle="{{slide.subtitle}}"
+                data-ng-click="slide.handle('select')"
+                data-ng-disabled="slide.state==='deleting'"
+                ng-class="{ deleting: slide.state==='deleting' }"
+                >
+                <span ng-class="{'icon-graph': slide.tableOrGraph === 'graph', 'icon-table': slide.tableOrGraph === 'table'}"></span><br/>
+                <h1>{{slide.title}}</h1>
+                <h2>{{slide.subtitle}}</h2>
+            </button>
+            <button
+                type="button"
+                title="Delete"
+                class="icon delete"
+                data-ng-click="slide.handle('delete')">
+                <span class="icon-remove"></span>
+            </button>
+        </li>
+    </ul>
+    <p class="empty" data-ng-if="!deck.slides.length">No saved analyses</p>
+</div>

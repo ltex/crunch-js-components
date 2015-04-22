@@ -1,0 +1,54 @@
+<tr ng-repeat="preRow in xtab.preRows track by $index"
+    ng-class="{ 'no-zebra' : xtab.showSignif }"
+    class="row-margin">
+    <th class="row-margin-label">
+        {{ preRow.label }}
+    </th>
+    <td ng-repeat="cell in preRow.cells track by $index"
+        ng-class="{ signif05 : cell.pValueWithin5PercentRange,
+        'show-signif' : cell.showSignif }"
+        class="margin-cell">
+        {{cell.value}}
+    </td>
+    <td colspan="xtab.preColsCount" class="empty-table-corner">&nbsp;</td>
+</tr>
+
+<tr ng-repeat="row in xtab.rows track by $index"
+    ng-class="{ 'no-zebra' : xtab.showSignif }">
+    <th>{{ row.label }}</th>
+
+    <td ng-repeat="preCols in xtab.preCols track by $index"
+        class="margin-cell column-margin-value">
+        {{ preCol.cells[$parent.$index].value }}
+    </td>
+
+    <td cell="cell" ng-repeat="cell in row.cells track by $index"
+        class="table-value"
+        ng-class="{ signif05 : cell.pValueWithin5PercentRange,
+        'show-signif' : cell.showSignif }"
+        data-pvalue="{{ cell.pValue }}">
+        {{ cell.value | alwaysRoundCounts : settings.decimalPlaces.value : settings.countsOrPercents.value }}
+    </td>
+
+    <td ng-repeat="postCol in xtab.postCols track by $index"
+        class="margin-cell column-margin-value column-margin-{{$index}}">
+        <!-- use the row index -->
+        {{ postCol.cells[$parent.$index].value | alwaysRoundCounts : settings.decimalPlaces.value : postCol.type }}
+    </td>
+</tr>
+
+<tr ng-repeat="postRow in xtab.postRows track by $index"
+    ng-class="{ 'no-zebra' : xtab.showSignif }"
+    class="row-margin-{{$index}}">
+    <th class="row-margin-label">
+        {{postRow.label | displayLabel}}
+    </th>
+    <td ng-repeat="pre in xtab.preCols track by $index" class="empty-table-corner">&nbsp;</td>
+    <td ng-repeat="cell in postRow.cells track by $index"
+        ng-class="{ signif05 : cell.pValueWithin5PercentRange,
+        'show-signif' : cell.showSignif }"
+        class="margin-cell">
+        {{cell.value | alwaysRoundCounts: settings.decimalPlaces.value : postRow.type }}
+    </td>
+    <td ng-repeat="post in xtab.postCols track by $index" class="empty-table-corner">&nbsp;</td>
+</tr>

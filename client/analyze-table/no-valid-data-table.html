@@ -1,0 +1,79 @@
+<thead ng-if="!xtab.withMeans">
+    <tr ng-if="xtab.showColumnTitle">
+        <th class="empty-table-corner column-title" colspan="{{xtab.preCols.length}}">
+            &nbsp;
+        </th>
+        <th class="column-title" colspan={{xtab.colLabels.length}}>
+            <title-variable
+                variable="xtab.variables.at(1)"
+                type="column">
+            </title-variable>
+            <a ng-click="ctrl.removeColumn()" title="Remove">
+                <span class="icon-remove"></span>
+            </a>
+        </th>
+    </tr>
+    <tr sort class="column-label-row">
+        <th>
+            <title-variable
+                variable="xtab.variables.at(0)"
+                type="row">
+            </title-variable>
+            <a ng-click="ctrl.removeRow()" title="Remove">
+                <span class="icon-remove"></span>
+            </a>
+        </th>
+        <th>&nbsp;
+        </th>
+    </tr>
+</thead>
+<thead ng-if="xtab.withMeans">
+    <tr>
+        <th class="column-title">
+            <span>&nbsp;</span>
+        </th>
+        <th class="column-title mean" colspan={{xtab.colLabels.length}}>
+            <title-variable
+                variable="xtab.measureVariable"
+                type="mean">
+            </title-variable>
+            <a title="Remove mean variable"
+                class="remove-mean-measure"
+                ng-click="ctrl.removeMeanMeasure()">
+                <span class="icon-remove"></span>
+            </a>
+        </th>
+    </tr>
+    <tr ng-if="xtab.variables.count() == 2">
+        <th class="empty-table-corner column-title">
+            <span>&nbsp;</span>
+        </th>
+        <th class="column-title" colspan={{xtab.colLabels.length}}>
+            <title-variable
+                variable="xtab.variables.at(1)"
+                type="column">
+            </title-variable>
+            <a ng-click="ctrl.removeColumn()" title="Remove">
+                <span class="icon-remove"></span>
+            </a>
+        </th>
+    </tr>
+    <tr class="column-label-row">
+        <th class="empty-table-corner row-title column-title">
+            <title-variable
+                variable="xtab.variables.at(0)"
+                type="row">
+            </title-variable>
+            <a ng-click="ctrl.removeRow()" title="Remove">
+                <span class="icon-remove"></span>
+            </a>
+        </th>
+        <th>
+            &nbsp;
+        </th>
+    </tr>
+</thead>
+<tr>
+    <th>&mdash;</th>
+    <td>No valid data</td>
+</tr>

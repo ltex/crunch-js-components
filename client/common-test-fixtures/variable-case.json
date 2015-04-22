@@ -1,0 +1,58 @@
+{
+  "element": "shoji:entity",
+  "self": "/api/datasets/123/variables/000002/",
+  "catalogs": {
+    "parent": "/api/datasets/123/variables/"
+  },
+  "fragments": {
+    "card_view": "/api/datasets/123/variables/000002/card_view/",
+    "missing_rules": "/api/datasets/123/variables/000002/missing_rules/",
+    "user_settings": "/api/datasets/123/variables/000002/user_settings/"
+  },
+  "views": {
+    "frequencies": "/api/datasets/123/variables/000002/frequencies/",
+    "summary": "/api/datasets/123/variables/000002/summary/",
+    "values": "/api/datasets/123/variables/000002/values/",
+    "cast": "/api/datasets/123/variables/000002/cast/"
+  },
+  "combine": "/api/datasets/123/variables/000002/combine/",
+  "urls": {
+    "frequencies_url": "/api/datasets/123/variables/000002/frequencies/",
+    "dataset_url": "/api/datasets/123/",
+    "missing_rules_url": "/api/datasets/123/variables/000002/missing_rules/",
+    "values_url": "/api/datasets/123/variables/000002/values/",
+    "summary_url": "/api/datasets/123/variables/000002/summary/",
+    "cast_url": "/api/datasets/123/variables/000002/cast/",
+    "user_settings_url": "/api/datasets/123/variables/000002/user_settings/",
+    "view_model_url": "/api/datasets/123/variables/000002/card_view/"
+  },
+  "body": {
+    "name": "z",
+    "format": {
+      "data": {
+        "digits": 2
+      },
+      "summary": {
+        "digits": 2
+      }
+    },
+    "missing_reasons": {
+      "No Data": -1,
+      "range(-999.0,0.0)": 1,
+      "skipped": 2
+    },
+    "private": false,
+    "discarded": false,
+    "alias": "z",
+    "dataset_id": "123",
+    "view": {
+      "column_width": null
+    },
+    "type": "numeric",
+    "id": "000002",
+    "categories": [],
+    "description": "Numberic variable with missing value range"
+  },
+  "specification": "/api/specifications/numeric_variables/",
+  "description": "Details for a given Variable"
+}

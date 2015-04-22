@@ -1,0 +1,11 @@
+{
+    "self": "/api/datasets/123/"
+    ,"element": "shoji:entity"
+    ,"body": {
+        "id": "123"
+    }
+    ,"urls": {
+        "variables_url": "/api/datasets/123/variables/",
+        "joins_url": "/api/datasets/123/joins/456/"
+    }
+}

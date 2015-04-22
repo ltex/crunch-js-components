@@ -1,0 +1,45 @@
+<div class="dragrow drop-target" dropit dropit-event="row">
+    <drop-zone-content zone="row" zone-label="Rows"></drop-zone-content>
+</div>
+
+<div class="graph-wrapper">
+    <div class="drag-wrapper drag-numeric">
+        <div class="draggroup drop-target" dropit dropit-event="group">
+            <drop-zone-content zone="group" exclude="slice" zone-label="Group"></drop-zone-content>
+        </div>
+        <!-- bring back when sliced dot plots -->
+        <!-- <div class="dragslice drop-target" dropit dropit-event="slice">
+            <drop-zone-content zone="slice" exclude="group" zone-label="Slice"></drop-zone-content>
+        </div> -->
+    </div>
+    <div class="drag-wrapper drag-numeric">
+        <div class="dragmean drop-target" dropit dropit-event="mean">
+            <drop-zone-content>
+                <span class="current">
+                    Mean
+                    <span ng-if="dropZone.current.getVariableName('mean')">
+                        of
+                    </span>
+                    <strong>{{dropZone.current.getVariableName('mean')}}</strong>
+                        as Value
+                </span>
+                <span class="dragged">
+                    Mean of
+                    <strong>{{dropZone.current.getVariableName("dragged")}}</strong> as Value
+                </span>
+            </drop-zone-content>
+        </div>
+        <div class="dragnewgraph drop-target" dropit dropit-event="table">
+            <drop-zone-content>
+                <span class="current">
+                    Mean as New Graph
+                </span>
+                <span class="dragged">
+                    Mean of
+                    <strong>{{dropZone.current.getVariableName("dragged")}}</strong>
+                    as New Graph
+                </span>
+            </drop-zone-content>
+        </div>
+    </div>
+</div>

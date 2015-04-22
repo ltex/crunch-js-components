@@ -1,0 +1,6 @@
+{
+    "element": "shoji:catalog",
+    "self": "/api/datasets/123/joins/456/",
+    "description": "A collection of joins for this Dataset.",
+    "index": { }
+}

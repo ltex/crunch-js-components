@@ -1,0 +1,226 @@
+.drop
+    position relative
+
+
+.context-menu
+    display none
+    position absolute
+    cursor pointer
+    background-color color-dropdown-light-grey
+    color font-color-light-grey
+    top 0
+    left 0
+    padding 0
+    z-index z-index-popup
+    min-width 11em
+    height auto !important
+    width auto
+    opacity 0
+    transition opacity 100ms ease 10ms
+    box-shadow -2px 2px 4px color-shadow
+    font-size font-size-l
+
+    &.shown
+        display flex
+        opacity 1
+        flex-flow column nowrap
+        justify-content flex-start
+        align-items stretch
+
+    li
+        padding 0
+        cursor pointer
+        flex 0 1 42px
+
+        *
+            width 100%
+
+        &:hover
+            background-color color-dropdown-dark-grey
+
+        a
+            display block
+
+        a, button
+            margin 0
+            padding 0 10px
+            color font-color-light-grey
+            font-size font-size-m
+            line-height 42px
+            text-align left
+            font-family font-family
+            font-weight font-weight-normal
+
+            &:hover
+                color color-blue
+
+.select-menu:not(.typeahead)
+    display none
+    position absolute
+    cursor pointer
+    background-color white
+    border solid #aeaeae 1px
+    color almost-black
+    top 0
+    left 0
+    padding 0
+    z-index 99999
+    line-height 1.5
+    height auto
+    width inherit
+    opacity 0
+    transition opacity 100ms ease 10ms
+    &.shown
+        display block
+        opacity 1
+    li
+        color almost-black
+        font-weight: normal
+        padding 5px
+        cursor pointer
+        &:hover
+            background-color #e5edf0
+        a
+            color almost-black
+            font-size .9em
+            display block
+            padding 5px
+        button
+            background transparent
+            border none
+            cursor pointer
+            display block
+            width 100%
+            font-size .9em
+            text-align left
+            padding 5px
+            margin 0
+
+.fancy-edit
+    input
+        display none
+    &.editing
+        input
+            display inline-block
+        div
+            display none
+.multitoggle
+    label.test
+        visibility hidden
+        position absolute
+    .selected
+        visibility visible
+        position static
+
+.fancy-toggle
+    radius = 25px
+
+    display inline-block
+    position relative
+    top -.05em
+    line-height 1.5em
+    border 1px solid color-grey1
+    border-radius radius
+    font-weight font-weight-normal
+    color font-color-dark-grey
+    background-color color-grey1
+
+    &:after
+        content " "
+        display block
+        position absolute
+        width 48%
+        top 1px
+        bottom 1px
+        left 1px
+        background-color color-white
+        border-radius radius
+        transition margin-left 50ms ease 50ms
+
+    &.checked span
+        &.checked
+            visibility visible
+        &.unchecked
+            visibility hidden
+
+    &.unchecked span
+        &.checked
+            visibility hidden
+        &.unchecked
+            visibility visible
+
+    &.checked:after
+        margin-left 50%
+
+    &:hover
+        cursor pointer
+
+    span
+        padding 0em .5em
+        font-size 90%
+        transition visibility 50ms ease 50ms
+
+/**
+*   dropdown-menu
+*/
+.cr-dropdown-menu
+    display none
+    position absolute
+    cursor pointer
+    background-color color-dropdown-light-grey
+    color font-color-dark-grey
+    top 0
+    left 0
+    padding 0
+    z-index z-index-popup
+    min-width 11em
+    height auto !important
+    width auto
+    opacity 0
+    transition opacity 100ms ease 10ms
+    box-shadow 0px 1px 5px color-shadow
+
+    &.shown
+        display flex
+        opacity 1
+        flex-flow column nowrap
+        justify-content flex-start
+        align-items stretch
+
+    li
+        padding 0
+        cursor pointer
+
+        *
+            width 100%
+
+        &:hover
+            background-color color-dropdown-dark-grey
+
+        a
+            display block
+
+        a, button
+            margin 0
+            padding 0 10px
+            color font-color-dark-grey
+            font-size font-size-l
+            line-height 42px
+            text-align left
+            font-family font-family
+            font-weight font-weight-light
+
+    &.purple li
+        a, button
+            &:hover
+                color font-color-purple
+
+    &.blue li
+        a, button
+            &:hover
+                color font-color-blue
+
+    &.green li
+        a, button
+            &:hover
+                color font-color-green

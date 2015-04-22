@@ -1,0 +1,20 @@
+<div class="drag-wrapper drag-measure">
+    <div class="dragrow drop-target" dropit dropit-event="row">
+        <drop-zone-content zone="row" exclude="mean" zone-label="New Table"></drop-zone-content>
+    </div>
+    <div class="dragcell drop-target" dropit dropit-event="mean">
+        <drop-zone-content>
+            <span class="current">
+                Mean
+                <span ng-if="dropZone.current.getVariableName('mean')">
+                    of
+                </span>
+                <strong>{{dropZone.current.getVariableName('mean')}}</strong>
+            </span>
+            <span class="dragged">
+                Mean of
+                <strong>{{dropZone.current.getVariableName("dragged")}}</strong>
+            </span>
+        </drop-zone-content>
+    </div>
+</div>

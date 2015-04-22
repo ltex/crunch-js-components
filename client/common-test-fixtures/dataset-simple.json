@@ -1,0 +1,63 @@
+{
+    "apply_analysis": "/api/datasets/123/apply_analysis/",
+    "body": {
+        "archived": false,
+        "creation_time": "2014-07-21T20:56:34.730398+00:00",
+        "description": "",
+        "name": "simple.csv",
+        "user_id": "00002",
+        "weight": null
+    },
+    "catalogs": {
+        "applied_exclusion_filters": "/api/datasets/123/applied_exclusion_filters/",
+        "batches": "/api/datasets/123/batches/",
+        "decks": "/api/datasets/123/decks/",
+        "exclusion_filters": "/api/datasets/123/exclusion_filters/",
+        "filters": "/api/datasets/123/filters/",
+        "permissions": "/api/datasets/123/permissions/",
+        "sources": "/api/datasets/123/sources/",
+        "variables": "/api/datasets/123/variables/",
+        "weight_variables": "/api/datasets/123/weight_variables/"
+    },
+    "description": [
+        "Detail for a given dataset"
+    ],
+    "element": "shoji:entity",
+    "fragments": {
+        "table": "/api/datasets/123/table/",
+        "main_deck": "/api/datasets/123/decks/150519fdf8e5468a8bcd6e7cd5c333ca/"
+    },
+    "self": "/api/datasets/123/",
+    "specification": "/api/specifications/datasets/",
+    "urls": {
+        "analyze_url": "/api/datasets/123/analyze/",
+        "applied_exclusion_filters_url": "/api/datasets/123/applied_exclusion_filters/",
+        "applied_filters_url": "/api/datasets/123/applied_filters/",
+        "apply_analysis_url": "/api/datasets/123/apply_analysis/",
+        "array_xtab_url": "/api/datasets/123/array_xtab/",
+        "batches_url": "/api/datasets/123/batches/",
+        "decks_url": "/api/datasets/123/decks/",
+        "exclusion_filters_url": "/api/datasets/123/exclusion_filters/",
+        "filters_url": "/api/datasets/123/filters/",
+        "histogram_url": "/api/datasets/123/histogram/",
+        "permissions_url": "/api/datasets/123/permissions/",
+        "revision_url": "/api/datasets/123/revision/",
+        "sources_url": "/api/datasets/123/sources/",
+        "summary_url": "/api/datasets/123/summary/",
+        "table_url": "/api/datasets/123/table/",
+        "user_url": "/api/users/test_user/",
+        "variables_url": "/api/datasets/123/variables/",
+        "weight_variables_url": "/api/datasets/123/weight_variables/",
+        "xtab_url": "/api/datasets/123/xtab/",
+        "variables": "/api/datasets/123/variables/"
+    },
+    "views": {
+        "analyze": "/api/datasets/123/analyze/",
+        "applied_filters": "/api/datasets/123/applied_filters/",
+        "array_xtab": "/api/datasets/123/array_xtab/",
+        "histogram": "/api/datasets/123/histogram/",
+        "revision": "/api/datasets/123/revision/",
+        "summary": "/api/datasets/123/summary/",
+        "xtab": "/api/datasets/123/xtab/"
+    }
+}

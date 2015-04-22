@@ -1,0 +1,39 @@
+.dotplot
+    .x-grid .tick
+        stroke lightgrey
+        opacity 0.7
+        shape-rendering crispEdges
+        stroke-width 1px
+    .y-grid .tick
+        stroke lightgrey
+        stroke-dasharray 2,2
+        opacity 0.7
+        stroke-width 1px
+        shape-rendering crispEdges
+
+    text
+        fill font-color-dark-grey
+    line
+        shape-rendering crispEdges
+.dotplot-d3-tip
+    line-height 1
+    fill almost-black
+    font-size 14px
+    font-weight normal
+    padding 9px
+    background color-tooltip
+    border-radius 2px
+.dotplot-d3-tip:after
+    display: inline
+    font-size: 10px
+    width: 100%
+    line-height: 1
+    color: color-tooltip
+    content: "\25BC"
+    position: absolute
+    text-align: center
+
+.dotplot-d3-tip.n:after
+    margin: -1px 0 0 0
+    top: 100%
+    left: 0

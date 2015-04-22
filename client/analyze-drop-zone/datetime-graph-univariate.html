@@ -1,0 +1,19 @@
+<div class="dragrow drop-target" dropit dropit-event="row">
+    <drop-zone-content zone="row" zone-label="Rows"></drop-zone-content>
+</div>
+<div class="dragslice drop-target" dropit dropit-event="column">
+    <drop-zone-content>
+        <span class="current">
+            <strong>{{dropZone.current.getVariableName("row")}}</strong> over
+            <span ng-if="dropZone.current.getVariableName('over')">
+                <strong>{{dropZone.current.getVariableName("over")}}</strong>
+                as
+            </span>
+            time
+        </span>
+        <span class="dragged">
+            <strong>{{dropZone.current.getVariableName("row")}}</strong> over time
+            (<strong>{{dropZone.current.getVariableName("dragged")}}</strong>)
+        </span>
+    </drop-zone-content>
+</div>

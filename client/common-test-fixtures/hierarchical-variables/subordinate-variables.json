@@ -1,0 +1,20 @@
+{
+   "element":"shoji:catalog",
+   "self":"/api/datasets/123/joins/456/variables/",
+   "specification":"/api/specifications/variables/",
+   "description":"List of Variables of this dataset",
+   "index":{
+      "economytrend/":{
+         "name":"EconomyTrend",
+         "discarded":false,
+         "alias":"economytrend",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"ed9d9c8079314b4d8c10486b947fb81c",
+         "description":"Overall, do you think the economy is getting better or worse?"
+      }
+   },
+   "views":{
+      "hierarchical_order":"/api/datasets/123/variables/hierarchical/"
+   }
+}

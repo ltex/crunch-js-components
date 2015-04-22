@@ -1,0 +1,38 @@
+{
+  "element": "shoji:view",
+  "self": "/api/datasets/123/variables/000001/frequencies/?exclude_exclusion_filter=false&ignore_filter=true",
+  "value": [
+    {
+      "count": 1,
+      "id": "1776-07-04T00:00:00",
+      "name": "1776-07-04T00:00:00",
+      "missing": false
+    },
+    {
+      "count": 1,
+      "id": "1950-12-24T00:00:00",
+      "name": "1950-12-24T00:00:00",
+      "missing": false
+    },
+    {
+      "count": 1,
+      "id": "2000-01-01T00:00:00",
+      "name": "2000-01-01T00:00:00",
+      "missing": false
+    },
+    {
+      "count": 1,
+      "id": "2000-01-02T00:00:00",
+      "name": "2000-01-02T00:00:00",
+      "missing": false
+    },
+    {
+      "count": 2,
+      "id": {
+        "?": -1
+      },
+      "name": "No Data",
+      "missing": true
+    }
+  ]
+}

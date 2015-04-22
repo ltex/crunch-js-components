@@ -1,0 +1,14 @@
+<div class="dragrow drop-target" dropit dropit-event="row">
+    <drop-zone-content zone="row" zone-label="Rows"></drop-zone-content>
+</div>
+
+<div class="graph-wrapper">
+    <div class="drag-wrapper">
+        <div class="dragslice drop-target" dropit dropit-event="slice">
+            <drop-zone-content exclude="group" zone="slice" zone-label="Slice"></drop-zone-content>
+        </div>
+    </div>
+    <div class="dragnewgraph drop-target" dropit dropit-event="table">
+        <drop-zone-content exclude="row,slice,group" zone-label="New Graph"></drop-zone-content>
+    </div>
+</div>

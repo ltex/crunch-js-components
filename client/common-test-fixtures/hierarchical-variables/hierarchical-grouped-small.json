@@ -1,0 +1,18 @@
+{
+   "element":"shoji:order",
+   "self":"/api/datasets/123/variables/hier/",
+   "description":"Hierarchical ordering of dataset variables",
+   "graph" : [
+      {
+         "aaa" : [
+            "../percentskipped/",
+            "../politicalinterest/",
+            "../directionofcountry/"
+         ]
+      },
+      "../caseid/",
+      "../syriaknowledgechemicalweapons/",
+      "../syrianrebelassistance/",
+      "../weaponsresponsibility/"
+   ]
+}

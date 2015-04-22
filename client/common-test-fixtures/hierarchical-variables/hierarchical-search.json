@@ -1,0 +1,14 @@
+{
+   "element":"shoji:order",
+   "self":"/api/users/test_user/datasets/999/variables/search/{token}",
+   "description":"Hierarchical ordering of dataset variables",
+   "graph" : [
+      {
+         "Search Results" : [
+            "/api/datasets/123/variables/percentskipped/",
+            "/api/datasets/123/variables/politicalinterest/",
+            "/api/datasets/123/variables/directionofcountry/",
+         ]
+      }
+   ]
+}

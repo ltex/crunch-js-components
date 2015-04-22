@@ -1,0 +1,169 @@
+.horizontal-barchart,.ungrouped-barchart
+    font-size 11px
+    .axis path,
+    .axis line
+      fill none
+      stroke #000
+      shape-rendering crispEdges
+    .axis-grid line
+        stroke #DDD
+    .x.axis
+        path
+          display none
+        text
+            fill font-color-dark-grey
+        rect
+            opacity 0
+    .x.axis.hovered
+        text
+            fill font-color-green
+            font-weight bold
+        rect
+            fill color-grey1
+            opacity 100
+
+    .label-test, // used to find initial label text widths
+    .y.axis text
+        font-size 14px
+        fill font-color-dark-grey
+    .label-test
+        alignment-baseline text-before-edge
+    .y.axis line,
+    .y.axis path
+      display none
+    .bar
+        fill color-blue
+        opacity 0.9
+    .row-labels
+        color font-color-dark-grey
+        text
+            fill font-color-dark-grey
+            color font-color-dark-grey
+            font-size 14px
+            font-weight bold
+        line
+            shape-rendering crispEdges
+        rect
+            opacity 0
+        &.hovered
+            rect
+                opacity 0
+                fill color-grey1
+            text
+                color font-color-green
+                fill font-color-green
+    .line
+        fill none
+        stroke steelblue
+        stroke-width 1.5px
+
+.ungrouped-barchart
+    .bar
+        fill color-blue
+        opacity 0.9
+    .axis text
+        font-size 11px
+    .y.axis text
+        font-size 14px
+        fill font-color-dark-grey
+    .axis path,
+    .axis line
+        fill none
+        stroke #DDD
+        shape-rendering crispEdges
+    .grid.axis line
+        stroke #DDD
+    .x.axis path
+        display none
+    .y.axis path,
+    .y.axis line
+        display none
+    .column-label
+        font-weight 700
+        font-size 1.1em
+        fill font-color-dark-grey
+    .row-labels
+        font-weight 700
+        font-size 1.1em
+        color font-color-dark-grey
+        text
+            fill font-color-dark-grey
+            color font-color-dark-grey
+        line
+            shape-rendering crispEdges
+.grouped-barchart
+    rect text
+        fill #000
+    .axis path,
+    .axis line
+        fill none
+        stroke #000
+        shape-rendering crispEdges
+    .grid.axis line
+        stroke #DDD
+    .x.axis path
+        display none
+    .y.axis line,
+    .y.axis path
+        display none
+    .primary-labels
+        font-weight 700
+        font-size 1.1em
+        fill font-color-dark-grey
+        text-anchor end
+        alignment-baseline text-after-edge
+    .bar .bar-values
+        display none
+        fill #000000
+        alignment-baseline before-edge
+    .bar:hover .bar-values
+        display block
+.horizontal-barchart
+    font-size 11px
+    .axis path,
+    .axis line
+      fill none
+      stroke #000
+      shape-rendering crispEdges
+    .grid.axis line
+        stroke #DDD
+    .x.axis path
+      display none
+    .label-test, // used to find initial label text widths
+    .y.axis text
+        font-size 14px
+        fill font-color-dark-grey
+    .label-test
+        alignment-baseline text-before-edge
+    .y.axis line,
+    .y.axis path
+      display none
+    .bar
+        fill color-blue
+        opacity 0.9
+    .row-labels
+      font-weight 700
+      font-size 1.1em
+
+.h-bar-d3-tip.e
+    line-height 1
+    fill font-color-dark-grey
+    font-size 14px
+    font-weight normal
+    padding 9px
+    background color-tooltip
+    border-radius 2px
+.h-bar-d3-tip.e:after
+    box-sizing: border-box
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    position: absolute;
+    pointer-events: none;
+    content: "\25C0"
+    margin: -4px 0 0 0
+    top: 50%
+    left: -8px
+    color: color-tooltip
+    position: absolute

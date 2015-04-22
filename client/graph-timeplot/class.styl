@@ -1,0 +1,47 @@
+.timeplot
+    fill font-color-dark-grey
+    .axis.grid path
+        display none
+    .axis.grid text
+        display none
+    .y.axis path
+        display none
+    .axis.grid line
+        stroke #CCC
+        stroke-dasharray 2, 2
+    text
+        fill font-color-dark-grey
+    .x-grid .tick
+        stroke lightgrey
+        opacity 0.7
+        shape-rendering crispEdges
+        stroke-width 1px
+    .y-grid .tick
+        stroke lightgrey
+        stroke-dasharray 2,2
+        opacity 0.7
+        stroke-width 1px
+        shape-rendering crispEdges
+.timeplot-d3-tip
+    line-height 1
+    fill almost-black
+    font-size 14px
+    font-weight normal
+    padding 9px
+    background color-tooltip
+    border-radius 2px
+.timeplot-d3-tip:after
+    display: inline
+    font-size: 10px
+    width: 100%
+    line-height: 1
+    color: color-tooltip
+    opacity: 0.7
+    content: "\25BC"
+    position: absolute
+    text-align: center
+
+.timeplot-d3-tip.n:after
+    margin: -1px 0 0 0
+    top: 100%
+    left: 0

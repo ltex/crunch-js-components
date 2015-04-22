@@ -1,0 +1,43 @@
+<!-- bivariate template -->
+<table>
+    <thead>
+        <!-- Account for column title -->
+        <tr>
+            <th colspan="{{xtab.numberOfColumns + 1}}">
+                <h3 class="column-title">
+                    {{xtab.columnTitle}}
+                     <button type="button"
+                        title="Remove column variable"
+                        ng-click="xtabCtrl.removeColumn()">
+                        <span class="icon-remove"></span>
+                    </button>
+                </h3>
+            </th>
+        </tr>
+
+        <tr class="column-label-row">
+            <th class="empty-table-corner row-title column-title">
+                <span>{{xtab.rowTitle}}&nbsp;</span>
+                <button type="button"
+                    title="Remove"
+                    ng-click="xtabCtrl.removeRow()">
+                    <span class="icon-remove"></span>
+                </button>
+            </th>
+
+            <th ng-repeat="label in xtab.columnLabels track by $index">
+                <span>
+                    {{label}}
+                </span>
+            </th>
+
+            <th ng-show="settings.showMargins"
+                class="column-margin-label column-margin-{{$index}}"
+                ng-repeat="label in xtab.columnMarginLabels track by $index">{{label}}
+            </th>
+        </tr>
+    </thead>
+
+    <tbody ng-include="/xtabs2/xtab-body.html">
+    </tbody>
+</table>

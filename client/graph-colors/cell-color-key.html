@@ -1,0 +1,10 @@
+<div>
+    <cr-tooltip cr-tooltip-target=".cell-color-key" cr-tooltip-show="visible" cr-tooltip-padding=3>
+    <div ng-show="visible">
+        <p ng-if="direction !== 'cell'">Cells are colored based on their difference from the {{ direction }} marginal value ({{ otherDirection }} average) if the difference is statistically significant.</p>
+        <!-- <p ng-if="direction === 'cell'">Cells are colored based on how different they are from the assumption that rows and columns are independent.</p> -->
+    </div>
+    </cr-tooltip>
+    <ol class="cell-color-key"></ol>
+
+</div>

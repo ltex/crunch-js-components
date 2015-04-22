@@ -1,0 +1,55 @@
+<section class="analyze" ng-controller="analyzeContextCtrl">
+    <div class="section-wrapper">
+        <div class="analyze-error" ng-if="analyzeContextManager.error">
+            <span>Something went wrong. <br />We can’t display this analysis.</span>
+        </div>
+        <drop-zone settings="settings"
+                   analysis="analysis"
+                   drop-zone-cfg="analyzeContextManager.dropZone"></drop-zone>
+
+        <empty-analysis></empty-analysis>
+
+        <div class="content-wrapper"
+             ng-if="analyzeContextManager.loaded && xtab">
+
+            <analyze-title
+                settings="settings"
+                analysis="analysis"
+                xtab="xtab"
+                class="analyze-header"></analyze-title>
+
+            <analyze-table
+                ng-if="settings.tableOrGraph.table || !xtab.rows.length"
+                settings="settings"
+                analysis="analysis"
+                xtab="xtab">
+            </analyze-table>
+
+            <chart
+                ng-if="settings.tableOrGraph.graph && xtab.rows.length"
+                settings="settings"
+                analysis="analysis"
+                xtab="xtab">
+            </chart>
+
+            <cell-color-key settings="settings"
+                ng-if="!settings.showSignif.disabled && settings.showSignif.true"
+                visible="!settings.showSignif.disabled && settings.showSignif.true">
+            </cell-color-key>
+
+            <div class="empty-space">
+                <!-- ensures that bottom area is padded for display controls -->
+            </div>
+        </div>
+        <play-controls id="play-controls"
+                       analysis="analysis"
+                       settings="settings">
+        </play-controls>
+        <div
+            data-ui-view="analyses-tray"
+            class="analyses-tray"
+            data-ng-controller="deckList as deckCtrl"
+            data-ng-class="{opened: analysesTray.is('opened')}">
+        </div>
+    </div>
+</section>

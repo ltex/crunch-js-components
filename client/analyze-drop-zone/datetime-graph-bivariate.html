@@ -1,0 +1,33 @@
+<div class="dragrow drop-target" dropit dropit-event="row">
+    <drop-zone-content zone="row" zone-label="Rows"></drop-zone-content>
+</div>
+
+<div class="graph-wrapper">
+    <div class="drag-wrapper">
+        <div class="dragslice drop-target" dropit dropit-event="column">
+            <drop-zone-content>
+                <span class="current">
+                    <span ng-show="dropZone.current.isDatetime('over')">
+                        <strong>{{dropZone.current.getVariableName("row")}}</strong> over
+                        <span>
+                            <strong>{{dropZone.current.getVariableName("over")}}</strong>
+                            as
+                        </span>
+                        time
+                    </span>
+                    <span ng-hide="dropZone.current.isDatetime('over')">
+                        <strong>{{dropZone.current.getVariableName("over")}}</strong>
+                    </span>
+                </span>
+
+                <span class="dragged">
+                    <strong>{{dropZone.current.getVariableName("row")}}</strong> over time
+                    (<strong>{{dropZone.current.getVariableName("dragged")}}</strong>)
+                </span>
+            </drop-zone-content>
+        </div>
+    </div>
+    <div class="dragnewgraph drop-target" dropit dropit-event="table">
+        <drop-zone-content exclude="row,over" zone-label="New Graph"></drop-zone-content>
+    </div>
+</div>

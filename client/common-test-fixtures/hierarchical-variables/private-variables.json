@@ -1,0 +1,38 @@
+{
+   "element":"shoji:catalog",
+   "self":"/api/datasets/123/variables/private",
+   "specification":"/api/specifications/variables/private",
+   "description":"List of private Variables of this dataset",
+   "index":{
+      "variable1/":{
+         "name":"Economy",
+         "discarded":false,
+         "alias":"variable1",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"variable1",
+         "description":"Overall, do you think the economy is getting better or worse?"
+      },
+      "variable2/":{
+         "name":"Testing",
+         "discarded":false,
+         "alias":"variable2",
+         "is_subvar":null,
+         "type":"categorical_array",
+         "id":"variable2",
+         "description":"Testing"
+      },
+      "variable3/":{
+         "name":"Children",
+         "discarded":false,
+         "alias":"variable3",
+         "is_subvar":null,
+         "type":"categorical",
+         "id":"variable3",
+         "description":"Are you the parent or guardian of any children under the age of 18?"
+      }
+   },
+   "orders":{
+      "hier":"/api/datasets/123/variables/hier"
+   }
+}

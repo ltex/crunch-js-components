@@ -1,0 +1,129 @@
+{
+  "element": "shoji:entity",
+  "self": "/api/datasets/123/variables/var_hash/card_view/",
+  "body": {
+    "name": "case",
+    "weight": false,
+    "format": {
+      "summary": {
+        "digits": 0
+      }
+    },
+    "missing_reasons": {
+      "No Data": -1
+    },
+    "private": false,
+    "summary": {
+      "count": 6,
+      "missing_count": 5,
+      "missing_frequencies": [
+        {
+          "count": 5,
+          "value": "No Data"
+        }
+      ],
+      "valid_count": 1
+    },
+    "discarded": false,
+    "alias": "case",
+    "derivation": {
+      "function": "case",
+      "args": [
+        {
+          "column": [
+            0,
+            1
+          ],
+          "type": {
+            "value": {
+              "ordinal": false,
+              "class": "categorical",
+              "categories": [
+                {
+                  "id": 0,
+                  "name": "xis",
+                  "missing": false
+                },
+                {
+                  "id": 1,
+                  "name": "yis",
+                  "missing": false
+                }
+              ]
+            }
+          }
+        },
+        {
+          "function": "in",
+          "args": [
+            {
+              "variable": "../../000000/"
+            },
+            {
+              "value": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "function": "in",
+          "args": [
+            {
+              "variable": "../../000001/"
+            },
+            {
+              "value": [
+                "1776-07-04T00:00:00"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "view": {
+      "show_counts": false,
+      "show_numeric_values": false,
+      "include_missing": false,
+      "column_width": null
+    },
+    "type": "categorical",
+    "categories": [
+      {
+        "count": 1,
+        "name": "xis",
+        "missing": false,
+        "total_count": 1,
+        "percent": 100,
+        "id": 0,
+        "max_count": 1
+      },
+      {
+        "count": 0,
+        "name": "yis",
+        "missing": false,
+        "total_count": 1,
+        "percent": 0,
+        "id": 1,
+        "max_count": 1
+      },
+      {
+        "count": 5,
+        "name": "No Data",
+        "missing": true,
+        "total_count": 1,
+        "numeric_value": null,
+        "percent": 500,
+        "id": -1,
+        "max_count": 1
+      }
+    ],
+    "description": ""
+  },
+  "specification": "http://local.crunch.io:8080/api/specifications/categorical_variables/",
+  "description": "Details for a given Variable",
+  "urls": {
+    "dataset_url": "/api/datasets/123/",
+    "variable_url": "/api/datasets/123/variables/2b20721d72854a0ab139798c6c19e135/"
+  }
+}

@@ -1,0 +1,1 @@
+{"element": "shoji:view", "self": "/api/datasets/123/summary/?exclude_applied=true&exclude_exclusion_filter=false&filter_syntax=%7B%22vars%22:%5B%5D,%22functions%22:%5B%5D%7D", "value": {"unweighted": {"filtered": 6, "total": 6}, "rows": {"filtered": 6, "total": 6}, "weighted": {"filtered": 6, "total": 6}}}

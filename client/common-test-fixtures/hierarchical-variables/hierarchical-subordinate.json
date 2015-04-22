@@ -1,0 +1,12 @@
+{
+   "element":"shoji:order",
+   "self":"/api/datasets/123/variables/hier/",
+   "description":"Hierarchical ordering of dataset variables",
+   "graph": [
+      {
+         "subordinate" : [
+            "../../joins/456/variables/economytrend/"
+         ]
+      }
+   ]
+}

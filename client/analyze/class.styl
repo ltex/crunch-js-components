@@ -1,0 +1,413 @@
+.analyze
+    user-select text
+    margin-left 30px
+    flex-grow 1
+    flex-shrink 1
+    position relative
+    display flex
+    flex-flow row nowrap
+    justify-content flex-start
+    align-items stretch
+    align-content stretch
+    overflow-x hidden
+
+    .content-wrapper, .section-wrapper
+        display flex
+        flex-grow 1
+        flex-shrink 1
+        flex-direction column
+
+    button
+        display inline-block
+
+    .icon-remove
+        position relative
+        top 2px
+        opacity 0
+        font-size font-size-xl
+        font-weight font-weight-heavy
+        &:hover
+            color font-color-dark-grey !important
+
+    .column-title-row &:hover *.icon-remove
+        opacity 1
+        color font-color-lighter-grey
+
+    .analyze-variable
+        flex 1
+        display flex
+        flex-direction column
+
+    .analysis-title-container
+        flex-shrink 0
+
+    /*
+    * Analyze section header.
+    * @layout bivariate-title.html
+    */
+    .analyze-header
+        margin-bottom elements-space-m
+
+        .analysis-title
+            font-weight font-weight-heavy
+            font-size font-size-xl2
+            margin 4px 0 0 0
+            display flex
+            align-items center
+
+            .remove-mean-measure
+                position relative
+                bottom 3px
+
+            &:hover .remove-mean-measure *.icon-remove
+                opacity 1
+                color font-color-lighter-grey
+
+        .analysis-subtitle
+            font-weight font-weight-normal
+            font-size font-size-l
+            margin 0
+            margin-top elements-space-s
+            width 70%
+
+    .remove-mean-measure
+        margin-left 5px
+
+        .icon
+            opacity 0
+            font-size 15px
+            color #afafaf
+
+    .bivariate-title-data
+        float right
+    .bivariate-btngroup
+        float right
+    .bivariate-context
+        position relative
+
+    .analyze-error
+        flex-grow 1
+        display flex
+        align-items baseline
+        justify-content center
+        font-size 1.9em
+        text-align center
+        padding-top: 1.9em
+        line-height 40px
+        color #aaa
+        text-shadow 1px 1px 1px #FFF
+        font-weight 300
+
+    .spinner-overlay
+        background #FFFFFF
+        position absolute
+        top 0
+        bottom 0
+        right 0
+        left 0
+        font-weight 300
+        font-size 1.2em
+        color rgba(0,0,0,.75)
+
+        &.spinner-active
+            &:before
+                content ''
+                background url('./spinner.png')
+                background-size 30px
+                display inline-block
+                position absolute
+                top 33%
+                left calc(50% - 35px)
+                width 30px
+                height 30px
+                -webkit-animation-name spinnerRotate
+                -webkit-animation-duration 1s
+                -webkit-animation-iteration-count infinite
+                -webkit-animation-timing-function linear
+            &:after
+                content 'Loading'
+                display inline-block
+                position absolute
+                top calc(33% + 50px)
+                left calc(50% - 72px)
+                text-align center
+                width 100px
+
+
+    .bivariate-graph-column-title
+        left 15px
+        position relative
+        display inline-block
+        margin 0
+        padding 0
+        border 0
+        outline 0
+        font-weight inherit
+        font-style inherit
+        font-family inherit
+        font-size 100%
+        vertical-align baseline
+        color #777
+        font-size large
+
+    .bivariate-summary-table
+        margin 1em
+        background-color table-alt-1
+        th
+            font-weight 500
+            padding .5em 1em
+        td
+            padding .5em 1em
+            line-height 1.5
+            text-align right
+
+    .bivariate-btngroup
+        display inline-block
+        top 4em
+        right 2em
+
+        div
+            display inline-block
+            padding-left 1em
+
+    .xtabs-table
+        flex-grow 1
+        flex-shrink 1
+        overflow auto
+        margin-top elements-space-m
+        padding-right elements-space-m
+        padding-bottom 64px
+        font-size font-size-l
+
+        table
+
+            th
+                font-weight font-weight-heavy
+
+            thead
+                background white
+
+                h3
+                    display inline
+                    vertical-align baseline
+
+                tr.column-title-row
+
+                    th:not(.empty-table-corner)
+                        border-bottom 1px solid #ccc
+                        padding-left 0
+                        padding-bottom 0.1em
+
+                    h3
+                        font-weight font-weight-heavy
+                        font-size font-size-l
+                        margin 0 0 elements-space-s 0
+                        display flex
+                        align-items center
+
+                        button
+                            margin-left elements-space-s
+
+                        &:hover *.icon-remove
+                            opacity 1
+                            color font-color-lighter-grey
+
+                th.column-title
+
+                    &[colspan]:not(.empty-table-corner):not(.mean)
+                        border-bottom 1px solid color-grey1
+                        padding-bottom 3px
+
+                    &.mean
+                        padding-bottom 10px
+
+                    vertical-align center
+
+                    &:hover *.icon-remove
+                        opacity 1
+                        color font-color-lighter-grey
+
+                tr.column-label-row
+
+                    th
+                        text-align right
+                        vertical-align bottom
+                        padding elements-space-s elements-space-s
+                        font-weight font-weight-light
+
+                    th:first-child
+                        text-align left
+                        font-weight font-weight-heavy
+                        font-size font-size-l
+
+                    th:nth-child(2)
+                        padding-left 0
+
+                    &.column-margin-label
+                        vertical-align bottom
+                        text-align center
+
+            tbody
+
+                th, td
+                    padding elements-space-s elements-space-s
+
+                td
+                    text-align right
+                    font-weight font-weight-light
+                    color font-color-light-grey
+                    &:not(.show-signif)
+                        font-weight font-weight-heavy
+                        color font-color-dark-grey
+                    &.signif05.show-signif
+                        color font-color-dark-grey
+                        font-weight font-weight-heavy
+
+                    &.margin-cell
+                        font-weight font-weight-light
+
+                th
+                    min-width 10em
+                    padding-right 1em
+                    text-align left
+                    font-weight font-weight-light
+
+                tr
+                    background-color table-alt-1
+
+                tr:nth-child(even):not(.no-zebra)
+                    background-color table-alt-2
+
+            .column-margin-0
+                border-left elements-space-s solid white
+
+            .row-margin-0
+                th, td
+                    border-top elements-space-s solid white
+
+            th.row-margin-border
+                border-top elements-space-s solid white
+
+            td.empty-table-corner
+                background-color white
+
+    .bivariate-graph
+        overflow auto
+        margin-top elements-space-m
+        position relative
+        margin-bottom 7em
+
+        .legend-title
+            font-weight 500
+        .legend-rule
+            stroke #ccc
+            stroke-width 1
+
+    .chart
+        position relative
+        .axis path,
+        .axis line
+            fill none
+            stroke #000
+            shape-rendering crispEdges
+
+        .x.axis path
+            display none
+        .y.axis line,
+        .y.axis path
+            display none
+        .primary-labels
+            font-weight 700
+            font-size 1.1em
+            fill font-color-dark-grey
+            text-anchor end
+            alignment-baseline text-after-edge
+        .bar .bar-values
+            display none
+            fill #000000
+            alignment-baseline before-edge
+        .bar:hover .bar-values
+            display block
+        .legend-container
+            overflow-y auto
+            overflow-x hidden
+            width 200px
+            position absolute
+            top 0px
+            .inactive text
+                opacity .25
+            fill font-color-dark-grey
+
+    .histogram
+        .bar rect
+            fill color-blue
+            shape-rendering crispEdges
+            stroke-width 1px
+            stroke-opacity .2
+            stroke white
+        .axis path,
+        .axis line
+            fill none
+            stroke black
+            stroke-opacity .25
+            shape-rendering crispEdges
+        .axis.bottom line
+            stroke transparent
+        .axis path
+            stroke transparent
+        .axis text
+            fill font-color-dark-grey
+            font-size 11px
+        .histogram-slice .axis
+            line
+                stroke transparent
+            &.grid line
+                stroke black
+                stroke-opacity .1
+                stroke-dasharray 2, 2
+            &.x text
+                fill transparent
+        .grid.axis
+            line
+                stroke black
+                stroke-opacity .1
+                stroke-dasharray 2, 2
+        .background
+            fill white
+        .baseline
+            fill black
+        .label
+            font-weight 700
+            font-size 1.1em
+            fill font-color-dark-grey
+
+        .nolines.axis line
+            stroke transparent
+
+    .sort-table
+        position relative
+        cursor pointer
+        vertical-align baseline
+        color font-color-dark-grey
+
+    .empty-space
+        margin-bottom 7em
+
+    .sort-chart-controls
+        display flex
+        margin 10px 0
+        height 21px
+
+        .sort-table
+            padding 0 elements-space-s 4px
+
+            &:hover
+                background #eee
+
+.no-valid-data-notice
+    position relative
+    margin 5em 0 5em -3em
+    font-weight 300
+    font-size 1.5em
+    text-align center
+    opacity .5

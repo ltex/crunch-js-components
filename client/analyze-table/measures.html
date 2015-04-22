@@ -1,0 +1,8 @@
+<tr ng-repeat="row in xtab.rows track by $index">
+    <th class="row-label">
+        {{ xtab.rowLabels[$index] }}
+    </th>
+    <td ng-repeat="cell in row track by $index">
+        {{ cell | displayNumber : settings.decimalPlaces.value }}
+    </td>
+</tr>
