@@ -5,42 +5,42 @@ module.exports = AnalysisTitleDirective
 function AnalysisTitleDirective() {
 
     function AnalysisTitleCtrl($scope) {
-        this.init = function() {
-            Object.defineProperties(this, {
-                visible : {
-                    get : function() {
-                        var analysis = $scope.analysis
-                            , bivariate
-                            , hasArray
-                            , barchart
-                            , graph
-                            ;
+        this.$scope = $scope
+    }
 
-                        if(analysis) {
-                            bivariate = analysis.isBivariate()
-                            hasArray = analysis.hasArrayVariables()
-                            barchart = analysis.graphType === 'barchart'
-                            graph = $scope.settings.tableOrGraph.graph
-                        }
+    AnalysisTitleCtrl.prototype.removeMeanMeasure = function() {
+        this.$scope.analysis.handle('measures-count')
+        this.$scope.analysis.handle('recalculate')
+    }
 
-                        return analysis && (hasArray || bivariate || !graph || (graph && !barchart))
-                    }
+    Object.defineProperties(AnalysisTitleCtrl.prototype, {
+        visible : {
+            get : function() {
+                var analysis = this.$scope.analysis
+                    , bivariate
+                    , hasArray
+                    , barchart
+                    , graph
+                    ;
+
+                if(analysis) {
+                    bivariate = analysis.isBivariate()
+                    hasArray = analysis.hasArrayVariables()
+                    barchart = analysis.graphType === 'barchart'
+                    graph = this.$scope.settings.tableOrGraph.graph
                 }
 
-                , meanMeasureVisible : {
-                    get : function() {
-                        return $scope.analysis.hasMeanMeasure()
-                            && !$scope.analysis.isEmpty()
-                    }
-                }
-            })
-
-            this.removeMeanMeasure = function() {
-                $scope.analysis.handle('measures-count')
-                $scope.analysis.handle('recalculate')
+                return analysis && (hasArray || bivariate || !graph || (graph && !barchart))
             }
         }
-    }
+
+        , meanMeasureVisible : {
+            get : function() {
+                return this.$scope.analysis.hasMeanMeasure()
+                    && !this.$scope.analysis.isEmpty()
+            }
+        }
+    })
 
     AnalysisTitleCtrl.$inject = [
         '$scope'

@@ -1,15 +1,13 @@
 <!-- 3rd level. Title and Subtitle, when a variable is selected -->
-<h2 class="analysis-title" ng-init="ctrl.init()">
-    <span ng-if="ctrl.visible">
-        {{xtab.title}}
+<h2 class="analysis-title" ng-if="ctrl.visible">
+    {{xtab.title}}
 
-        <a title="Remove mean variable"
-            class="remove-mean-measure"
-            ng-if="ctrl.meanMeasureVisible"
-            ng-click="ctrl.removeMeanMeasure()">
-            <span class="icon-remove"></span>
-        </a>
-    </span>
+    <a title="Remove mean variable"
+        class="remove-mean-measure"
+        ng-if="ctrl.meanMeasureVisible"
+        ng-click="ctrl.removeMeanMeasure()">
+        <span class="icon-remove"></span>
+    </a>
 </h2>
 <h3 class="analysis-subtitle"
     ng-show="xtab.subtitle"
