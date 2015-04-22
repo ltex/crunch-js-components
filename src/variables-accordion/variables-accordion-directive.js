@@ -14,8 +14,6 @@ function HierarchicalVariablesListDirective() {
             var currentHVL
                 ;
 
-            console.log('here1')
-
             scope.$watch('hierarchicalVariablesList', function(hvl) {
                 if(hvl === undefined){ return }
                 refreshRoot(hvl)
