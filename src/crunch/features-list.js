@@ -25,6 +25,10 @@ module.exports = function(cfg) {
         , require('../graph-barplot')
         , require('../graph-histograms')
         , require('../analyses-tray')
+        , require('../svg-helpers')
+        , require('../user-preferences')
+        , require('../datetime-formatter')
+        , require('../display-filters')
     ]
     .map(function(modFactory) {
         return modFactory(undefined, modFactory[cfg.env])

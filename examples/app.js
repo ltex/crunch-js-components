@@ -1,5 +1,6 @@
+
 var app = angular.module('componentsDemo', [
-    'crunch-js-components'
+    require('crunch-js-components')().name
 ])
 
 app.config(function($httpProvider) {
@@ -26,4 +27,8 @@ app.factory('signin', function($http, Shoji) {
             })
         })
     }
+})
+
+app.run(function(currentDataset) {
+    currentDataset.set(secrets.dataset)
 })

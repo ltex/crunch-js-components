@@ -1,25 +1,31 @@
 'use strict'
 
-function AnalyzeContextCtrl($scope, analyzeContextManager, xtabFactory, tableCellColors, signin) {
+function AnalyzeContextCtrl($scope, iFetchHierarchicalVariables, analyzeContextManager, xtabFactory, tableCellColors, signin) {
     this.init = function() {
         var params = {
                 datasetId : secrets.dataset
-                , primaryVariableId : 'primary variable'
+                , primaryVariableId : secrets.variables[0]
             }
             , settings
             ;
 
-        signin.apply(signin, secrets.credentials).then(function() {
-            analyzeContextManager.handle('initialize', params)
+        signin.apply(signin, secrets.credentials)
+            .then(function() {
+                return iFetchHierarchicalVariables({
+                    datasetId : secrets.dataset
+                })
+            })
+            .then(function() {
+                analyzeContextManager.handle('initialize', params)
 
-            $scope.settings = settings = analyzeContextManager.viewSettings
-            $scope.scale = settings.colorScale = tableCellColors.getScale()
+                $scope.settings = settings = analyzeContextManager.viewSettings
+                $scope.scale = settings.colorScale = tableCellColors.getScale()
 
-            $scope.analyzeContextManager = analyzeContextManager
-            $scope.analysesTray = analyzeContextManager.analysesTray
+                $scope.analyzeContextManager = analyzeContextManager
+                $scope.analysesTray = analyzeContextManager.analysesTray
 
-            setupEvents()
-        })
+                setupEvents()
+            })
     }
 
     function setupEvents() {
@@ -43,8 +49,11 @@ function AnalyzeContextCtrl($scope, analyzeContextManager, xtabFactory, tableCel
 
 AnalyzeContextCtrl.$inject = [
     '$scope'
+    , 'iFetchHierarchicalVariables'
     , 'analyzeContextManager'
     , 'xtabFactory'
     , 'tableCellColors'
     , 'signin'
 ]
+
+app.controller('AnalyzeContextCtrl', AnalyzeContextCtrl)

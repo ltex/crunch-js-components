@@ -337,7 +337,6 @@ module.exports = function(grunt) {
                     ],
                     open : true,
                     hostname : 'local.crunch.io',
-                    livereload : true,
                     keepalive : true
                 }
             }

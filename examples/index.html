@@ -7,7 +7,7 @@
     </head>
     <body ng-app="componentsDemo">
         <section class="analyze" ng-controller="AnalyzeContextCtrl as ctrl" ng-init="ctrl.init()">
-            <div class="section-wrapper">
+            <div class="section-wrapper" ng-if="analyzeContextManager">
                 <div class="analyze-error" ng-if="analyzeContextManager.error">
                     <span>Something went wrong. <br />We can’t display this analysis.</span>
                 </div>
@@ -53,15 +53,10 @@
                                analysis="analysis"
                                settings="settings">
                 </play-controls>
-                <div
-                    data-ui-view="analyses-tray"
-                    class="analyses-tray"
-                    data-ng-controller="deckList as deckCtrl"
-                    data-ng-class="{opened: analysesTray.is('opened')}">
-                </div>
             </div>
         </section>
         <script src="/build.js"></script>
+        <script src="/templates.js"></script>
         <script src="/secrets.js"></script>
         <script src="/app.js"></script>
         <script src="/analyze-context-ctrl.js"></script>

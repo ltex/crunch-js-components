@@ -75,7 +75,7 @@ function DisplayCubeFactory(Cube
         var result = {
             id: _.uniqueId("t")
             ,variables: variables
-            ,template: '/tables/crosstab.html'
+            ,template: '/analyze-table/crosstab.html'
             ,preCols: []
             ,postCols: []
             ,preRows: []
@@ -468,7 +468,7 @@ function DisplayCubeFactory(Cube
             id: _.uniqueId("t")
             ,variables: analysis.variables
             ,withMeans: true
-            ,template: '/tables/measures.html'
+            ,template: '/analyze-table/measures.html'
             ,measureVariable: analysis.measures.getMeasureVariable('mean',0)
             ,rows: table(tab.bodies.value)
             ,cube: cube
