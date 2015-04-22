@@ -38,7 +38,7 @@ module.exports = function(grunt) {
         pkg : grunt.file.readJSON('package.json'),
         fversion : 'whaam',
         baseDirs : {
-            src : 'client',
+            src : 'src',
             build : 'build',
             support : 'test-support',
             dist : 'dist',
