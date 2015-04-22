@@ -29,6 +29,7 @@ module.exports = function(cfg) {
         , require('../user-preferences')
         , require('../datetime-formatter')
         , require('../display-filters')
+        , require('../play-controls')
     ]
     .map(function(modFactory) {
         return modFactory(undefined, modFactory[cfg.env])

@@ -1,0 +1,120 @@
+<div data-ng-controller="playControl as ctrl" class="analyze-play-control" data-ng-class="{'locked': locked}">
+    <form class="xtab-controls">
+        <cr-tooltip cr-tooltip-show="tableGraphPrefs.visible" cr-tooltip-target=".graph-tip-target" cr-tooltip-popover="true">
+            <div>
+                <h3>Default display</h3>
+                <div class="cr-control-container">
+                    <label><input type="radio" ng-model="defaultAnalysis.value" name="defaultAnalysis" value="table"/>Table</label>
+                    <label><input type="radio" ng-model="defaultAnalysis.value" name="defaultAnalysis" value="graph"/>Graph</label>
+                    <label><input type="checkbox" name="persist" ng-model="defaultAnalysis.persistServer">Remember this setting</label>
+                </div>
+                <footer><button class="btn primary" type="button" ng-click="ctrl.savePreferences()">Save</button></footer>
+            </div>
+        </cr-tooltip>
+        <div class="table-graph-toggle graph-tip-target">
+            <label
+                class="icon-table"
+                cr-rightclick="ctrl.togglePopup('tableGraphPrefs')"
+                ng-class="{selected: settings.tableOrGraph.table }"
+                title="Display analysis as table">
+                <input type="radio" name="tableOrGraph" value="table"
+                       ng-model="settings.tableOrGraph.value" class="table"/>
+            </label>
+            <label
+                class="icon-graph"
+                ng-class="{selected: settings.tableOrGraph.graph }"
+                cr-rightclick="ctrl.togglePopup('tableGraphPrefs')"
+                title="Display analysis as graph">
+                <input type="radio" name="tableOrGraph"
+                    value="graph"
+                    ng-model="settings.tableOrGraph.value" class="graph"/>
+            </label>
+        </div>
+        <div class="counts-percents-toggle"
+             ng-class="{hidden: settings.countsOrPercents.hidden, disabled: settings.countsOrPercents.disabled}">
+
+            <label class="icon-count"
+                ng-class="{selected: settings.countsOrPercents.count }"
+                title="Display values as counts">
+                <input type="radio" name="countsOrPercents" value="count"
+                       ng-model="settings.countsOrPercents.value"
+                       ng-disabled="settings.countsOrPercents.disabled"
+                       class="counts"/>
+
+            </label>
+
+            <label class="icon-percentage"
+                ng-class="{selected: settings.countsOrPercents.percent }"
+                title="Display values as percents">
+                <input type="radio" name="countsOrPercents"
+                    value="percent"
+                    ng-model="settings.countsOrPercents.value"
+                    ng-disabled="settings.countsOrPercents.disabled" class="percents"/>
+            </label>
+            <button type="button"
+                    class="percent-direction-toggle"
+                    data-ng-class="{
+                        'icon-arrow-down' : settings.percentageDirection.colPct,
+                        'icon-arrow-right' : settings.percentageDirection.rowPct,
+                        'icon-cell' : settings.percentageDirection.cellPct,
+                        disabled: settings.percentageDirection.disabled
+                    }"
+                    title="Sum percentages by row, column, or across entire table"
+                    data-multitoggle
+                    ng-disabled="settings.percentageDirection.disabled"
+                    fn-direction="{{settings.percentageDirection.value}}"
+                    data-multitoggle-disabled="settings.percentageDirection.disabled"
+                    data-multitoggle-hidden="settings.percentageDirection.hidden"
+                    ng-model="settings.percentageDirection.value"
+                    data-multitoggle-user-model="settings.percentageDirection.userValue"
+                    data-multitoggle-options="percentOptions">
+            </button>
+            <div>
+                <label class='icon-signif' ng-class="{selected: settings.showSignif.true,
+                    disabled: settings.showSignif.disabled}"
+                title="Highlight values that are statistically significant">
+                <input type="checkbox" name="showSignif"
+                    ng-disabled="settings.showSignif.disabled"
+                    ng-class="{selected: settings.showSignif.true }"
+                    ng-model="settings.showSignif.value"
+                   />*
+                </label>
+            </div>
+        </div>
+        <div class="decimals-toggle" data-ng-class="{disabled: settings.decimalPlaces.disabled}" title="Number of displayed decimal places">
+            <label fn-places="0"
+                    ng-class="{selected: settings.decimalPlaces[0], included: settings.decimalPlaces.value > 0 }">
+                <input type="radio" name="decimal" data-ng-value="0"
+                    ng-model="settings.decimalPlaces.value"
+                    data-ng-disabled="{{settings.decimalPlaces.disabled}}"/>0</label>
+            <label fn-places="1"
+                data-ng-class="{selected: settings.decimalPlaces[1], included: settings.decimalPlaces.value > 1}">
+                <input type="radio" name="decimal"
+                    data-ng-value="1"
+                    ng-model="settings.decimalPlaces.value"
+                    ng-disabled="{{settings.decimalPlaces.disabled}}"/>.0</label>
+            <label fn-places="2" ng-class="{selected: settings.decimalPlaces.value === 2}">
+                <input type="radio" name="decimal" ng-value="2"
+                    ng-model="settings.decimalPlaces.value"
+                    ng-disabled="settings.decimalPlaces.disabled"/>0</label>
+        </div>
+        <div class="empty-toggle"
+             data-ng-class="{hidden: settings.showEmpty.hidden, disabled: settings.showEmpty.disabled}"
+             title="{{settings.showEmpty.title}}">
+            <label class="empties-toggle icon-empty"
+                    data-ng-class="{selected: settings.showEmpty.true }">
+                <input type="checkbox" name="showEmpty"
+                    data-ng-disabled="settings.showEmpty.disabled"
+                    data-ng-model="settings.showEmpty.value"
+                    />
+            </label>
+        </div>
+        <div class="pivot-toggle"
+             data-ng-class="{hidden: settings.pivot.hidden,disabled: settings.pivot.disabled}"
+             title="Swap rows and columns">
+            <button class="pivot-button icon-pivot"
+                data-ng-click="analysis.handle('pivot', 0, 1)">
+            </button>
+        </div>
+    </form>
+</div>

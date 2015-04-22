@@ -1,0 +1,83 @@
+#play-controls
+    position fixed
+    bottom 15px
+    width 100%
+    height 50px
+    overflow hidden
+    left 0
+    z-index z-index-play-control
+
+    .analyze-play-control
+        height 100%
+        margin 0px auto
+        display flex
+        flex-flow row nowrap
+        justify-content center
+        align-content stretch
+        align-items stretch
+
+        .xtab-controls
+            flex none
+            display flex
+            flex-flow row nowrap
+            justify-content space-around
+            align-items stretch
+            align-content stretch
+            background-color color-play-controller-grey
+            user-select none
+
+            > div
+                flex none
+                display flex
+                flex-flow row nowrap
+                justify-content space-around
+                align-items stretch
+                align-content stretch
+                margin 0px 10px
+
+                &.decimals-toggle label
+                    font-size 25px
+                    line-height 55px
+                    font-weight font-weight-light
+
+                    &:hover,
+                    &.included,
+                    &.selected
+                        color font-color-green
+
+                & label.icon-difference,label.icon-colors,label.icon-signif
+                    font-size 25px
+                    line-height 55px
+                    font-weight font-weight-light
+
+                &.disabled,
+                &.disabled *
+                    cursor default !important
+                    color font-color-lighter-grey !important
+                    fill font-color-lighter-grey !important
+
+            label, button
+                flex none
+                cursor pointer
+
+            label, button, input
+                &.disabled,
+                &.disabled *
+                    cursor default !important
+                    color font-color-lighter-grey !important
+                    fill font-color-lighter-grey !important
+
+            input
+                position absolute
+                visibility hidden
+
+            label[class*=icon-], button[class*=icon-]
+                font-size 25px
+                padding 13px 0px
+                fill font-color-light-grey
+
+                &:hover:not(.disabled)
+                    color color-green
+
+                &.selected
+                    color color-green
