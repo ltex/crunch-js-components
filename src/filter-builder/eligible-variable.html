@@ -1,0 +1,34 @@
+<div class="variable-link-container">
+    <!-- regular variable, it may have subvariables or may not -->
+    <a title="{{variable.hint + variable.name}}"
+        data-drag="variable"
+        data-drag-key="filterVariable"
+        data-ng-click="selectVariable($event, variable)"
+        data-ng-controller="eligibleVariable"
+        class="variable-link"
+        >{{variable.name}}
+    </a>
+    <!-- button for expanding subvariables -->
+    <button title="{{variable.name}}"
+        data-ng-if="variable.subvariables"
+        type="button"
+        class="subvariables-toggle"
+        data-ng-click="showOrHideSubvariables(variable,$event)"
+        >
+        <span data-ng-if="!variable.expanded">&#43;</span>
+        <span data-ng-if="variable.expanded">&#45;</span>
+    </button>
+</div>
+<!-- subvariables -->
+<div data-ng-if="variable.expanded">
+    <button
+        data-ng-repeat="subvariable in variable.subvariables"
+        title="{{subvariable.name}}"
+        class="subvariable-link"
+        data-drag="subvariable"
+        data-drag-key="filterVariable"
+        data-ng-click="selectVariable($event, subvariable)"
+        data-ng-controller="eligibleVariable"
+        >{{subvariable.name}}
+    </button>
+</div>

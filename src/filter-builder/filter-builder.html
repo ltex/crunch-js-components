@@ -1,0 +1,53 @@
+<div class="filter-builder">
+    <div ng-show="filterBuilder != null" class="builder-form">
+        <header class="builder-header" ng-click="filterBuilder.headerClicked($event)">
+            <div class="title">
+                <h1 class="filter-name" ng-show="filterBuilder.exclusionMode">
+                    {{filterBuilder.filterName()}}
+                </h1>
+                <input type="text"
+                       class="filter-name"
+                       name="filterName"
+                       placeholder="{{filterBuilder.namePlaceholder || 'Untitled Filter'}}"
+                       ng-model="filterName"
+                       ng-hide="filterBuilder.exclusionMode"
+                       ng-required="(filterBuilder.nameRequired == undefined && true) || filterBuilder.nameRequired"
+                       />
+
+            </div>
+            <div class="total-cases">
+                <h3 ng-if="!filterBuilder.exclusionMode">Count</h3>
+                <h3 ng-if="filterBuilder.exclusionMode">Excluded</h3>
+                <span ng-if="filterBuilder.hasExpressions()">{{ (filterBuilder.stat('filtered') | alwaysRoundCounts) || "\u2014"}}</span><span ng-if="!filterBuilder.hasExpressions()">—</span>
+                <span> of </span>
+                <span>{{ filterBuilder.stat('total') | alwaysRoundCounts}}</span>
+                <span ng-if="filterBuilder.hasExpressions()">({{filterBuilder.stat('filtered') | percentage: filterBuilder.stat('total')}})</span>
+            </div>
+            <div share-filter></div>
+        </header>
+        <div class="expression-list-wrapper">
+            <ol class="expression-list"
+                ng-style="{width: (filterBuilder.expressionsCount() + 1) * 286 + 'px'}">
+                <li ng-repeat="exp in filterBuilder.filterExpressions()"
+                    ng-if="exp.hasSource"
+                    class="expression-card"
+                    title="{{exp.variable.name}}"
+                    ng-mouseenter="exp.primeCard()">
+                    <div class="card-wrapper"
+                         ng-include="'/filter-builder/card-'+ exp.variable.type +'.html'">
+                    </div>
+                    <cr-select
+                        class="filterConditional"
+                        on-option-selected="filterBuilder.junctionChanged($index, selectedOption); filterBuilder.evaluateFilter()"
+                        item-list="junctionOptions"
+                        current-value="filterBuilder.filter.junctions[$index]">
+                    </cr-select>
+                </li>
+                <li class="expression-card">
+                    <div class="card-wrapper" ng-include="'/filter-builder/cardblank.html'">
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>

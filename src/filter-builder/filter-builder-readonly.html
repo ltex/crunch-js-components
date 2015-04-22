@@ -1,0 +1,41 @@
+<div class="filter-builder read-only">
+    <div ng-show="filterBuilder != null" class="builder-form">
+        <header class="builder-header">
+            <div class="title">
+                <h1 class="filter-name">{{filterBuilder.filterName()}}</h1>
+            </div>
+            <div class="total-cases" ng-if="filterBuilder.hasExpressions()">
+                <h3>Count</h3>
+                <span>{{ (filterBuilder.stat('filtered') | alwaysRoundCounts) || "\u2014"}}</span>
+                <span> of </span>
+                <span>{{ filterBuilder.stat('total') | alwaysRoundCounts}}</span>
+                <span>({{filterBuilder.stat('filtered') | percentage: filterBuilder.stat('total')}})</span>
+            </div>
+        </header>
+        <div class="expression-list-wrapper">
+            <ol class="expression-list"
+                ng-style="{width: (filterBuilder.expressionsCount() + 1) * 286 + 'px'}">
+                <li ng-repeat="exp in filterBuilder.filterExpressions()"
+                    ng-if="exp.hasSource"
+                    class="expression-card"
+                    ng-mouseenter="exp.primeCard()">
+                    <div class="card-wrapper"
+                         ng-include="'/filter-builder/card-'+ exp.variable.type +'-readonly.html'">
+                    </div>
+                    <select
+                        fancy-select
+                        ng-change="filterBuilder.evaluateFilter()"
+                        ng-show="filterBuilder.junctionsCount() > $index"
+                        ng-model="filterBuilder.filter.junctions[$index]"
+                        ng-options="jct for jct in junctionOptions">
+                    </select>
+                </li>
+                <li class="expression-card">
+                    <div class="card-wrapper"
+                         ng-include="'/filter-builder/cardblank-readonly.html'">
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
