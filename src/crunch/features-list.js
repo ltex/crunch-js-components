@@ -31,6 +31,7 @@ module.exports = function(cfg) {
         , require('../svg-helpers')
         , require('../user-preferences')
         , require('../play-controls')
+        , require('../variables-accordion')
     ]
     .map(function(modFactory) {
         return modFactory(undefined, modFactory[cfg.env])

@@ -5,11 +5,31 @@ FilterBuilderCtrl.$inject = [
     , 'currentDataset'
     , 'FilterBuilder'
     , 'iFetchHierarchicalVariables'
+    , 'createHVL'
     , 'signin'
     //, 'ShareFilter'
 ]
 
-function FilterBuilderCtrl($scope, currentDataset, FilterBuilder, iFetchHierarchicalVariables, signin){//, ShareFilter) {
+
+app.factory('createHVL', function(HierarchicalVariablesList) {
+    'use strict'
+
+    return function(hierarchicalVariables) {
+        var hvl = HierarchicalVariablesList.create({
+            hierarchicalVariables : hierarchicalVariables
+        })
+
+        //Make variable accordion draggable
+        hvl.applyBehaviors({
+            linkable : true,
+            clickable : true
+        })
+
+        return hvl
+    }
+})
+
+function FilterBuilderCtrl($scope, currentDataset, FilterBuilder, iFetchHierarchicalVariables, createHVL, signin){//, ShareFilter) {
     var dataset
         , filterBuilder
         , shareFilter
@@ -23,7 +43,7 @@ function FilterBuilderCtrl($scope, currentDataset, FilterBuilder, iFetchHierarch
                 })
             })
             .then(function(variables) {
-                $scope.variables = variables
+                $scope.hierarchicalVariablesList = createHVL(variables)
 
                 currentDataset.fetch()
                     .then(function (ds) {
