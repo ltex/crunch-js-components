@@ -1,0 +1,24 @@
+<div ng-class="variable.state" data-composite-variable="{{variable.name}}">
+    <header>
+        <h3 class="composite-header behavioral-variable" variable="variable">
+        </h3>
+        <button type="button"
+            class="toggle"
+            ng-hide="variable.behaviors.hideSubvariables"
+            data-expand-subvariable="{{variable.name}}"
+            ng-class="variable.expansion.state"
+            ng-click="variable.expansion.handle('toggle')"
+            ng-switch on="variable.expansion.state"
+            >
+            <!--to CSS-->
+            <span ng-switch-when="collapsed" class="icon-plus-sign"></span>
+            <span ng-switch-when="expanded" class="icon-minus-sign"></span>
+        </button>
+    </header>
+
+    <ol ng-if="variable.expansion.state === 'expanded'" class="subvariables">
+        <li ng-repeat="variable in variable.subvariables" class="subvariable-item">
+            <div class="sub hierarchical-variable"></div>
+        </li>
+    </ol>
+</div>
