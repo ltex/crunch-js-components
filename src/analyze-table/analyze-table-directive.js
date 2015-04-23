@@ -19,6 +19,8 @@ function AnalyzeTableDirective() {
         }
     }
 
+    TableCtrl.$inject = ['$scope']
+
     return {
         restrict : 'E'
         , templateUrl : '/analyze-table/analyze-table.html'
