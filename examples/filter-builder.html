@@ -15,16 +15,8 @@
         </style>
     </head>
     <body ng-app="componentsDemo" ng-controller="FilterBuilderCtrl as ctrl" ng-init="ctrl.init()">
-        <!--<div class="variable-sidebar">
-            <div ng-repeat="variable in variables.slice(0,20)" ng-if="variable.hierarchicalType === 'variable'">
-                <span dragit="variable" dragit-operation="link">
-                    {{variable.fullName}}
-                </span>
-            </div>
-        </div> -->
 
         <variables-accordion class="sidebar"></variables-accordion>
-
 
         <section class="filter-builder">
             <div filter-builder builder="filterBuilder" share="shareFilter" class="filter-builder-container"></div>
