@@ -48,7 +48,7 @@ describe('analyzeTitleDirective', function() {
 
     function flush() {
         scope.$digest()
-        sut.data().$analyzeTitleController.init()
+        //sut.data().$analyzeTitleController.init()
         scope.$digest()
     }
 
