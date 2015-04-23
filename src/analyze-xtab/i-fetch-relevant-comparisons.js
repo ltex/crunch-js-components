@@ -10,6 +10,7 @@ IFetchRelevantComparisonsFactory.$inject = [
 
 function IFetchRelevantComparisonsFactory($q, assert, $injector) {
     var iFetchComparisons
+        , comparisonsCache = {}
 
     try {
         iFetchComparisons = $injector.get('iFetchComparisons')
@@ -20,23 +21,38 @@ function IFetchRelevantComparisonsFactory($q, assert, $injector) {
     }
 
     return function iFetchRelevantComparisons(params) {
+        var variableIds
+            , comparisons
+            , cacheKey
+            ;
+
         assert(params, 'Provide a valid params object')
         assert(params.variables instanceof Array, 'Provide a valid variables array')
 
-        return iFetchComparisons().then(function(comparisons) {
-            var variableIds = params.variables.map(function(v){
-                return v.self
-            })
-
-            var relevantComparisons = variableIds.map(function(id){
-                return comparisons.listAvailable(id)
-            }, this)
-
-            if(relevantComparisons.length > 0) {
-                return comparisons.getAvailableWithCubes(variableIds)
-            } else {
-                return new Error('Comparisons are not available')
-            }
+        variableIds = params.variables.map(function(v){
+            return v.self
         })
+
+        cacheKey = variableIds.join('&')
+
+        if(comparisonsCache[cacheKey] && !params.updateCache) {
+            comparisons = $q.when(comparisonsCache[cacheKey])
+        } else {
+            comparisons = iFetchComparisons().then(function(comparisons) {
+                var relevantComparisons = variableIds.map(function(id) {
+                    return comparisons.listAvailable(id)
+                }, this)
+
+                if (relevantComparisons.length > 0) {
+                    return comparisons.getAvailableWithCubes(variableIds).then(function(r) {
+                        return (comparisonsCache[cacheKey] = r)
+                    })
+                } else {
+                    return new Error('Comparisons are not available')
+                }
+            })
+        }
+
+        return comparisons
     }
 }
