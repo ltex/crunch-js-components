@@ -21,18 +21,17 @@ function ChartDirective($window, $compile, drawUngroupedBarcharts, drawGroupedBa
         }
         ,templateUrl : '/analyze-chart/chart.html'
         ,link: function(scope, element, attrs) {
-            var $elm = $('<div></div>').appendTo(element.find('.bivariate-graph'))
+            var $parent = element.find('.bivariate-graph')
+                , $elm = $('<div></div>').appendTo($parent)
                 , elm = $elm.get(0)
                 ;
 
             $elm.addClass('chart')
 
-            draw()
-
             function draw(){
                 if (!!!scope.data){ return false }
                     var valueKey = 'value'
-                    var height = $window.innerHeight - element.offset().top - 150
+                    var height = $window.innerHeight - $parent.offset().top - 150
                     var config = {
                         data: scope.data
                         ,valueKey: 'value'
@@ -89,11 +88,11 @@ function ChartDirective($window, $compile, drawUngroupedBarcharts, drawGroupedBa
                 }
             } // draw
 
-            scope.$on('settings.changed', draw)
-            scope.$watch('data', function(){
-                draw()
-            })
+            function delayedDraw() {
+                setTimeout(draw, 100)
+            }
 
+            scope.$watch('data', delayedDraw)
         }
     }
 }
