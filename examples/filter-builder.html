@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>crunch js components</title>
+        <link rel="stylesheet" type="text/css" href="/styles.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+        <style type="text/css">
+            body {
+                display: flex;
+            }
+
+            .variable-sidebar {
+                flex-shrink: 0;
+            }
+        </style>
+    </head>
+    <body ng-app="componentsDemo" ng-controller="FilterBuilderCtrl as ctrl" ng-init="ctrl.init()">
+
+        <variables-accordion class="sidebar"></variables-accordion>
+
+        <section class="filter-builder">
+            <div filter-builder builder="filterBuilder" share="shareFilter" class="filter-builder-container"></div>
+        </section>
+        <script src="/build.js"></script>
+        <script src="/templates.js"></script>
+        <script src="/secrets.js"></script>
+        <script src="/app.js"></script>
+        <script src="/filter-builder-ctrl.js"></script>
+    </body>
+</html>

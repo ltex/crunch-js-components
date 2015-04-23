@@ -1,0 +1,17 @@
+<div data-group-name="{{nestedGroup.name}}">
+    <header>
+        <a ng-switch on="nestedGroup.state"
+            title="{{nestedGroup.name}}"
+            ng-click="nestedGroup.handle('toggle')">
+            <span>{{nestedGroup.name}}</span>
+            <span ng-switch-when="collapsed" class="icon-plus-sign"></span>
+            <span ng-switch-when="expanded" class="icon-minus-sign"></span>
+        </a>
+    </header>
+
+    <ol ng-if="nestedGroup.state === 'expanded'" class="subvariables">
+        <li ng-repeat="item in nestedGroup.items.slice()" class="subvariable-item">
+            <div class="hierarchical-item"></div>
+        </li>
+    </ol>
+</div>

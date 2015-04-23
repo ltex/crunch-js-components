@@ -1,0 +1,137 @@
+variables-accordion
+    min-group-height = 2em
+    max-group-height = 12em
+    subvariable-indent = 40px
+    opaque-inner-color = #70889A
+
+    display flex
+    flex-flow column nowrap
+    justify-content flex-start
+    align-items stretch
+    align-content flex-start
+    color font-color-light-grey
+    background-color color-sidebar-grey
+
+    .container
+        display flex
+        flex-direction column
+        flex-grow 1
+
+    .groups
+        flex 1 1 0px
+        overflow-x hidden
+        overflow-y auto
+        border-bottom 1px solid color-white
+
+        .group-item
+            border-bottom 1px solid color-white
+
+            &.expanded .hierarchical-group > header
+                background-color inherit
+                border-left 6px solid color-grey2
+                color font-color-dark-grey
+                &:hover
+                    background-color color-grey2
+                    color font-color-dark-grey
+
+                button
+                    padding elements-space-s (sidebar-button-h-space - 6)
+
+                    &:hover
+                        background-color inherit
+                        color font-color-dark-grey
+
+            .hierarchical-group > header
+                cursor pointer
+
+                &:hover
+                    background-color color-sidebar-dark-grey
+                    color font-color-blue
+
+                button
+                    padding sidebar-button-v-space-m sidebar-button-h-space
+                    width 100%
+
+    button.dec, button.inc
+        width 100%
+        padding sidebar-button-v-space-s sidebar-button-h-space sidebar-button-v-space-s 35px
+
+    .behavioral-variable,
+    .hierarchical-nested-group
+        display flex
+        flex-flow column nowrap
+        justify-content flex-start
+        align-items stretch
+
+        a, button
+            flex 0 1 auto
+            line-height line-height-xl
+            padding elements-space-s elements-space-m elements-space-s 0
+
+    .composite,
+    .hierarchical-nested-group
+        &> div header
+            position relative
+            display flex
+
+            &> a
+                display flex
+                flex-grow 1
+                justify-content space-between
+                align-items center
+
+                span:first-child
+                    width 100%
+                    padding-right 5px
+
+            .behavioral-variable
+                a, button
+                    padding-right 35px
+
+
+            .toggle
+                display none
+                position absolute
+                top 0px
+                right sidebar-button-h-space
+                height 100%
+                padding 0px 3px
+
+            &:hover
+                color font-color-blue
+                background-color color-sidebar-dark-grey
+
+                .toggle
+                    display block
+
+                    &:hover
+                        color font-color-blue
+
+        .subvariable-item
+            a,button
+                padding-left 45px
+
+    a, button
+        color font-color-dark-grey
+        font-size font-size-l
+        font-weight font-weight-normal
+        text-align left
+        word-wrap break-word
+
+        &:hover
+            color font-color-blue
+            background-color color-sidebar-dark-grey
+
+    .subvariable-item
+        a,button
+            padding-left subvariable-indent
+        /* implementors in this container should im
+        padding-left 40px
+        */
+
+    .hierarchical-variable header
+        padding-right 20px
+
+    &.empty
+        .groups
+            display none

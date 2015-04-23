@@ -1,0 +1,16 @@
+<div class="container hierarchical-variables-list" ng-class="hierarchicalVariablesList.state">
+    <div class="groups">
+        <ol>
+            <li ng-if="root.decrementable">
+                <button type="button" class="dec" ng-click="root.dec()">Show more...</button>
+            </li>
+            <li
+                ng-repeat="item in root.items | startFrom: root.startFrom | limitTo: root.pageLength">
+                <div class="hierarchical-top-level-item"></div>
+            </li>
+            <li ng-if="root.incrementable">
+                <button type="button" class="inc" ng-click="root.inc()">Show more...</button>
+            </li>
+        </ol>
+    </div>
+</div>

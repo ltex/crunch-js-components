@@ -1,0 +1,27 @@
+<div ng-class="group.state" data-group-name="{{group.name}}">
+    <header ng-if="group | shouldDisplayHeader">
+        <h2>
+            <button type="button"
+                ng-click="group.handle('toggle')"
+                title="{{group.name}}"
+                >{{group.name}}
+            </button>
+        </h2>
+    </header>
+    <ol class="variables" ng-if="group.state === 'expanded'">
+        <li ng-if="group.decrementable">
+            <button type="button"
+                class="dec"
+                ng-click="group.dec()">Show more...</button>
+        </li>
+        <li
+            ng-repeat="item in group.items | startFrom: group.startFrom | limitTo: group.pageLength">
+            <div class="hierarchical-item"></div>
+        </li>
+        <li ng-if="group.incrementable">
+            <button type="button"
+                class="inc"
+                ng-click="group.inc()">Show more...</button>
+        </li>
+    </ol>
+</div>

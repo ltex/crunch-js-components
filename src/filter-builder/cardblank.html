@@ -1,0 +1,11 @@
+<div class="card empty"
+     data-ng-class="{active: exp.isActive}">
+    <div class="drag-hint tw-bs"
+         data-ng-if="!exp.hasSource"
+         dropit
+         dropit-event="eligibleVariable.selected">
+        <input type="text"
+               class="drag-help"
+               value="Select or drag variable">
+    </div>
+</div>

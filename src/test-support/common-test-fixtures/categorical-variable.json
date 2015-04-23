@@ -1,0 +1,100 @@
+{
+    "body": {
+        "name": "Basin_Name",
+        "format": {
+            "summary": {
+                "digits": 0
+            }
+        },
+        "description": "",
+        "missing_reasons": {},
+        "discarded": false,
+        "alias": "Basin_Name",
+        "dataset_id": "ec5eb04114904ebd934bccb1cf572897",
+        "type": "categorical",
+        "id": "d81f27b2ef30430fad4b9fb698611e3b",
+        "categories": [
+            {
+                "numeric_value": null,
+                "missing": false,
+                "id": 1,
+                "name": "Atchafalaya"
+            },
+            {
+                "numeric_value": null,
+                "missing": false,
+                "id": 2,
+                "name": "Barataria"
+            },
+            {
+                "numeric_value": null,
+                "missing": false,
+                "id": 3,
+                "name": "Calcasieu"
+            },
+            {
+                "numeric_value": null,
+                "missing": false,
+                "id": 4,
+                "name": "Outside Waters"
+            },
+            {
+                "numeric_value": null,
+                "missing": false,
+                "id": 5,
+                "name": "Pontchartrain"
+            },
+            {
+                "numeric_value": null,
+                "missing": false,
+                "id": 6,
+                "name": "Terrebonne"
+            },
+            {
+                "numeric_value": null,
+                "missing": false,
+                "id": 7,
+                "name": "Vermilion-Teche"
+            },
+            {
+                "numeric_value": null,
+                "missing": false,
+                "id": 8,
+                "name": "Eastern Oyster"
+            }
+        ],
+        "view": {
+            "show_counts": false,
+            "column_width": null,
+            "include_missing": false,
+            "show_numeric_values": false
+        }
+    },
+    "catalogs": {},
+    "description": "Details for a given Variable",
+    "views": {
+        "frequencies": "https:///api/datasets/ec5eb04114904ebd934bccb1cf572897/variables/d81f27b2ef30430fad4b9fb698611e3b/frequencies/",
+        "cast": "https:///api/datasets/ec5eb04114904ebd934bccb1cf572897/variables/d81f27b2ef30430fad4b9fb698611e3b/cast/",
+        "values": "https:///api/datasets/ec5eb04114904ebd934bccb1cf572897/variables/d81f27b2ef30430fad4b9fb698611e3b/values/",
+        "summary": "https:///api/datasets/ec5eb04114904ebd934bccb1cf572897/variables/d81f27b2ef30430fad4b9fb698611e3b/summary/"
+    },
+    "self": "https:///api/datasets/ec5eb04114904ebd934bccb1cf572897/variables/d81f27b2ef30430fad4b9fb698611e3b/",
+    "element": "shoji:entity",
+    "combine": "https:///api/datasets/ec5eb04114904ebd934bccb1cf572897/variables/d81f27b2ef30430fad4b9fb698611e3b/combine/",
+    "urls": {
+        "cast_url": "https:///api/datasets/ec5eb04114904ebd934bccb1cf572897/variables/d81f27b2ef30430fad4b9fb698611e3b/cast/",
+        "summary_url": "https:///api/datasets/ec5eb04114904ebd934bccb1cf572897/variables/d81f27b2ef30430fad4b9fb698611e3b/summary/",
+        "missing_rules_url": "https:///api/datasets/ec5eb04114904ebd934bccb1cf572897/variables/d81f27b2ef30430fad4b9fb698611e3b/missing_rules/",
+        "values_url": "https:///api/datasets/ec5eb04114904ebd934bccb1cf572897/variables/d81f27b2ef30430fad4b9fb698611e3b/values/",
+        "dataset_url": "https:///api/datasets/ec5eb04114904ebd934bccb1cf572897/",
+        "user_settings_url": "https:///api/datasets/ec5eb04114904ebd934bccb1cf572897/variables/d81f27b2ef30430fad4b9fb698611e3b/user_settings/",
+        "frequencies_url": "https:///api/datasets/ec5eb04114904ebd934bccb1cf572897/variables/d81f27b2ef30430fad4b9fb698611e3b/frequencies/",
+        "view_model_url": "https:///api/datasets/ec5eb04114904ebd934bccb1cf572897/variables/d81f27b2ef30430fad4b9fb698611e3b/card_view/"
+    },
+    "fragments": {
+        "card_view": "https:///api/datasets/ec5eb04114904ebd934bccb1cf572897/variables/d81f27b2ef30430fad4b9fb698611e3b/card_view/",
+        "missing_rules": "https:///api/datasets/ec5eb04114904ebd934bccb1cf572897/variables/d81f27b2ef30430fad4b9fb698611e3b/missing_rules/",
+        "user_settings": "https:///api/datasets/ec5eb04114904ebd934bccb1cf572897/variables/d81f27b2ef30430fad4b9fb698611e3b/user_settings/"
+    },
+    "specification": "https:///api/specifications/categorical_variables/"
+}

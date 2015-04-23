@@ -1,0 +1,23 @@
+<div class="card"
+     data-ng-class="{active: false}"
+     >
+    <header data-ng-hide="!exp.hasSource" class="card-header">
+        <h1 data-dropdown>{{exp.name}}</h1>
+    </header>
+    <ol data-ng-show="exp.hasSource" class="categories-list">
+        <li class="category-item"
+            data-ng-repeat="cat in exp.orderedCategories"
+            data-ng-show="cat.isSelected || exp.isActive">
+            <button type="button"
+                class="category-button"
+                data-ng-class="{'selected' : cat.isSelected}">
+                <span class="icon-done" ng-if="cat.isSelected"></span>
+                <span ng-class="{'missing-category': cat.missing}">{{cat.name}}</span>
+            </button>
+        </li>
+    </ol>
+    <div data-ng-show="exp.hasSource" class="card-count">
+        <h3>Count</h3><span> {{exp.selectedRows | alwaysRoundCounts}} of {{filterBuilder.stat('total') | alwaysRoundCounts}} ({{exp.selectedRows|percentage:filterBuilder.stat('total')}})</span>
+    </div>
+    <div data-ng-show="exp.hasSource" class="inactive-arrow">&#9662;</div>
+</div>
