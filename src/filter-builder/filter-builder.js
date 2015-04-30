@@ -118,13 +118,16 @@ function FilterBuilderFactory(Machina, _, Filter, evalFilter, bus) {
 
             if (this.expressionsCount() > 0){
                  for (i=0; i<this.filter.expressions.length; i++) {
-                    if (this.filter.expressions[i] && this.filter.expressions[i].selectedCategories().length > 0){
-                        return true
+                    if (this.filter.expressions[i].selectedCategories().length == 0){
+                       return false
                     }
                  }
             }
+            else{
+                return false
+            }
 
-            return false
+            return true
         }
 
         , junctionsCount : function() {
@@ -208,6 +211,13 @@ function FilterBuilderFactory(Machina, _, Filter, evalFilter, bus) {
 
                 , deleteExpression : function(expressionIndex) {
                     this.deleteExpression(expressionIndex)
+                },
+                'save': function(){
+                    this.transition('saving')
+                }
+            }
+            , saving: {
+                _onEnter: function(){
                 }
             }
             ,destroyed: {

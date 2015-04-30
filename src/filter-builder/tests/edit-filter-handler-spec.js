@@ -1,5 +1,8 @@
+'use strict';
 var buildModule = require('../index')
     ,mocks = require('angular-mocks')
+    ;
+
 
 
 describe('EditFilterHandler', function() {
@@ -7,7 +10,6 @@ describe('EditFilterHandler', function() {
     beforeEach(function() {
         events = [];
         var filtersMod = buildModule('crunch.filters');
-
         filtersMod.factory('bus', function() {
             return {
                 events: events

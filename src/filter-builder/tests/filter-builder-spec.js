@@ -1,12 +1,14 @@
+'use strict'
+
 var mocks = require('angular-mocks')
     , mainMod = require('../index')
-
+    ;
 
 describe('FilterBuilder', function() {
     var sut
         ,fakeStats
         ,dataset
-
+        ;
 
     function buildModule() {
         var main

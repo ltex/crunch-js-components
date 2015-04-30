@@ -1,8 +1,8 @@
 var mainMod = require('../index')
-    , datasetFixture = require('../../test-support/common-test-fixtures/dataset-simple')
-    , frequenciesCategoricalFixture = require('../../test-support/common-test-fixtures/variable-frequencies-categorical')
-    , categoricalVariableFixture = require('../../test-support/common-test-fixtures/categorical-variable')
-
+var datasetFixture = require('../../common-test-fixtures/dataset-simple')
+var frequenciesCategoricalFixture = require('../../common-test-fixtures/variable-frequencies-categorical')
+var categoricalVariableFixture = require('../../common-test-fixtures/categorical-variable-fixture')
+var datasetFixture = require('../../common-test-fixtures/dataset-simple')
 
 describe('FilterExpressionDecompiler', function() {
 
@@ -54,6 +54,17 @@ describe('FilterExpressionDecompiler', function() {
                 return $q.when(Shoji(datasetFixture.self).parse(datasetFixture))
             }
         });
+
+        mod.factory('currentDataset', function(
+                Shoji, $q) {
+                return {
+                'fetch': function execute(q) {
+                    var res = Shoji(datasetFixture.self)
+                        .parse(datasetFixture);
+                    return $q.when(res)
+                }
+                }
+            })
 
         mod.factory('iResourceVariable', function($q, Shoji) {
             return function(q) {

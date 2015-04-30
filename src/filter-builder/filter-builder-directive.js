@@ -3,12 +3,15 @@
 module.exports = FilterBuilderDirective
 
 FilterBuilderDirective.$inject = [
-     '$compile'
+    '$state'
+    , '$compile'
     , '$templateCache'
-
+    , 'FilterBuilder'
+    , 'currentDataset'
+    , 'ShareFilter'
 ]
 
-function FilterBuilderDirective($compile, $templateCache) {
+function FilterBuilderDirective($state, $compile, $templateCache, FilterBuilder, currentDataset, ShareFilter) {
     return {
         restrict : 'EA'
         , replace : true
