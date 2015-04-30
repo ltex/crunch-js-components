@@ -70,7 +70,8 @@ module.exports = function(grunt) {
             }
         },
         npmDist : {
-            styles : 'crunch-js-components.styl'
+            styles : 'crunch-js-components.styl',
+            templatesList : 'crunch-js-components-tpl.js'
         },
         reports : {
             coverage : 'reports/coverage',
@@ -140,6 +141,13 @@ module.exports = function(grunt) {
             prod : {
                 src :  ['<%= src.templates.ngTemplates %>'],
                 dest:   '<%= build.prod.templatesList %>'
+            },
+            npmDist : {
+                options : {
+                    basepath : './'
+                },
+                src : ['<%= src.templates.ngTemplates %>'],
+                dest : '<%= npmDist.templatesList %>'
             }
         },
         browserify : {
