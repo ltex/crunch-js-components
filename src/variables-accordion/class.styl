@@ -63,10 +63,12 @@ variables-accordion
         justify-content flex-start
         align-items stretch
 
-        a, button
+        a, button, span.variable-button
             flex 0 1 auto
             line-height line-height-xl
             padding elements-space-s elements-space-m elements-space-s 0
+            display block
+            cursor pointer
 
     .composite,
     .hierarchical-nested-group
@@ -111,12 +113,13 @@ variables-accordion
             a,button
                 padding-left 45px
 
-    a, button
+    a, button, span.variable-button
         color font-color-dark-grey
         font-size font-size-l
         font-weight font-weight-normal
         text-align left
         word-wrap break-word
+        display block
 
         &:hover
             color font-color-blue
