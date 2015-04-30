@@ -69,12 +69,12 @@ module.exports = function(grunt) {
                 specsSupport : '<%= build.test.base %>/specs-support.js'
             }
         },
+        npmDist : {
+            styles : 'crunch-js-components.styl'
+        },
         reports : {
             coverage : 'reports/coverage',
             tap : 'reports/results.tap'
-        },
-        dist : {
-            packageName : '<%= baseDirs.dist %>/<%= fversion %>.tar.gz'
         },
         clean : {
             dist : {
@@ -93,7 +93,6 @@ module.exports = function(grunt) {
                 src : ['<%= build.test.base %>']
             }
         },
-
         createStylesImporter : {
             all : {
                 src : [
@@ -102,9 +101,16 @@ module.exports = function(grunt) {
                     '<%= src.styles.class %>'
                 ],
                 dest : '<%= tmp.styles %>'
+            },
+
+            npmDist : {
+                src : [
+                    '<%= src.styles.values %>',
+                    '<%= src.styles.class %>'
+                ],
+                dest : '<%= npmDist.styles %>'
             }
         },
-
         stylus : {
             options : {
                 paths : ['<%= src.styles.bootstrap %>'],
@@ -126,7 +132,6 @@ module.exports = function(grunt) {
                 dest : '<%= build.prod.styles %>'
             }
         },
-
         createTplBundle : {
             dev : {
                 src :  ['<%= src.templates.ngTemplates %>'],
@@ -137,7 +142,6 @@ module.exports = function(grunt) {
                 dest:   '<%= build.prod.templatesList %>'
             }
         },
-
         browserify : {
             templatesDev : {
                 options : {
