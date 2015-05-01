@@ -71,7 +71,7 @@ module.exports = function(grunt) {
         },
         npmDist : {
             styles : 'crunch-js-components.styl',
-            templatesList : 'crunch-js-components-tpl.js'
+            templatesList : 'crunch-js-components-tpls.js'
         },
         reports : {
             coverage : 'reports/coverage',
@@ -173,6 +173,17 @@ module.exports = function(grunt) {
                 },
                 src : ['<%= build.prod.templatesList %>'],
                 dest : '<%= build.prod.templates %>'
+            },
+            templatesNpmDist : {
+                options : {
+                    external : ['angular'],
+                    transform : ['html2js-browserify'],
+                    browserifyOptions : {
+                        fullPaths : false
+                    }
+                },
+                src : ['<%= npmDist.templatesList %>'],
+                dest : '<%= npmDist.templatesList %>'
             },
             libDev : {
                 options : {

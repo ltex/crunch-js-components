@@ -29,7 +29,6 @@ module.exports = function(cfg) {
         , require('../display-filters')
         , require('../filter-builder')
         , require('../svg-helpers')
-        , require('../user-preferences')
         , require('../play-controls')
         , require('../variables-accordion')
     ]
