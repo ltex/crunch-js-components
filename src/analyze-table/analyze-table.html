@@ -1,4 +1,2 @@
-<div class="xtabs-table">
-    <table ng-if="!xtab.rows.length" ng-include="'/analyze-table/no-valid-data-table.html'"></table>
-    <table ng-if="xtab.rows.length" ng-include="'/analyze-table/table.html'"></table>
-</div>
+<div ng-if="!xtab.rows.length" ng-include="'/analyze-table/no-valid-data-table.html'"></div>
+<div ng-if="xtab.rows.length" ng-include="'/analyze-table/table.html'"></div>

@@ -1,104 +1,106 @@
-<thead ng-if="!xtab.withMeans">
-    <tr ng-if="xtab.showColumnTitle">
-        <th class="empty-table-corner column-title" colspan="{{xtab.preCols.length}}">
-            &nbsp;
-        </th>
-        <th class="column-title" colspan={{xtab.colLabels.length}}>
-            <title-variable
-                variable="xtab.variables.at(1)"
-                type="column">
-            </title-variable>
-            <a ng-click="ctrl.removeColumn()" class="remove-column" title="Remove">
-                <span class="icon-remove"></span>
-            </a>
-        </th>
-        <th class="empty-table-corner column-title" colspan ={{xtab.postCols.length}}>
-            &nbsp;
-        </th>
-    </tr>
-    <tr sort class="column-label-row">
-        <th class="row-title column-title">
-            <a href
-               class="sort-table"
-               data-sort-key=""
-               data-sort-source="labels">
+<table>
+    <thead ng-if="!xtab.withMeans">
+        <tr ng-if="xtab.showColumnTitle">
+            <th class="empty-table-corner column-title" colspan="{{xtab.preCols.length}}">
+                &nbsp;
+            </th>
+            <th class="column-title" colspan={{xtab.colLabels.length}}>
                 <title-variable
-                    variable="xtab.variables.at(0)"
-                    type="row">
+                    variable="xtab.variables.at(1)"
+                    type="column">
                 </title-variable>
-            </a>
-            <a ng-click="ctrl.removeRow()" class="remove-row" title="Remove">
-                <span class="icon-remove"></span>
-            </a>
-        </th>
-        <th data-sort-source="preCols" data-sort-key="{{pre.label}}" ng-repeat="pre in xtab.preCols">{{ pre.label }}</th>
-        <th ng-repeat="label in xtab.colLabels">
-            <a href
-               class="sort-table"
-               data-sort-source="bodyCols"
-               data-sort-key="{{label}}">
-                {{ label }}
-            </a>
-        </th>
-        <th ng-repeat="post in xtab.postCols">
-            <a href
-               data-sort-source="postCols"
-               data-sort-key="{{post.label}}"
-               class="sort-table">{{ post.label }}</a>
-        </th>
-    </tr>
-</thead>
-<thead ng-if="xtab.withMeans">
-    <tr>
-        <th class="column-title">
-            <span>&nbsp;</span>
-        </th>
-        <th class="column-title mean" colspan={{xtab.colLabels.length}}>
-            <title-variable
-                variable="xtab.measureVariable"
-                type="mean">
-            </title-variable>
-            <a title="Remove mean variable"
-                class="remove-mean-measure"
-                ng-click="ctrl.removeMeanMeasure()">
-                <span class="icon-remove"></span>
-            </a>
-        </th>
-    </tr>
-    <tr ng-if="xtab.variables.count() == 2">
-        <th class="empty-table-corner column-title">
-            <span>&nbsp;</span>
-        </th>
-        <th class="column-title" colspan={{xtab.colLabels.length}}>
-            <title-variable
-                variable="xtab.variables.at(1)"
-                type="column">
-            </title-variable>
-            <a ng-click="ctrl.removeColumn()" class="remove-column" title="Remove">
-                <span class="icon-remove"></span>
-            </a>
-        </th>
-    </tr>
-    <tr sort class="column-label-row">
-        <th class="empty-table-corner row-title column-title">
-            <a href
-            data-sort-source="labels" data-sort-key=""
-            class="sort-table">
+                <a ng-click="ctrl.removeColumn()" class="remove-column" title="Remove">
+                    <span class="icon-remove"></span>
+                </a>
+            </th>
+            <th class="empty-table-corner column-title" colspan ={{xtab.postCols.length}}>
+                &nbsp;
+            </th>
+        </tr>
+        <tr sort class="column-label-row">
+            <th class="row-title column-title">
+                <a href
+                   class="sort-table"
+                   data-sort-key=""
+                   data-sort-source="labels">
+                    <title-variable
+                        variable="xtab.variables.at(0)"
+                        type="row">
+                    </title-variable>
+                </a>
+                <a ng-click="ctrl.removeRow()" class="remove-row" title="Remove">
+                    <span class="icon-remove"></span>
+                </a>
+            </th>
+            <th data-sort-source="preCols" data-sort-key="{{pre.label}}" ng-repeat="pre in xtab.preCols">{{ pre.label }}</th>
+            <th ng-repeat="label in xtab.colLabels">
+                <a href
+                   class="sort-table"
+                   data-sort-source="bodyCols"
+                   data-sort-key="{{label}}">
+                    {{ label }}
+                </a>
+            </th>
+            <th ng-repeat="post in xtab.postCols">
+                <a href
+                   data-sort-source="postCols"
+                   data-sort-key="{{post.label}}"
+                   class="sort-table">{{ post.label }}</a>
+            </th>
+        </tr>
+    </thead>
+    <thead ng-if="xtab.withMeans">
+        <tr>
+            <th class="column-title">
+                <span>&nbsp;</span>
+            </th>
+            <th class="column-title mean" colspan={{xtab.colLabels.length}}>
                 <title-variable
-                    variable="xtab.variables.at(0)"
-                    type="row">
+                    variable="xtab.measureVariable"
+                    type="mean">
                 </title-variable>
-            </a>
-            <a ng-click="ctrl.removeRow()" class="remove-row" title="Remove">
-                <span class="icon-remove"></span>
-            </a>
-        </th>
-        <th ng-repeat="label in xtab.colLabels">
-            <a href data-sort-source="bodyCols" data-sort-key="{{label}}" class="sort-table">
-                {{ label }}
-            </a>
-        </th>
-    </tr>
-</thead>
-<tbody ng-include="xtab.template">
-</tbody>
+                <a title="Remove mean variable"
+                    class="remove-mean-measure"
+                    ng-click="ctrl.removeMeanMeasure()">
+                    <span class="icon-remove"></span>
+                </a>
+            </th>
+        </tr>
+        <tr ng-if="xtab.variables.count() == 2">
+            <th class="empty-table-corner column-title">
+                <span>&nbsp;</span>
+            </th>
+            <th class="column-title" colspan={{xtab.colLabels.length}}>
+                <title-variable
+                    variable="xtab.variables.at(1)"
+                    type="column">
+                </title-variable>
+                <a ng-click="ctrl.removeColumn()" class="remove-column" title="Remove">
+                    <span class="icon-remove"></span>
+                </a>
+            </th>
+        </tr>
+        <tr sort class="column-label-row">
+            <th class="empty-table-corner row-title column-title">
+                <a href
+                data-sort-source="labels" data-sort-key=""
+                class="sort-table">
+                    <title-variable
+                        variable="xtab.variables.at(0)"
+                        type="row">
+                    </title-variable>
+                </a>
+                <a ng-click="ctrl.removeRow()" class="remove-row" title="Remove">
+                    <span class="icon-remove"></span>
+                </a>
+            </th>
+            <th ng-repeat="label in xtab.colLabels">
+                <a href data-sort-source="bodyCols" data-sort-key="{{label}}" class="sort-table">
+                    {{ label }}
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody ng-include="xtab.template">
+    </tbody>
+</table>
