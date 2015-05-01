@@ -41,5 +41,5 @@ module.exports = function(cfg) {
 
     deps.unshift('crunchJS')
 
-    return angular.module('features', deps)
+    return angular.module('crunch-js-components-features', deps)
 }

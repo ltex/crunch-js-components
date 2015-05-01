@@ -13,7 +13,7 @@ function buildModule(moduleName) {
 
     return angular.module(moduleName,[
         , features.name
-        ,'templates'
+        ,'crunch-js-components-tpls'
     ])
 }
 
