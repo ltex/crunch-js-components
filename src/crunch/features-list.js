@@ -29,7 +29,6 @@ module.exports = function(cfg) {
         , require('../display-filters')
         , require('../filter-builder')
         , require('../svg-helpers')
-        , require('../user-preferences')
         , require('../play-controls')
         , require('../variables-accordion')
     ]
@@ -42,5 +41,5 @@ module.exports = function(cfg) {
 
     deps.unshift('crunchJS')
 
-    return angular.module('features', deps)
+    return angular.module('crunch-js-components-features', deps)
 }

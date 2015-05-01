@@ -1,4 +1,8 @@
 var filtersModule = require('../index')
+    ,mocks = require('angular-mocks')
+    ;
+
+
 
 module.exports = (function() {
     'use strict';
@@ -8,7 +12,6 @@ module.exports = (function() {
             , Shoji
             , events;
         beforeEach(function() {
-
             events = [];
             var mod = filtersModule('filters.test');
             mod.factory('bus', function() {

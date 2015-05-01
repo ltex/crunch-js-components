@@ -1,7 +1,8 @@
-var mainMod = require('../index')
-
+;
 module.exports = (function() {
-
+    'use strict';
+    var mainModule = require('../index');
+    var mocks = require('angular-mocks');
 
     describe('DatetimeExpressionBuilder', function() {
         var sut
@@ -49,8 +50,7 @@ module.exports = (function() {
             ]
         };
         beforeEach(function() {
-            var mod = mainMod('main.test')
-
+            var mod = mainModule('filters.test');
             mod.factory('iResourceVariable', function(
                 Shoji, $q) {
                 return function execute(q) {
@@ -64,9 +64,7 @@ module.exports = (function() {
                     throw new Error('Unexpected args', q)
                 }
             });
-
-            angular.mock.module(mod.name)
-
+            angular.mock.module('filters.test')
         });
         beforeEach(function() {
             inject(function(datetimeExpressionBuilder) {

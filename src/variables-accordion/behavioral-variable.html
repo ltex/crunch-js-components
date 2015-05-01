@@ -1,12 +1,12 @@
 <div ng-switch on="behavioral.behaviors.strategy">
-    <button ng-switch-when="linkable"
+    <span ng-switch-when="linkable"
         title="{{behavioral.name}}"
         class="variable-button"
         ng-click="behavioral.handle('click')"
         dragit="behavioral.data"
-        dragit-operation="link">{{behavioral.name}}</button>
-    <button ng-switch-default
+        dragit-operation="link">{{behavioral.name}}</span>
+    <span ng-switch-default
         title="{{behavioral.name}}"
         class="variable-button"
-        ng-click="behavioral.handle('click')">{{behavioral.name}}</button>
+        ng-click="behavioral.handle('click')">{{behavioral.name}}</span>
 </div>
