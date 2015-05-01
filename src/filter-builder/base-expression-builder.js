@@ -24,7 +24,7 @@ function BaseExpressionBuilderProvider(machina, _, iResourceVariable) {
             this.isExclusion = isExclusion
             this.hasSource = false
             this.categories = {}
-            this.name = null
+            this.name = NULL
             this.pickerOption = this.pickerItems[0]['item']
         }
 
@@ -167,7 +167,7 @@ function BaseExpressionBuilderProvider(machina, _, iResourceVariable) {
     
         , build : function(variablePrefix, variableSuffix) {
             if (!this.hasSource) {
-                return null
+                return NULL
             }
     
             var cats = _(this.categories)

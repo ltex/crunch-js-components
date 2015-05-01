@@ -1,8 +1,11 @@
 var expressionCompiler = require('./filter-expression-compiler');
+
+
+
 module.exports = (function() {
     'use strict';
 
-    function EvalFilterFactory() {
+    function EvalFilterFactory($q) {
         function evaluate(dataset, args) {
             args = args || {};
             var expressions = args.expressions || [];
@@ -23,11 +26,14 @@ module.exports = (function() {
                     return result
                 })
             }
-            return _eval(expressions, dataset)
+            //if (expressions.length > 0) {
+                return _eval(expressions, dataset)
+            //}
+            //return $q(function(){return {}})
         }
         return evaluate
     }
-    EvalFilterFactory.$inject = [];
+    EvalFilterFactory.$inject = ['$q'];
     return EvalFilterFactory
 })
     .call(this);

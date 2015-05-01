@@ -3,7 +3,8 @@
   "version": "1.0.1",
   "main": "src/crunch/index.js",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "postinstall": "grunt npmDist"
   },
   "dependencies": {
     "chai": "~2.2.0",

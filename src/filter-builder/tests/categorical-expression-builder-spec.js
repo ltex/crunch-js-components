@@ -1,7 +1,11 @@
+;
 module.exports = (function() {
+    'use strict';
     var mainModule = require('../index')
         ,mocks = require('angular-mocks')
         ,fixtures = require('./categorical-expression-builder-fixtures')
+        ;
+
 
 
     describe('CategoricalExpressionBuilder', function() {
@@ -17,7 +21,6 @@ module.exports = (function() {
         }
         beforeEach(function() {
             var mod = mainModule('filters.test');
-
             mod.factory('iResourceVariable', function(
                 Shoji, $q) {
                 return function execute(q) {

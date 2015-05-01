@@ -3,10 +3,11 @@ module.exports = MultipleResponseExpressionBuilderProvider
 MultipleResponseExpressionBuilderProvider.$inject = [
         'BaseExpressionBuilder'
         , 'lodash'
+        , 'currentDataset'
     ]
 
 
-function MultipleResponseExpressionBuilderProvider(BaseExpressionBuilder, _) {
+function MultipleResponseExpressionBuilderProvider(BaseExpressionBuilder, _, currentDataset) {
 
     var MultipleResponseExpressionBuilder = BaseExpressionBuilder.extend({
             expType: 'multiple response'
@@ -34,9 +35,37 @@ function MultipleResponseExpressionBuilderProvider(BaseExpressionBuilder, _) {
                     item: 'is not all of'
                 }
             ]
+            , updateCases : function() {
+                var self = this
+                var filter = this.build()
+
+                function updateSelectedRows(dataset) {
+                    dataset.urls.summary.map({
+                        params: {
+                            filter_syntax: {
+                                expression: filter
+                            }
+                        }
+                        , cached: false
+                    }).then(function (summary){
+                        self.selectedRows = summary.value.rows.filtered
+                    })
+                }
+
+                if (this._ds === undefined){
+                    currentDataset.fetch().then(function(dataset){
+                        self._ds = dataset
+                        updateSelectedRows(dataset)
+                    })
+                }
+                else {
+                    updateSelectedRows(this._ds)
+                }
+
+            }
             , build : function(variablePrefix, variableSuffix) {
                 if (!this.hasSource) {
-                    return null
+                    return NULL
                 }
 
                 var cats = _(this.categories)
@@ -47,6 +76,10 @@ function MultipleResponseExpressionBuilderProvider(BaseExpressionBuilder, _) {
                         return cat.id
                     })
                     .value();
+
+                if (cats.length === 0){
+                    return NULL
+                }
 
                 var func = this.functionMap[this.pickerOption]
                 var varUrl = this.variableUrl(variablePrefix, variableSuffix)
