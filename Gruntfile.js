@@ -174,17 +174,6 @@ module.exports = function(grunt) {
                 src : ['<%= build.prod.templatesList %>'],
                 dest : '<%= build.prod.templates %>'
             },
-            templatesNpmDist : {
-                options : {
-                    external : ['angular'],
-                    transform : ['html2js-browserify'],
-                    browserifyOptions : {
-                        fullPaths : false
-                    }
-                },
-                src : ['<%= npmDist.templatesList %>'],
-                dest : '<%= npmDist.templatesList %>'
-            },
             libDev : {
                 options : {
                     alias : [
@@ -401,6 +390,11 @@ module.exports = function(grunt) {
 
     grunt.registerTask('dist', [
         'build:prod'
+    ])
+
+    grunt.registerTask('npmDist', [
+        'createStylesImporter:npmDist',
+        'createTplBundle:npmDist'
     ])
 
     grunt.loadNpmTasks('grunt-karma')
