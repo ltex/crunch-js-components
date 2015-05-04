@@ -20,12 +20,12 @@
     "moment": "~2.5.1",
     "prefixed-event": "~1.0.4",
     "simulate-event": "git+https://www.github.com/Crunch-io/simulate-event.git",
-    "sortable": "git+https://www.github.com/Crunch-io/Sortable.git"
+    "sortable": "git+https://www.github.com/Crunch-io/Sortable.git",
+    "grunt-browserify": "^3.7.0"
   },
   "devDependencies": {
     "browserify-istanbul": "^0.2.1",
     "grunt": "^0.4.5",
-    "grunt-browserify": "^3.7.0",
     "grunt-cli": "^0.1.13",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-compress": "^0.13.0",
