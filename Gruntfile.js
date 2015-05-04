@@ -71,7 +71,8 @@ module.exports = function(grunt) {
         },
         npmDist : {
             styles : 'crunch-js-components.styl',
-            templatesList : 'crunch-js-components-tpls.js'
+            templatesList : 'crunch-js-components-tpls-list.js',
+            templates : 'crunch-js-components-tpls.js'
         },
         reports : {
             coverage : 'reports/coverage',
@@ -151,6 +152,17 @@ module.exports = function(grunt) {
             }
         },
         browserify : {
+            templatesNpmDist : {
+                options : {
+                    external : ['angular'],
+                    transform : ['html2js-browserify'],
+                    browserifyOptions : {
+                        fullPaths : false
+                    }
+                },
+                src : ['<%= npmDist.templatesList %>'],
+                dest : '<%= npmDist.templates %>'
+            },
             templatesDev : {
                 options : {
                     external : ['angular'],
@@ -394,7 +406,8 @@ module.exports = function(grunt) {
 
     grunt.registerTask('npmDist', [
         'createStylesImporter:npmDist',
-        'createTplBundle:npmDist'
+        'createTplBundle:npmDist',
+        'browserify:templatesNpmDist'
     ])
 
     grunt.loadNpmTasks('grunt-karma')
