@@ -10,7 +10,6 @@ docs/
 uploads/
 local/
 build/
-dist/
 node_modules/
 components/
 logs/
