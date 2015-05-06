@@ -138,7 +138,7 @@ module.exports = function(grunt) {
                 dest : '<%= build.prod.styles %>'
             },
             npmDist : {
-                src : ['<%=  npmDist.stylesList %>'],
+                src : ['<%=  npmDist.stylesList %>', '<%= src.styles.icons %>'],
                 dest : '<%= npmDist.styles %>'
             }
         },
