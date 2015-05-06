@@ -70,9 +70,10 @@ module.exports = function(grunt) {
             }
         },
         npmDist : {
-            styles : 'crunch-js-components.styl',
-            templatesList : 'crunch-js-components-tpls-list.js',
-            templates : 'crunch-js-components-tpls.js'
+            stylesList : '<%= baseDirs.dist %>/crunch-js-components.styl',
+            styles : '<%= baseDirs.dist %>/crunch-js-components.css',
+            templatesList : '<%= baseDirs.dist %>/crunch-js-components-tpls-list.js',
+            templates : '<%= baseDirs.dist %>/crunch-js-components-tpls.js'
         },
         reports : {
             coverage : 'reports/coverage',
@@ -106,11 +107,14 @@ module.exports = function(grunt) {
             },
 
             npmDist : {
+                options : {
+                    basepath : '..'
+                },
                 src : [
                     '<%= src.styles.values %>',
                     '<%= src.styles.class %>'
                 ],
-                dest : '<%= npmDist.styles %>'
+                dest : '<%= npmDist.stylesList %>'
             }
         },
         stylus : {
@@ -132,6 +136,10 @@ module.exports = function(grunt) {
             prod : {
                 src : ['<%= tmp.styles %>'],
                 dest : '<%= build.prod.styles %>'
+            },
+            npmDist : {
+                src : ['<%=  npmDist.stylesList %>'],
+                dest : '<%= npmDist.styles %>'
             }
         },
         createTplBundle : {
@@ -145,7 +153,7 @@ module.exports = function(grunt) {
             },
             npmDist : {
                 options : {
-                    basepath : './'
+                    basepath : '..'
                 },
                 src : ['<%= src.templates.ngTemplates %>'],
                 dest : '<%= npmDist.templatesList %>'
@@ -407,7 +415,8 @@ module.exports = function(grunt) {
     grunt.registerTask('npmDist', [
         'createStylesImporter:npmDist',
         'createTplBundle:npmDist',
-        'browserify:templatesNpmDist'
+        'browserify:templatesNpmDist',
+        'stylus:npmDist'
     ])
 
     grunt.loadNpmTasks('grunt-karma')
