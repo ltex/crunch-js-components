@@ -2,7 +2,7 @@ var mainMod = require('../index')
 var datasetFixture = require('../../test-support/common-test-fixtures/dataset-simple')
 var frequenciesCategoricalFixture = require('../../test-support/common-test-fixtures/variable-frequencies-categorical')
 var frequenciesMRFixture = require('../../test-support/common-test-fixtures/variable-frequencies-multiple-response')
-var categoricalVariableFixture = require('../../test-support/common-test-fixtures/categorical-variable-fixture')
+var categoricalVariableFixture = require('../../test-support/common-test-fixtures/categorical-variable')
 var mrVariableFixture = require('../../test-support/common-test-fixtures/variable-mr')
 var datasetFixture = require('../../test-support/common-test-fixtures/dataset-simple')
 
