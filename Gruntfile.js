@@ -66,8 +66,14 @@ module.exports = function(grunt) {
             , test : {
                 base : '<%= baseDirs.build %>/test',
                 specs : '<%= build.test.base %>/specs.js',
-                specsSupport : '<%= build.test.base %>/specs-support.js'
+                specsSupport : '<%= build.test.base %>/specs-support.js',
+                travis: {
+                    options : {
+                        watch:false
+                    }
+                }
             }
+
         },
         npmDist : {
             stylesList : '<%= baseDirs.dist %>/crunch-js-components.styl',
@@ -293,7 +299,7 @@ module.exports = function(grunt) {
 
         karma : {
             options : {
-                configFile : 'karma.conf.js',
+                configFile : 'config/karma.conf.js',
                 files: [
                     '<%= externalAssets.jquery %>',
                     '<%= externalAssets.angular %>',
@@ -324,6 +330,12 @@ module.exports = function(grunt) {
                     tapReporter : {
                         outputFile : '<%= reports.tap %>'
                     }
+                }
+            },
+            travis: {
+                options : {
+                    configFile: 'config/karma.travis.conf.js',
+                    singleRun: true
                 }
             }
         },
