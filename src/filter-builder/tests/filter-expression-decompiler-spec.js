@@ -1,8 +1,10 @@
 var mainMod = require('../index')
-var datasetFixture = require('../../common-test-fixtures/dataset-simple')
-var frequenciesCategoricalFixture = require('../../common-test-fixtures/variable-frequencies-categorical')
-var categoricalVariableFixture = require('../../common-test-fixtures/categorical-variable-fixture')
-var datasetFixture = require('../../common-test-fixtures/dataset-simple')
+var datasetFixture = require('../../test-support/common-test-fixtures/dataset-simple')
+var frequenciesCategoricalFixture = require('../../test-support/common-test-fixtures/variable-frequencies-categorical')
+var frequenciesMRFixture = require('../../test-support/common-test-fixtures/variable-frequencies-multiple-response')
+var categoricalVariableFixture = require('../../test-support/common-test-fixtures/categorical-variable-fixture')
+var mrVariableFixture = require('../../test-support/common-test-fixtures/variable-mr')
+var datasetFixture = require('../../test-support/common-test-fixtures/dataset-simple')
 
 describe('FilterExpressionDecompiler', function() {
 
@@ -44,6 +46,27 @@ describe('FilterExpressionDecompiler', function() {
             ]
         }
     }
+    var compiledRelativeMRFilter = {
+        "numeric_value": null,
+        "id": 0,
+        "name": "mris",
+        "missing": false,
+        "index": 0,
+        "expression": {
+            "function": "any",
+            "args": [
+                {
+                    "variable": "../../00000d/"
+                },
+                {
+                    "column": [
+                        "000004",
+                        "000005"
+                    ]
+                }
+            ]
+        }
+    }
 
     beforeEach(function() {
 
@@ -51,7 +74,14 @@ describe('FilterExpressionDecompiler', function() {
 
         mod.factory('iResourceDataset', function($q, Shoji) {
             return function() {
-                return $q.when(Shoji(datasetFixture.self).parse(datasetFixture))
+                var fixture = Shoji(datasetFixture.self).parse(datasetFixture)
+
+                /*
+                fixture.urls.summary.map = function(){
+                    return {}
+                }*/
+
+                return $q.when(fixture)
             }
         });
 
@@ -69,13 +99,18 @@ describe('FilterExpressionDecompiler', function() {
         mod.factory('iResourceVariable', function($q, Shoji) {
             return function(q) {
 
+                var lookup = {'/api/datasets/123/variables/000000/': categoricalVariableFixture,
+                              '/api/datasets/123/variables/00000d/': mrVariableFixture}
+                var fixture = lookup[q.variableId]
+
                 //override the variable ids
-                var resp = Shoji(categoricalVariableFixture.self).parse(categoricalVariableFixture)
+                var resp = Shoji(q.variableId).parse(fixture)
                 resp.id = q.variableId
                 resp.self = q.variableId
 
                 resp.urls.frequencies.map = function(){
-                    var fixture = {'/api/datasets/123/variables/000000/': frequenciesCategoricalFixture
+                    var fixture = {'/api/datasets/123/variables/000000/': frequenciesCategoricalFixture,
+                                   '/api/datasets/123/variables/00000d/': frequenciesMRFixture
                                    //'/api/datasets/123/variables/000002/':frequenciesNumericFixture,
                                    //'/api/datasets/123/variables/000001/':frequenciesDateFixture
                                   }[q.variableId]
@@ -118,6 +153,23 @@ describe('FilterExpressionDecompiler', function() {
                     actual.expressions.length.should.eql(2)
                     Object.keys(actual.expressions[0].categories).length.should.eq(7)
                     actual.junctions.should.eql(['AND'])
+                })
+
+                flush()
+            })
+    })
+
+    describe('testing mr decompilation with relative urls', function() {
+        it(
+            'should decompile the server filter to a filter usable by the ctrl', function() {
+                var decompiled = sut(compiledRelativeMRFilter, datasetFixture)
+
+                decompiled.then(function(actual){
+
+                    actual.expressions[0].id.should.equal("00000d")
+                    //actual.expressions.length.should.eql(1)
+                    //Object.keys(actual.expressions[0].categories).length.should.eq(3)
+                    //actual.junctions.should.eql(['AND'])
                 })
 
                 flush()
