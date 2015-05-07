@@ -130,8 +130,6 @@ function MultipleResponseExpressionBuilderProvider(BaseExpressionBuilder, _, cur
                     }
                 )
 
-                this.id = variable
-
                 _.each(columns, function(catId) {
                     self.toggleCategorySelection(catId)
                 })

@@ -101,7 +101,7 @@ function BaseExpressionBuilderProvider(machina, _, iResourceVariable) {
     
         , _sourceVariable : function(variable) {
             this.name = variable.name
-            this.id = variable.id
+            this.id = this.extractVariableId(variable.id)
             this.variable = variable
             this.hasSource = true
             this.negated = false
@@ -205,7 +205,7 @@ function BaseExpressionBuilderProvider(machina, _, iResourceVariable) {
 
             //variable id has no positioning
             if (split.length === 1){
-                return split
+                return split[0]
             }
 
             //variable ends in slash
