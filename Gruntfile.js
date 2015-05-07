@@ -387,6 +387,12 @@ module.exports = function(grunt) {
         'karma:dev'
     ])
 
+    grunt.registerTask('test:travis', 'Run test suite in development mode. Watches for file changes and re-run the tests.', [
+        'test',
+        'browserify:specsDev',
+        'karma:travis'
+    ])
+
     grunt.registerTask('test:prod', 'Run test suite in CI mode. After the first run karma stops.', [
         'test',
         'browserify:specsProd',
