@@ -68,6 +68,7 @@ module.exports = function(grunt) {
                 specs : '<%= build.test.base %>/specs.js',
                 specsSupport : '<%= build.test.base %>/specs-support.js'
             }
+
         },
         npmDist : {
             stylesList : '<%= baseDirs.dist %>/crunch-js-components.styl',
@@ -293,7 +294,6 @@ module.exports = function(grunt) {
 
         karma : {
             options : {
-                configFile : 'karma.conf.js',
                 files: [
                     '<%= externalAssets.jquery %>',
                     '<%= externalAssets.angular %>',
@@ -303,18 +303,21 @@ module.exports = function(grunt) {
                     '<%= externalAssets.mocks %>',
                     '<%= build.test.specsSupport %>',
                     '<%= build.test.specs %>'
-                ],
-                browsers: ['Chrome'],
-                coverageReporter: {
+                ]//,
+                /*coverageReporter: {
                     dir: 'reports/coverage/',
                     reporters: [
                         { type: 'cobertura', subdir: 'cobertura', file: 'cobertura.xml' },
                         { type: 'text-summary', subdir: 'text-summary', file: 'text-summary.txt' }
                     ]
-                }
+                }*/
             },
             dev : {
-                reporters : ['dots', 'coverage']
+                options: {
+                    configFile: 'config/karma.conf.js',
+                    browsers: ['Chrome']
+                    //reporters: ['dots', 'coverage']
+                }
             },
             prod : {
                 options : {
@@ -324,6 +327,12 @@ module.exports = function(grunt) {
                     tapReporter : {
                         outputFile : '<%= reports.tap %>'
                     }
+                }
+            },
+            travis: {
+                options : {
+                    configFile: 'config/karma.travis.conf.js',
+                    singleRun: true
                 }
             }
         },

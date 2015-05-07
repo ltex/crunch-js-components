@@ -39,6 +39,10 @@ function MultipleResponseExpressionBuilderProvider(BaseExpressionBuilder, _, cur
                 var self = this
                 var filter = this.build()
 
+                if (filter == NULL){
+                    return
+                }
+
                 function updateSelectedRows(dataset) {
                     dataset.urls.summary.map({
                         params: {
@@ -61,7 +65,6 @@ function MultipleResponseExpressionBuilderProvider(BaseExpressionBuilder, _, cur
                 else {
                     updateSelectedRows(this._ds)
                 }
-
             }
             , build : function(variablePrefix, variableSuffix) {
                 if (!this.hasSource) {
@@ -126,8 +129,6 @@ function MultipleResponseExpressionBuilderProvider(BaseExpressionBuilder, _, cur
                         }
                     }
                 )
-
-                this.id = variable
 
                 _.each(columns, function(catId) {
                     self.toggleCategorySelection(catId)
