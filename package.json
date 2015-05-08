@@ -1,6 +1,6 @@
 {
   "name": "crunch-js-components",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "main": "src/crunch/index.js",
   "scripts": {
     "test": "grunt test"
