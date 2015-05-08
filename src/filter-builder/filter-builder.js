@@ -134,10 +134,6 @@ function FilterBuilderFactory(Machina, _, Filter, evalFilter, bus) {
             return this.filter.junctions.length
         }
 
-        , isCreatable : function() {
-            return this.isNamed() && this.hasExpressions()
-        }
-
         , isNamed : function() {
             return _.isString(this.filter.name) &&
             this.filter.name.length > 0
@@ -182,6 +178,13 @@ function FilterBuilderFactory(Machina, _, Filter, evalFilter, bus) {
                     this.filter = new Filter(params.filter)
                     this.stats = { filtered : 0, total : 0 }
                     this.dataset = params.dataset
+
+                    // this needs to be defined in this initialize context
+                    // or angular will not have access to the function in the template
+                    // definition
+                    this.isCreatable = function() {
+                        return this.isNamed() && this.hasExpressions()
+                    }
 
                     if(_.isString(params.defaultName)) {
                         this.filter.name = params.defaultName
@@ -238,7 +241,6 @@ function FilterBuilderFactory(Machina, _, Filter, evalFilter, bus) {
     return {
         create : function(params) {
             var builder = new FilterBuilder()
-                ;
 
             builder.handle('initialize', params || {})
 
