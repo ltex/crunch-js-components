@@ -117,9 +117,16 @@ module.exports = (function() {
                 $httpBackend.flush()
             });
             it('should return a filter based on selected values', function() {
+                // Select a missing category
+                sut.categories['?-1'].isSelected = true;
+                sut.categories[12].isSelected = true;
                 var build = sut.build();
                 build.function.should.equal('in');
                 build.args[0].variable.should.equal('myid');
+                // Built the right .column
+                build.args[1].column[0].should.equal(12);
+                // Check that the missing value got correctly included
+                build.args[1].column[1]['?'].should.equal(-1);
             })
         });
         describe('When decompiling', function() {
