@@ -136,7 +136,6 @@ function MultipleResponseExpressionBuilderProvider(BaseExpressionBuilder, _, cur
                 return this
             }
             , negateExpression : function(value) {
-                self.pickerOption = functionMap[value] || 'is any of'
                 self.updateCases()
             }
     })
