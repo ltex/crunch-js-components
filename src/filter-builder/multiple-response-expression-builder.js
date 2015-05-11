@@ -89,7 +89,6 @@ function MultipleResponseExpressionBuilderProvider(BaseExpressionBuilder, _, cur
 
                 this.negated = this.pickerOption.indexOf('is not') != -1
 
-
                 var r = {
                     'function': func
                     , args: [{variable: varUrl}
