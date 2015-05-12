@@ -26,7 +26,7 @@ function HierarchicalVariablesListDirective() {
             })
 
             function refreshRoot(hvl) {
-                scope.root = hvl.root
+                scope.root = hvl && hvl.root
             }
         }
     }

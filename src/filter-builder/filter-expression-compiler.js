@@ -18,9 +18,9 @@ module.exports = (function() {
                  }).reverse().value()
 
 
-             var expression = NULL
+             var expression = null
 
-             while (expression === NULL && expression !== undefined) {
+             while (expression === null && expression !== undefined) {
                 expression = expressions[0]
                 expressions = expressions.slice(1, expressions.length)
              }
@@ -36,7 +36,7 @@ module.exports = (function() {
                  var factor = expressions[i]
 
                  //factor did not compile
-                 if (factor === NULL){
+                 if (factor === null){
                      continue
                  }
 
