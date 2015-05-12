@@ -136,7 +136,7 @@ function MultipleResponseExpressionBuilderProvider(BaseExpressionBuilder, _, cur
                 return this
             }
             , negateExpression : function(value) {
-                self.updateCases()
+                this.updateCases()
             }
     })
 
