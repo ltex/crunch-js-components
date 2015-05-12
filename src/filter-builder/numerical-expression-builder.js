@@ -1,8 +1,8 @@
 module.exports = NumericExpressionBuilderProvider
 
 NumericExpressionBuilderProvider.$inject = [
-        'BaseExpressionBuilder'
-    ]
+    'BaseExpressionBuilder'
+]
 
 
 function NumericExpressionBuilderProvider(BaseExpressionBuilder) {

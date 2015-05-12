@@ -175,7 +175,7 @@ function BaseExpressionBuilderProvider(machina, _, iResourceVariable) {
                     return it.isSelected
                 })
                 .map(function(cat) {
-                    return cat.id
+                    return cat.entryId
                 })
                 .value()
 
