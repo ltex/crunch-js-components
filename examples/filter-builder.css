@@ -21,7 +21,3 @@ div .group-item {
 li .group-item button {
     border: 0;
 }
-
-.filter-builder {
-    display: flex;
-}

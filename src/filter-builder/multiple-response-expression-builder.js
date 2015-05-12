@@ -39,7 +39,7 @@ function MultipleResponseExpressionBuilderProvider(BaseExpressionBuilder, _, cur
                 var self = this
                 var filter = this.build()
 
-                if (filter == NULL){
+                if (filter == null){
                     return
                 }
 

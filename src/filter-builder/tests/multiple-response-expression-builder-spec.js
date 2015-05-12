@@ -193,7 +193,7 @@ module.exports = (function() {
             });
             it('should build to NULL if no cats selected', function() {
                 var build = sut.build()
-                expect(build).to.equal(NULL)
+                expect(build).to.equal(null)
             })
             it('should return a filter based on selected values', function() {
                 sut.categories[11].isSelected = true
