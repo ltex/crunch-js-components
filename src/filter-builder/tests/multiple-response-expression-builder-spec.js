@@ -177,7 +177,7 @@ module.exports = (function() {
                 sut.updateCases();
             })
         });
-        describe('When building filter', function() {
+        describe.only('When building filter', function() {
             beforeEach(function() {
                 $httpBackend.expectGET(fixtures.frequencies_url +
                     '?exclude_exclusion_filter=false&ignore_filter=true')
@@ -200,6 +200,9 @@ module.exports = (function() {
                 var build = sut.build()
                 build.function.should.equal('any')
                 build.args[0].variable.should.equal('myid')
+            })
+            it('should be able to handle negated values', function(){
+                sut.negateExpression('is not any of')
             })
         });
         describe('When decompiling', function() {
