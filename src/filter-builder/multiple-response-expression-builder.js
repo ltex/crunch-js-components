@@ -39,7 +39,7 @@ function MultipleResponseExpressionBuilderProvider(BaseExpressionBuilder, _, cur
                 var self = this
                 var filter = this.build()
 
-                if (filter == NULL){
+                if (filter == null){
                     return
                 }
 
@@ -68,7 +68,7 @@ function MultipleResponseExpressionBuilderProvider(BaseExpressionBuilder, _, cur
             }
             , build : function(variablePrefix, variableSuffix) {
                 if (!this.hasSource) {
-                    return NULL
+                    return null
                 }
 
                 var cats = _(this.categories)
@@ -81,7 +81,7 @@ function MultipleResponseExpressionBuilderProvider(BaseExpressionBuilder, _, cur
                     .value();
 
                 if (cats.length === 0){
-                    return NULL
+                    return null
                 }
 
                 var func = this.functionMap[this.pickerOption]

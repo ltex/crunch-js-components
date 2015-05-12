@@ -1,0 +1,23 @@
+body {
+    display: flex;
+    }
+
+.hierarchical-variables-list ol{
+    padding-left: 0px;
+}
+
+.groups {
+    margin: 0px;
+}
+li {
+    list-style-type: none;
+    padding-botom: 0px;
+}
+
+div .group-item {
+    width: 200px;
+}
+
+li .group-item button {
+    border: 0;
+}
