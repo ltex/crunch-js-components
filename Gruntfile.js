@@ -99,6 +99,9 @@ module.exports = function(grunt) {
         },
         createStylesImporter : {
             all : {
+                options : {
+                    basepath : '.'
+                },
                 src : [
                     '<%= src.styles.values %>',
                     '<%= src.styles.icons %>',
