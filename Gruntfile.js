@@ -352,6 +352,12 @@ module.exports = function(grunt) {
                     keepalive : true
                 }
             }
+        },
+
+        release : {
+            options : {
+                npm : false
+            }
         }
     })
 
