@@ -99,6 +99,9 @@ module.exports = function(grunt) {
         },
         createStylesImporter : {
             all : {
+                options : {
+                    basepath : '.'
+                },
                 src : [
                     '<%= src.styles.values %>',
                     '<%= src.styles.icons %>',
@@ -348,6 +351,12 @@ module.exports = function(grunt) {
                     hostname : 'local.crunch.io',
                     keepalive : true
                 }
+            }
+        },
+
+        release : {
+            options : {
+                npm : false
             }
         }
     })
