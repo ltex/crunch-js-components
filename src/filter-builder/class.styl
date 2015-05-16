@@ -1,22 +1,18 @@
 .filter-builder-container
-    width 100%
-    height 100%
-    top 0px
-    left 0px
-
+    display flex
+    flex 1
+    
     .filter-builder
-        width 100%
-        height 100%
         display flex
+        flex 1
 
 .filter-builder .builder-form
-    width 100%
     display flex
     flex-flow column nowrap
     justify-content flex-start
     align-content stretch
     align-items stretch
-    flex-grow 1
+    flex 1
 
     unselected-category-item-padding = 27px
 
@@ -74,6 +70,7 @@
             color rgba(0, 0, 0, 0.62)
 
     .expression-list-wrapper
+        display flex
         flex 1
         margin filter-builder-h-space-s 0px 0px
         overflow auto
@@ -90,20 +87,25 @@
         flex none
         display flex
         flex-flow row nowrap
-        justify-content flex-start
-        align-items flex-start
-        align-content flex-start
 
         .card-wrapper
-            flex 1
-
+            display flex
+            flex-direction column
+            
+            div
+                display flex
+                flex-direction column
+                
         .card
+            display flex
+            flex-direction column
             width width-filter-card
             color font-color-dark-grey
             background-color color-grey1
 
             &.empty
                 height height-filter-card
+                flex none
 
             &.active
                 min-height 30px
@@ -141,7 +143,7 @@
                 background-color transparent
 
             header.card-header
-                width 100%
+                flex none
 
                 h1
                     cursor pointer
@@ -191,9 +193,14 @@
                 list-style none
                 margin 0
                 padding 0
-                max-height 300px
                 overflow auto
+                display flex
+                flex-direction column
+                flex 1
 
+                li
+                    flex none
+                    
                 .missing-category
                   color: #777777
 
@@ -237,6 +244,10 @@
                 padding filter-builder-v-space-s2 filter-builder-h-space-xs
                 color font-color-dark-grey
                 border-top 1px solid white
+                flex none
+                display flex
+                flex-direction row
+                justify-content space-between
 
                 h3
                     display inline-block
@@ -289,6 +300,7 @@
             color font-color-dark-grey
             text-align center
             width 67px
+            height 30px
             margin 0 elements-space-m
 
             &:hover
