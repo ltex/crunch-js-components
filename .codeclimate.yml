@@ -9,3 +9,4 @@ languages:
 # - "config"
 # - "examples"
 # - "lib"
+# - "src/lib"
