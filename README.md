@@ -1,5 +1,12 @@
 # crunch-js-components
 
+master branch
+
+[![Build Status](https://travis-ci.org/Crunch-io/crunch-js-components.svg?branch=master)](https://travis-ci.org/Crunch-io/crunch-js-components) 
+
+dev branch
+
+[![Build Status](https://travis-ci.org/Crunch-io/crunch-js-components.svg?branch=dev)](https://travis-ci.org/Crunch-io/crunch-js-components)
 
 ## Installing
 
