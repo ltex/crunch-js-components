@@ -306,24 +306,25 @@ module.exports = function(grunt) {
                     '<%= externalAssets.mocks %>',
                     '<%= build.test.specsSupport %>',
                     '<%= build.test.specs %>'
-                ]//,
-                /*coverageReporter: {
+                ],
+                coverageReporter: {
                     dir: 'reports/coverage/',
                     reporters: [
                         { type: 'cobertura', subdir: 'cobertura', file: 'cobertura.xml' },
                         { type: 'text-summary', subdir: 'text-summary', file: 'text-summary.txt' }
                     ]
-                }*/
+                }
             },
             dev : {
                 options: {
                     configFile: 'config/karma.conf.js',
-                    browsers: ['Chrome']
-                    //reporters: ['dots', 'coverage']
+                    browsers: ['Chrome'],
+                    reporters: ['dots']
                 }
             },
             prod : {
                 options : {
+                    configFile: 'config/karma.conf.js',
                     browsers:  ['Chrome'],
                     reporters : ['coverage', 'tap'],
                     singleRun: true,
