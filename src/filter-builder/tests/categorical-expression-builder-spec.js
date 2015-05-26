@@ -160,16 +160,7 @@ module.exports = (function() {
                             };
                             sut.source(variable);
                             var exp = sut.build();
-                            exp.should.eql({
-                                'function': 'in'
-                                , args: [
-                                    {variable: '1'}
-                                    , {column: [],
-                                         type: {
-                                          "function": "typeof",
-                                          "args": [{"variable": '1'}]
-                                    }}]
-                            })
+                            expect(exp).to.be.null
                         })
                 });
             describe('given a selected category', function() {
