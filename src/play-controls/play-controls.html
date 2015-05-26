@@ -1,4 +1,4 @@
-<div data-ng-controller="playControl as ctrl" class="analyze-play-control" data-ng-class="{'locked': locked}">
+<div ng-init="ctrl.init()" class="analyze-play-control" data-ng-class="{'locked': locked}">
     <form class="xtab-controls">
         <cr-tooltip cr-tooltip-show="tableGraphPrefs.visible" cr-tooltip-target=".graph-tip-target" cr-tooltip-popover="true">
             <div>
