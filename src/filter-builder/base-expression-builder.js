@@ -181,7 +181,7 @@ function BaseExpressionBuilderProvider(machina, _, iResourceVariable) {
 
             if (cats.length == 0){
                 return null
-            toggle}
+            }
 
             var varUrl = this.variableUrl(variablePrefix, variableSuffix)
 
