@@ -117,6 +117,7 @@ module.exports = (function() {
                 $httpBackend.flush()
             });
             it('should return a filter based on selected values', function() {
+                    sut.toggleCategorySelection('11');
                     var build = sut.build();
                     build.function.should.equal('in')
                     build.args[0].variable.should.equal('myid')
