@@ -179,6 +179,10 @@ function BaseExpressionBuilderProvider(machina, _, iResourceVariable) {
                 })
                 .value()
 
+            if (cats.length == 0){
+                return null
+            }
+
             var varUrl = this.variableUrl(variablePrefix, variableSuffix)
 
             var r = {
