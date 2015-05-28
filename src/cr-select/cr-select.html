@@ -1,0 +1,8 @@
+<div ng-click="expandOptions($event)" class="selector">{{currentValue}}
+    <ul class="select-menu" >
+        <li ng-repeat="item in itemList"
+            ng-click="selectOption(item, $event)"
+            >{{item.item}}
+        </li>
+    </ul>
+</div>

@@ -44,6 +44,7 @@ function buildModule() {
         $templateCache.put("/analyze-table/title-variable.html", require("../src/analyze-table/title-variable.html"));
         $templateCache.put("/analyze/analyze-title.html", require("../src/analyze/analyze-title.html"));
         $templateCache.put("/analyze/empty-analysis.html", require("../src/analyze/empty-analysis.html"));
+        $templateCache.put("/cr-select/cr-select.html", require("../src/cr-select/cr-select.html"));
         $templateCache.put("/filter-builder/card-base-expression-readonly.html", require("../src/filter-builder/card-base-expression-readonly.html"));
         $templateCache.put("/filter-builder/card-base-expression.html", require("../src/filter-builder/card-base-expression.html"));
         $templateCache.put("/filter-builder/card-categorical-readonly.html", require("../src/filter-builder/card-categorical-readonly.html"));
