@@ -1,9 +1,4 @@
 variables-accordion
-    min-group-height = 2em
-    max-group-height = 12em
-    subvariable-indent = 40px
-    opaque-inner-color = #70889A
-
     display flex
     flex-flow column nowrap
     justify-content flex-start
@@ -127,10 +122,7 @@ variables-accordion
 
     .subvariable-item
         a,button
-            padding-left subvariable-indent
-        /* implementors in this container should im
-        padding-left 40px
-        */
+            padding-left 40px
 
     .hierarchical-variable header
         padding-right 20px
@@ -138,79 +130,3 @@ variables-accordion
     &.empty
         .groups
             display none
-
-    .variable-browser
-    overflow hidden
-    browseable-item-min-width = 270px
-    browseable-item-max-width = 540px
-    browsable-item-flex-basis = (browseable-item-max-width + browseable-variable-h-space * 2)
-    navigation-min-width = 16px
-    navigation-max-width = navigation-min-width
-
-    .navigate
-
-        display block
-        width navigation-width
-        min-width navigation-min-width
-        height 80%
-
-        flex 0 0 workspace-h-space
-
-        &.left
-            order 0
-
-        &.right button
-            right 0px
-
-        background-repeat no-repeat
-        background-size 20px 18px
-
-        &:disabled,
-        &:disabled:hover
-            display none
-            cursor default
-
-        &.prev
-            background-position right
-            background-image url('left.png')
-
-            &:hover
-                background-image url('left_hover.png')
-
-        &.next
-            background-position left
-            background-image url('right.png')
-
-            &:hover
-                background-image url('right_hover.png')
-
-    .slideable
-        flex-grow 1
-        flex-shrink 1
-        position relative
-        display flex
-        flex-basis calc(100% - 32px)
-        justify-content space-around
-        width calc(100% - 32px)
-        max-width calc(100% - 32px)
-        padding-bottom workspace-v-space-l
-
-    .browseable-variable
-        min-width browseable-item-min-width
-        max-width browseable-item-min-width
-        flex-shrink 1
-        display flex
-        flex-direction column
-        padding 5px
-        box-sizing border-box
-        position relative
-
-        &.wide
-            min-width browseable-item-max-width
-            max-width browseable-item-max-width
-
-        &.browsing
-            opacity 1
-
-        &.refreshing
-            opacity 0

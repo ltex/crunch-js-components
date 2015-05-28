@@ -20,6 +20,7 @@ module.exports = function(cfg) {
         , require('../analyze-chart')
         , require('../analyze-table')
         , require('../analyses-tray')
+        , require('../cr-select')
         , require('../graph-colors')
         , require('../graph-timeplot')
         , require('../graph-dotplot')
