@@ -10,7 +10,7 @@ function buildModule() {
     
         $templateCache.put("/analyses-tray/analyses-tray-toggle-button.html", require("../src/analyses-tray/analyses-tray-toggle-button.html"));
         $templateCache.put("/analyses-tray/analyses-tray.html", require("../src/analyses-tray/analyses-tray.html"));
-        $templateCache.put("/analyses-tray/dataset-actions.html", require("../src/analyses-tray/dataset-actions.html"));
+        $templateCache.put("/analyses-tray/open-save-buttons.html", require("../src/analyses-tray/open-save-buttons.html"));
         $templateCache.put("/analyze-chart/chart.html", require("../src/analyze-chart/chart.html"));
         $templateCache.put("/analyze-drop-zone/cat-array-graph-univariate.html", require("../src/analyze-drop-zone/cat-array-graph-univariate.html"));
         $templateCache.put("/analyze-drop-zone/cat-array-table-univariate.html", require("../src/analyze-drop-zone/cat-array-table-univariate.html"));
