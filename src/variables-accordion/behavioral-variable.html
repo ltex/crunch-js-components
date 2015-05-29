@@ -1,12 +1,12 @@
 <div ng-switch on="behavioral.behaviors.strategy">
     <span ng-switch-when="linkable"
-        title="{{behavioral.name}}"
+        tooltip="Click this variable or drag it to the workspace to use it" tooltip-placement="right" 
         class="variable-button"
         ng-click="behavioral.handle('click')"
         dragit="behavioral.data"
         dragit-operation="link">{{behavioral.name}}</span>
     <span ng-switch-default
-        title="{{behavioral.name}}"
+        tooltip="Click to show this variable" tooltip-placement="right" 
         class="variable-button"
         ng-click="behavioral.handle('click')">{{behavioral.name}}</span>
 </div>
