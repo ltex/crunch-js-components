@@ -1,21 +1,15 @@
 .analyze
     user-select text
     margin-left 30px
-    flex-grow 1
-    flex-shrink 1
-    position relative
+    overflow auto
     display flex
-    flex-flow row nowrap
-    justify-content flex-start
-    align-items stretch
-    align-content stretch
-    overflow-x hidden
+    flex-grow 1
 
-    .content-wrapper, .section-wrapper
+    .content-wrapper
         display flex
-        flex-grow 1
-        flex-shrink 1
         flex-direction column
+        overflow auto
+        flex-grow 1
 
     button
         display inline-block
@@ -170,14 +164,19 @@
             display inline-block
             padding-left 1em
 
-    .xtabs-table
-        flex-grow 1
-        flex-shrink 1
+    analyze-table
         overflow auto
+        display flex
+        flex-grow 1
+
+    .xtabs-table
         margin-top elements-space-m
         padding-right elements-space-m
         padding-bottom 64px
         font-size font-size-l
+        overflow auto
+        display flex
+        flex-grow 1
 
         table
 
