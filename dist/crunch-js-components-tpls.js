@@ -513,7 +513,7 @@ module.exports = '<div class="drag-wrapper drag-measure">\n' +
     '';
 },{}],29:[function(require,module,exports){
 module.exports = '<div class="xtabs-table" ng-if="!xtab.rows.length" ng-include="\'/analyze-table/no-valid-data-table.html\'"></div>\n' +
-    '<div class="xtabs-table" ng-if="xtab.rows.length" ng-include="\'/analyze-table/table.html\'"></div>';
+    '<div class="xtabs-table" sticky-headers ng-if="xtab.rows.length" ng-include="\'/analyze-table/table.html\'"></div>';
 },{}],30:[function(require,module,exports){
 module.exports = '<!-- bivariate template -->\n' +
     '<table>\n' +
