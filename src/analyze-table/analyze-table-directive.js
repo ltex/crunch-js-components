@@ -2,7 +2,7 @@
 
 module.exports = AnalyzeTableDirective
 
-function AnalyzeTableDirective() {
+function AnalyzeTableDirective(_) {
 
     function TableCtrl($scope) {
         this.removeColumn = function() {
@@ -31,5 +31,17 @@ function AnalyzeTableDirective() {
             , xtab : '='
             , settings : '='
         }
+        , link : function($scope, $el) {
+            $scope.$watch('xtab.rows.length', function(l) {
+                if(l) {
+                    _.defer(function() {
+                        $el.find('.horizontal-padding')
+                        .width($el.find('.xtabs-table > table').outerWidth() + 36)
+                    })
+                }
+            })
+        }
     }
 }
+
+AnalyzeTableDirective.$inject = ['lodash']
