@@ -10,8 +10,10 @@ ToggleableSettingFactory.$inject = [
 function ToggleableSettingFactory(_, Setting) {
     var ToggleableSetting
         , castStrategies = {
-            number : function(value) { return JSON.parse(value) }
-            , boolean : function(value) { return JSON.parse(value) }
+            number : function(value) { return parseFloat(value) }
+            , boolean : function(value) {
+                return value === "true" || value === true
+            }
         }
         ;
 
