@@ -1,21 +1,16 @@
 .analyze
     user-select text
     margin-left 30px
-    flex-grow 1
-    flex-shrink 1
-    position relative
+    overflow auto
     display flex
-    flex-flow row nowrap
-    justify-content flex-start
-    align-items stretch
-    align-content stretch
-    overflow-x hidden
+    flex-grow 1
+    position relative
 
-    .content-wrapper, .section-wrapper
+    .content-wrapper
         display flex
-        flex-grow 1
-        flex-shrink 1
         flex-direction column
+        overflow auto
+        flex-grow 1
 
     button
         display inline-block
@@ -98,6 +93,12 @@
         text-shadow 1px 1px 1px #FFF
         font-weight 300
 
+    .horizontal-padding
+        height 1
+        position absolute
+        bottom 0
+        left 0
+
     .spinner-overlay
         background #FFFFFF
         position absolute
@@ -170,22 +171,33 @@
             display inline-block
             padding-left 1em
 
-    .xtabs-table
-        flex-grow 1
-        flex-shrink 1
+    analyze-table
         overflow auto
+        display flex
+        flex-grow 1
+
+    .xtabs-table
         margin-top elements-space-m
         padding-right elements-space-m
         padding-bottom 64px
         font-size font-size-l
+        overflow auto
+        display flex
+        flex-grow 1
+
+        > table
+            margin-bottom elements-space-l
+            margin-right elements-space-l
 
         table
-
             th
                 font-weight font-weight-heavy
 
             thead
                 background white
+
+                tr th:first-child
+                   min-width 10.5em
 
                 h3
                     display inline
@@ -403,6 +415,13 @@
 
             &:hover
                 background #eee
+
+
+    .sticky-row-headers tr th.row-margin-label:first-child
+        border-top elements-space-s solid white
+
+    .sticky-row-headers tr:last-child th.row-margin-label:first-child
+        border-top none
 
 .no-valid-data-notice
     position relative
