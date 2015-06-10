@@ -28,7 +28,6 @@ function AnalyzeDropZoneFactory(machina
                 , 'categorical_array' : CategoricalArrayDropZone
                 , 'numeric' : NumericDropZone
                 , 'datetime' : DatetimeDropZone
-                , '*' : CategoricalDropZone
             }
 
             this.current =  "empty"
@@ -46,17 +45,20 @@ function AnalyzeDropZoneFactory(machina
                 if(this.current && this.current.destroy) {
                     this.current.destroy()
                 }
-                this.current = (zoneTypes[type] || zoneTypes['*']).create(this.cfg)
-                type = (!zoneTypes[type] ? 'categorical' : type)
-                this.current.type = type
+
+                type = !zoneTypes[type] ? 'categorical' : type
+                this.current = zoneTypes[type].create(this.cfg)
                 this.transition(type)
             }
 
             this.current.dragged = variable
+            this.current.type = type
 
             if(typeof this.current.refreshDropZone === 'function') {
                 this.current.refreshDropZone()
             }
+
+            return type
         }
 
         , destroy : function() {

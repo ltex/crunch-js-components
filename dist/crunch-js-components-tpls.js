@@ -24,6 +24,7 @@ function buildModule() {
         $templateCache.put("/analyze-drop-zone/cat-table-bivariate.html", require("../src/analyze-drop-zone/cat-table-bivariate.html"));
         $templateCache.put("/analyze-drop-zone/cat-table-measure.html", require("../src/analyze-drop-zone/cat-table-measure.html"));
         $templateCache.put("/analyze-drop-zone/cat-table-new.html", require("../src/analyze-drop-zone/cat-table-new.html"));
+        $templateCache.put("/analyze-drop-zone/cat-table-tabs.html", require("../src/analyze-drop-zone/cat-table-tabs.html"));
         $templateCache.put("/analyze-drop-zone/cat-table-univariate.html", require("../src/analyze-drop-zone/cat-table-univariate.html"));
         $templateCache.put("/analyze-drop-zone/datetime-graph-bivariate.html", require("../src/analyze-drop-zone/datetime-graph-bivariate.html"));
         $templateCache.put("/analyze-drop-zone/datetime-graph-univariate.html", require("../src/analyze-drop-zone/datetime-graph-univariate.html"));
@@ -79,7 +80,7 @@ function buildModule() {
 }
 
 module.exports = buildModule()
-},{"../src/analyses-tray/analyses-tray-toggle-button.html":2,"../src/analyses-tray/analyses-tray.html":3,"../src/analyses-tray/open-save-buttons.html":4,"../src/analyze-chart/chart.html":5,"../src/analyze-drop-zone/cat-array-graph-univariate.html":6,"../src/analyze-drop-zone/cat-array-table-univariate.html":7,"../src/analyze-drop-zone/cat-graph-binned.html":8,"../src/analyze-drop-zone/cat-graph-bivariate.html":9,"../src/analyze-drop-zone/cat-graph-measure.html":10,"../src/analyze-drop-zone/cat-graph-new.html":11,"../src/analyze-drop-zone/cat-graph-univariate.html":12,"../src/analyze-drop-zone/cat-table-binned.html":13,"../src/analyze-drop-zone/cat-table-bivariate.html":14,"../src/analyze-drop-zone/cat-table-measure.html":15,"../src/analyze-drop-zone/cat-table-new.html":16,"../src/analyze-drop-zone/cat-table-univariate.html":17,"../src/analyze-drop-zone/datetime-graph-bivariate.html":18,"../src/analyze-drop-zone/datetime-graph-univariate.html":19,"../src/analyze-drop-zone/drop-zone-content.html":20,"../src/analyze-drop-zone/drop-zone.html":21,"../src/analyze-drop-zone/empty.html":22,"../src/analyze-drop-zone/numeric-graph-count.html":23,"../src/analyze-drop-zone/numeric-graph-group-only.html":24,"../src/analyze-drop-zone/numeric-graph-measure-only.html":25,"../src/analyze-drop-zone/numeric-table-count.html":26,"../src/analyze-drop-zone/numeric-table-group-only.html":27,"../src/analyze-drop-zone/numeric-table-measure-only.html":28,"../src/analyze-table/analyze-table.html":29,"../src/analyze-table/bivariate.html":30,"../src/analyze-table/crosstab.html":31,"../src/analyze-table/measures.html":32,"../src/analyze-table/no-valid-data-table.html":33,"../src/analyze-table/table.html":34,"../src/analyze-table/title-variable.html":35,"../src/analyze/analyze-title.html":36,"../src/analyze/empty-analysis.html":37,"../src/cr-select/cr-select.html":38,"../src/filter-builder/card-base-expression-readonly.html":39,"../src/filter-builder/card-base-expression.html":40,"../src/filter-builder/card-categorical-readonly.html":41,"../src/filter-builder/card-categorical.html":42,"../src/filter-builder/card-datetime-readonly.html":43,"../src/filter-builder/card-datetime.html":44,"../src/filter-builder/card-multiple_response-readonly.html":45,"../src/filter-builder/card-multiple_response.html":46,"../src/filter-builder/card-numeric-readonly.html":47,"../src/filter-builder/card-numeric.html":48,"../src/filter-builder/card-text-readonly.html":49,"../src/filter-builder/card-text.html":50,"../src/filter-builder/cardblank-readonly.html":51,"../src/filter-builder/cardblank.html":52,"../src/filter-builder/eligible-variable.html":53,"../src/filter-builder/filter-builder-readonly.html":54,"../src/filter-builder/filter-builder.html":55,"../src/filter-builder/share-filter.html":56,"../src/graph-colors/cell-color-key.html":57,"../src/play-controls/multistate-button.html":58,"../src/play-controls/play-controls.html":59,"../src/variables-accordion/behavioral-variable.html":60,"../src/variables-accordion/composite-variable.html":61,"../src/variables-accordion/hierarchical-group.html":62,"../src/variables-accordion/hierarchical-nested-group.html":63,"../src/variables-accordion/scalar-variable.html":64,"../src/variables-accordion/variables-accordion.html":65,"angular":"angular"}],2:[function(require,module,exports){
+},{"../src/analyses-tray/analyses-tray-toggle-button.html":2,"../src/analyses-tray/analyses-tray.html":3,"../src/analyses-tray/open-save-buttons.html":4,"../src/analyze-chart/chart.html":5,"../src/analyze-drop-zone/cat-array-graph-univariate.html":6,"../src/analyze-drop-zone/cat-array-table-univariate.html":7,"../src/analyze-drop-zone/cat-graph-binned.html":8,"../src/analyze-drop-zone/cat-graph-bivariate.html":9,"../src/analyze-drop-zone/cat-graph-measure.html":10,"../src/analyze-drop-zone/cat-graph-new.html":11,"../src/analyze-drop-zone/cat-graph-univariate.html":12,"../src/analyze-drop-zone/cat-table-binned.html":13,"../src/analyze-drop-zone/cat-table-bivariate.html":14,"../src/analyze-drop-zone/cat-table-measure.html":15,"../src/analyze-drop-zone/cat-table-new.html":16,"../src/analyze-drop-zone/cat-table-tabs.html":17,"../src/analyze-drop-zone/cat-table-univariate.html":18,"../src/analyze-drop-zone/datetime-graph-bivariate.html":19,"../src/analyze-drop-zone/datetime-graph-univariate.html":20,"../src/analyze-drop-zone/drop-zone-content.html":21,"../src/analyze-drop-zone/drop-zone.html":22,"../src/analyze-drop-zone/empty.html":23,"../src/analyze-drop-zone/numeric-graph-count.html":24,"../src/analyze-drop-zone/numeric-graph-group-only.html":25,"../src/analyze-drop-zone/numeric-graph-measure-only.html":26,"../src/analyze-drop-zone/numeric-table-count.html":27,"../src/analyze-drop-zone/numeric-table-group-only.html":28,"../src/analyze-drop-zone/numeric-table-measure-only.html":29,"../src/analyze-table/analyze-table.html":30,"../src/analyze-table/bivariate.html":31,"../src/analyze-table/crosstab.html":32,"../src/analyze-table/measures.html":33,"../src/analyze-table/no-valid-data-table.html":34,"../src/analyze-table/table.html":35,"../src/analyze-table/title-variable.html":36,"../src/analyze/analyze-title.html":37,"../src/analyze/empty-analysis.html":38,"../src/cr-select/cr-select.html":39,"../src/filter-builder/card-base-expression-readonly.html":40,"../src/filter-builder/card-base-expression.html":41,"../src/filter-builder/card-categorical-readonly.html":42,"../src/filter-builder/card-categorical.html":43,"../src/filter-builder/card-datetime-readonly.html":44,"../src/filter-builder/card-datetime.html":45,"../src/filter-builder/card-multiple_response-readonly.html":46,"../src/filter-builder/card-multiple_response.html":47,"../src/filter-builder/card-numeric-readonly.html":48,"../src/filter-builder/card-numeric.html":49,"../src/filter-builder/card-text-readonly.html":50,"../src/filter-builder/card-text.html":51,"../src/filter-builder/cardblank-readonly.html":52,"../src/filter-builder/cardblank.html":53,"../src/filter-builder/eligible-variable.html":54,"../src/filter-builder/filter-builder-readonly.html":55,"../src/filter-builder/filter-builder.html":56,"../src/filter-builder/share-filter.html":57,"../src/graph-colors/cell-color-key.html":58,"../src/play-controls/multistate-button.html":59,"../src/play-controls/play-controls.html":60,"../src/variables-accordion/behavioral-variable.html":61,"../src/variables-accordion/composite-variable.html":62,"../src/variables-accordion/hierarchical-group.html":63,"../src/variables-accordion/hierarchical-nested-group.html":64,"../src/variables-accordion/scalar-variable.html":65,"../src/variables-accordion/variables-accordion.html":66,"angular":"angular"}],2:[function(require,module,exports){
 module.exports = '<button\n' +
     '    type="button"\n' +
     '    class="analyses-tray-toggle-button"\n' +
@@ -248,6 +249,14 @@ arguments[4][13][0].apply(exports,arguments)
 },{"dup":13}],16:[function(require,module,exports){
 arguments[4][7][0].apply(exports,arguments)
 },{"dup":7}],17:[function(require,module,exports){
+module.exports = '<div class="dragcolumn drop-target" dropit dropit-event="tabs">\n' +
+    '    <drop-zone-content zone="tabs" zone-label="Tabs"></drop-zone-content>\n' +
+    '</div>\n' +
+    '<div class="dragrow drop-target" dropit dropit-event="new">\n' +
+    '    <drop-zone-content zone="table" zone-label="New Table"></drop-zone-content>\n' +
+    '</div>\n' +
+    '';
+},{}],18:[function(require,module,exports){
 module.exports = '<div class="dragcolumn drop-target" dropit dropit-event="column">\n' +
     '    <drop-zone-content zone="column" zone-label="Columns"></drop-zone-content>\n' +
     '</div>\n' +
@@ -255,7 +264,7 @@ module.exports = '<div class="dragcolumn drop-target" dropit dropit-event="colum
     '    <drop-zone-content zone="row" zone-label="Rows"></drop-zone-content>\n' +
     '</div>\n' +
     '';
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 module.exports = '<div class="dragrow drop-target" dropit dropit-event="row">\n' +
     '    <drop-zone-content zone="row" zone-label="Rows"></drop-zone-content>\n' +
     '</div>\n' +
@@ -290,7 +299,7 @@ module.exports = '<div class="dragrow drop-target" dropit dropit-event="row">\n'
     '    </div>\n' +
     '</div>\n' +
     '';
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 module.exports = '<div class="dragrow drop-target" dropit dropit-event="row">\n' +
     '    <drop-zone-content zone="row" zone-label="Rows"></drop-zone-content>\n' +
     '</div>\n' +
@@ -311,7 +320,7 @@ module.exports = '<div class="dragrow drop-target" dropit dropit-event="row">\n'
     '    </drop-zone-content>\n' +
     '</div>\n' +
     '';
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 module.exports = '<div class="zone-content" ng-hide="hidden">\n' +
     '    <span class="zone-variable current" ng-hide="draggedVisible">\n' +
     '        <strong>{{dropZone.current.getVariableName(zone)}}</strong>\n' +
@@ -324,17 +333,17 @@ module.exports = '<div class="zone-content" ng-hide="hidden">\n' +
     '    </span>\n' +
     '</div>\n' +
     '';
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 module.exports = '<div class="drop-zone2" ng-show="visible">\n' +
     '    <div class="container" ng-if="dropZone.current" ng-class="tableOrGraph.value"\n' +
     '         ng-include="\'/analyze-drop-zone/\' + dropZone.current + \'.html\'"></div>\n' +
     '</div>\n' +
     '\n' +
     '';
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 module.exports = '<div></div>\n' +
     '';
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 module.exports = '<div class="dragrow drop-target" dropit dropit-event="row">\n' +
     '    <drop-zone-content zone="row" zone-label="Rows"></drop-zone-content>\n' +
     '</div>\n' +
@@ -380,7 +389,7 @@ module.exports = '<div class="dragrow drop-target" dropit dropit-event="row">\n'
     '    </div>\n' +
     '</div>\n' +
     '';
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 module.exports = '<div class="dragrow drop-target" dropit dropit-event="row">\n' +
     '    <drop-zone-content zone="row" zone-label="Rows"></drop-zone-content>\n' +
     '</div>\n' +
@@ -427,7 +436,7 @@ module.exports = '<div class="dragrow drop-target" dropit dropit-event="row">\n'
     '    </div>\n' +
     '</div>\n' +
     '';
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 module.exports = '<div class="drag-wrapper drag-measure">\n' +
     '    <div class="dragrow drop-target" dropit dropit-event="row">\n' +
     '        <drop-zone-content zone="row" exclude="mean" zone-label="New Graph"></drop-zone-content>\n' +
@@ -449,7 +458,7 @@ module.exports = '<div class="drag-wrapper drag-measure">\n' +
     '    </div>\n' +
     '</div>\n' +
     '';
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 module.exports = '<div class="dragcolumn drop-target" dropit dropit-event="column">\n' +
     '    <drop-zone-content zone="column" zone-label="Columns"></drop-zone-content>\n' +
     '</div>\n' +
@@ -487,9 +496,9 @@ module.exports = '<div class="dragcolumn drop-target" dropit dropit-event="colum
     '    </div>\n' +
     '</div>\n' +
     '';
-},{}],27:[function(require,module,exports){
-arguments[4][26][0].apply(exports,arguments)
-},{"dup":26}],28:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
+arguments[4][27][0].apply(exports,arguments)
+},{"dup":27}],29:[function(require,module,exports){
 module.exports = '<div class="drag-wrapper drag-measure">\n' +
     '    <div class="dragrow drop-target" dropit dropit-event="row">\n' +
     '        <drop-zone-content zone="row" exclude="mean" zone-label="New Table"></drop-zone-content>\n' +
@@ -511,10 +520,10 @@ module.exports = '<div class="drag-wrapper drag-measure">\n' +
     '    </div>\n' +
     '</div>\n' +
     '';
-},{}],29:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 module.exports = '<div class="xtabs-table" ng-if="!xtab.rows.length" ng-include="\'/analyze-table/no-valid-data-table.html\'"></div>\n' +
     '<div class="xtabs-table" sticky-headers ng-if="xtab.rows.length" ng-include="\'/analyze-table/table.html\'"></div>';
-},{}],30:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 module.exports = '<!-- bivariate template -->\n' +
     '<table>\n' +
     '    <thead>\n' +
@@ -559,7 +568,7 @@ module.exports = '<!-- bivariate template -->\n' +
     '    </tbody>\n' +
     '</table>\n' +
     '';
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 module.exports = '<tr ng-repeat="preRow in xtab.preRows track by $index"\n' +
     '    ng-class="{ \'no-zebra\' : xtab.showSignif }"\n' +
     '    class="row-margin">\n' +
@@ -615,7 +624,7 @@ module.exports = '<tr ng-repeat="preRow in xtab.preRows track by $index"\n' +
     '    <td ng-repeat="post in xtab.postCols track by $index" class="empty-table-corner">&nbsp;</td>\n' +
     '</tr>\n' +
     '';
-},{}],32:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 module.exports = '<tr ng-repeat="row in xtab.rows track by $index">\n' +
     '    <th class="row-label">\n' +
     '        {{ xtab.rowLabels[$index] }}\n' +
@@ -625,7 +634,7 @@ module.exports = '<tr ng-repeat="row in xtab.rows track by $index">\n' +
     '    </td>\n' +
     '</tr>\n' +
     '';
-},{}],33:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 module.exports = '<table>\n' +
     '    <thead ng-if="!xtab.withMeans">\n' +
     '        <tr ng-if="xtab.showColumnTitle">\n' +
@@ -707,7 +716,7 @@ module.exports = '<table>\n' +
     '        <td>No valid data</td>\n' +
     '    </tr>\n' +
     '</table>';
-},{}],34:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 module.exports = '<table>\n' +
     '    <thead ng-if="!xtab.withMeans">\n' +
     '        <tr ng-if="xtab.showColumnTitle">\n' +
@@ -813,15 +822,16 @@ module.exports = '<table>\n' +
     '    </thead>\n' +
     '    <tbody ng-include="xtab.template">\n' +
     '    </tbody>\n' +
-    '</table>';
-},{}],35:[function(require,module,exports){
+    '</table>\n' +
+    '<div class="horizontal-padding"></div>';
+},{}],36:[function(require,module,exports){
 module.exports = '<h3>{{ name }}\n' +
     '    <span ng-if="showDescription">\n' +
     '        {{ description }}\n' +
     '    </span>\n' +
     '</h3>\n' +
     '';
-},{}],36:[function(require,module,exports){
+},{}],37:[function(require,module,exports){
 module.exports = '<!-- 3rd level. Title and Subtitle, when a variable is selected -->\n' +
     '<h2 class="analysis-title" ng-if="ctrl.visible">\n' +
     '    {{xtab.title}}\n' +
@@ -839,12 +849,12 @@ module.exports = '<!-- 3rd level. Title and Subtitle, when a variable is selecte
     '    {{xtab.subtitle}}\n' +
     '</h3>\n' +
     '';
-},{}],37:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 module.exports = '<div ng-if="showEmptyAnalysisMessage">\n' +
     '    <span>No variables to analyze. <br />Please select variables from the sidebar.</span>\n' +
     '</div>\n' +
     '';
-},{}],38:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 module.exports = '<div ng-click="expandOptions($event)" class="selector">{{currentValue}}\n' +
     '    <ul class="select-menu" >\n' +
     '        <li ng-repeat="item in itemList"\n' +
@@ -854,7 +864,7 @@ module.exports = '<div ng-click="expandOptions($event)" class="selector">{{curre
     '    </ul>\n' +
     '</div>\n' +
     '';
-},{}],39:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 module.exports = '<div class="card"\n' +
     '     data-ng-class="{active: false}"\n' +
     '     >\n' +
@@ -879,7 +889,7 @@ module.exports = '<div class="card"\n' +
     '    <div data-ng-show="exp.hasSource" class="inactive-arrow">&#9662;</div>\n' +
     '</div>\n' +
     '';
-},{}],40:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 module.exports = '<div class="card"\n' +
     '     data-ng-class="{active: exp.isActive}"\n' +
     '     data-ng-click="exp.activate()"\n' +
@@ -923,31 +933,31 @@ module.exports = '<div class="card"\n' +
     '    <div data-ng-show="exp.hasSource" class="inactive-arrow">&#9662;</div>\n' +
     '</div>\n' +
     '';
-},{}],41:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 module.exports = '<div ng-include="\'/filter-builder/card-base-expression-readonly.html\'"></div>\n' +
     '';
-},{}],42:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 module.exports = '<div ng-include="\'/filter-builder/card-base-expression.html\'"></div>\n' +
     '';
-},{}],43:[function(require,module,exports){
-arguments[4][41][0].apply(exports,arguments)
-},{"dup":41}],44:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 arguments[4][42][0].apply(exports,arguments)
 },{"dup":42}],45:[function(require,module,exports){
-arguments[4][41][0].apply(exports,arguments)
-},{"dup":41}],46:[function(require,module,exports){
+arguments[4][43][0].apply(exports,arguments)
+},{"dup":43}],46:[function(require,module,exports){
+arguments[4][42][0].apply(exports,arguments)
+},{"dup":42}],47:[function(require,module,exports){
 module.exports = '<div ng-include="\'/filter-builder/card-base-expression.html\'"></div>';
-},{}],47:[function(require,module,exports){
-arguments[4][41][0].apply(exports,arguments)
-},{"dup":41}],48:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 arguments[4][42][0].apply(exports,arguments)
 },{"dup":42}],49:[function(require,module,exports){
-arguments[4][41][0].apply(exports,arguments)
-},{"dup":41}],50:[function(require,module,exports){
+arguments[4][43][0].apply(exports,arguments)
+},{"dup":43}],50:[function(require,module,exports){
 arguments[4][42][0].apply(exports,arguments)
 },{"dup":42}],51:[function(require,module,exports){
-arguments[4][22][0].apply(exports,arguments)
-},{"dup":22}],52:[function(require,module,exports){
+arguments[4][43][0].apply(exports,arguments)
+},{"dup":43}],52:[function(require,module,exports){
+arguments[4][23][0].apply(exports,arguments)
+},{"dup":23}],53:[function(require,module,exports){
 module.exports = '<div class="card empty"\n' +
     '     data-ng-class="{active: exp.isActive}">\n' +
     '    <div class="drag-hint tw-bs"\n' +
@@ -960,7 +970,7 @@ module.exports = '<div class="card empty"\n' +
     '    </div>\n' +
     '</div>\n' +
     '';
-},{}],53:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 module.exports = '<div class="variable-link-container">\n' +
     '    <!-- regular variable, it may have subvariables or may not -->\n' +
     '    <a title="{{variable.hint + variable.name}}"\n' +
@@ -996,7 +1006,7 @@ module.exports = '<div class="variable-link-container">\n' +
     '    </button>\n' +
     '</div>\n' +
     '';
-},{}],54:[function(require,module,exports){
+},{}],55:[function(require,module,exports){
 module.exports = '<div class="filter-builder read-only">\n' +
     '    <div ng-show="filterBuilder != null" class="builder-form">\n' +
     '        <header class="builder-header">\n' +
@@ -1039,7 +1049,7 @@ module.exports = '<div class="filter-builder read-only">\n' +
     '    </div>\n' +
     '</div>\n' +
     '';
-},{}],55:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 module.exports = '<div class="filter-builder">\n' +
     '    <div ng-show="filterBuilder != null" class="builder-form">\n' +
     '        <header class="builder-header" ng-click="filterBuilder.headerClicked($event)">\n' +
@@ -1094,14 +1104,14 @@ module.exports = '<div class="filter-builder">\n' +
     '    </div>\n' +
     '</div>\n' +
     '';
-},{}],56:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 module.exports = '<div class="share-filter-container">\n' +
     '    <label class="share-filter" title="Public filters can be seen and used by anyone with access to the dataset. Private filters can be used only by you." ng-if="shareFilter.allowToEdit">\n' +
     '        <input type="checkbox" fancy-toggle="shareFilter.share" />\n' +
     '    </label>\n' +
     '</div>\n' +
     '';
-},{}],57:[function(require,module,exports){
+},{}],58:[function(require,module,exports){
 module.exports = '<div>\n' +
     '    <cr-tooltip cr-tooltip-target=".cell-color-key" cr-tooltip-show="visible" cr-tooltip-padding=3>\n' +
     '    <div ng-show="visible">\n' +
@@ -1113,10 +1123,10 @@ module.exports = '<div>\n' +
     '\n' +
     '</div>\n' +
     '';
-},{}],58:[function(require,module,exports){
+},{}],59:[function(require,module,exports){
 module.exports = '<button class="btn primary"></button>\n' +
     '';
-},{}],59:[function(require,module,exports){
+},{}],60:[function(require,module,exports){
 module.exports = '<div ng-init="ctrl.init()" class="analyze-play-control" data-ng-class="{\'locked\': locked}">\n' +
     '    <form class="xtab-controls">\n' +
     '        <cr-tooltip cr-tooltip-show="tableGraphPrefs.visible" cr-tooltip-target=".graph-tip-target" cr-tooltip-popover="true">\n' +
@@ -1238,7 +1248,7 @@ module.exports = '<div ng-init="ctrl.init()" class="analyze-play-control" data-n
     '    </form>\n' +
     '</div>\n' +
     '';
-},{}],60:[function(require,module,exports){
+},{}],61:[function(require,module,exports){
 module.exports = '<div ng-switch on="behavioral.behaviors.strategy">\n' +
     '    <span ng-switch-when="linkable"\n' +
     '        title="{{behavioral.name}}"\n' +
@@ -1252,7 +1262,7 @@ module.exports = '<div ng-switch on="behavioral.behaviors.strategy">\n' +
     '        ng-click="behavioral.handle(\'click\')">{{behavioral.name}}</span>\n' +
     '</div>\n' +
     '';
-},{}],61:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 module.exports = '<div ng-class="variable.state" data-composite-variable="{{variable.name}}">\n' +
     '    <header>\n' +
     '        <h3 class="composite-header behavioral-variable" variable="variable">\n' +
@@ -1278,7 +1288,7 @@ module.exports = '<div ng-class="variable.state" data-composite-variable="{{vari
     '    </ol>\n' +
     '</div>\n' +
     '';
-},{}],62:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
 module.exports = '<div ng-class="group.state" data-group-name="{{group.name}}">\n' +
     '    <header ng-if="group | shouldDisplayHeader">\n' +
     '        <h2>\n' +
@@ -1307,7 +1317,7 @@ module.exports = '<div ng-class="group.state" data-group-name="{{group.name}}">\
     '    </ol>\n' +
     '</div>\n' +
     '';
-},{}],63:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 module.exports = '<div data-group-name="{{nestedGroup.name}}">\n' +
     '    <header>\n' +
     '        <a ng-switch on="nestedGroup.state"\n' +
@@ -1326,12 +1336,12 @@ module.exports = '<div data-group-name="{{nestedGroup.name}}">\n' +
     '    </ol>\n' +
     '</div>\n' +
     '';
-},{}],64:[function(require,module,exports){
+},{}],65:[function(require,module,exports){
 module.exports = '<div ng-class="variable.state" class="behavioral-variable" variable="variable">\n' +
     '</div>\n' +
     '\n' +
     '';
-},{}],65:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
 module.exports = '<div class="container hierarchical-variables-list" ng-class="hierarchicalVariablesList.state" >\n' +
     '    <div class="groups">\n' +
     '        <ol>\n' +

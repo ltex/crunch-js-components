@@ -37,6 +37,7 @@ function DropZoneDirective() {
             scope.$on('row:link',hide)
             scope.$on('slice:link',hide)
             scope.$on('group:link',hide)
+            scope.$on('tabs:link', hide)
             scope.$on('mean:link', hide)
             scope.$on('over:link', hide)
             scope.$on('variable.clicked',function(e, args) {

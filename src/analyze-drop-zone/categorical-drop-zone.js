@@ -26,7 +26,7 @@ function CategoricalDropZoneFactory(_, $rootScope, TypedDropZone, utils) {
             if(this.analysis.isEmpty()) {
                 this.transition('new')
             } else if(this.analysis.hasArrayVariables()) {
-                this.transition('new')
+                this.transition('tabs')
             } else if(this.analysis.hasMeanMeasure()){
                 this.transition('measure')
             } else if(this.analysis.hasBinnedRows()){
@@ -44,6 +44,7 @@ function CategoricalDropZoneFactory(_, $rootScope, TypedDropZone, utils) {
             , 'row:link'
             , 'column:link'
             , 'table:link'
+            , 'tabs:link'
         ]
 
         , states : {
@@ -150,7 +151,19 @@ function CategoricalDropZoneFactory(_, $rootScope, TypedDropZone, utils) {
                     this.analysis.handle('add-variable', getVariableId(data))
                 }
             }
-            , 'new' : {
+
+            , tabs : {
+                'tabs:link' : function(e, data) {
+                    this.analysis.handle('replace-variable', 2, getVariableId(data))
+                }
+                , 'table:link' : function(e, data) {
+                    this.analysis.handle('clean')
+                    this.analysis.handle('measures-count')
+                    this.analysis.handle('add-variable', getVariableId(data))
+                }
+            }
+
+            , new : {
                 'table:link' : function(e, data) {
                     this.analysis.handle('clean')
                     this.analysis.handle('measures-count')

@@ -23,6 +23,7 @@ function buildModule() {
         $templateCache.put("/analyze-drop-zone/cat-table-bivariate.html", require("../src/analyze-drop-zone/cat-table-bivariate.html"));
         $templateCache.put("/analyze-drop-zone/cat-table-measure.html", require("../src/analyze-drop-zone/cat-table-measure.html"));
         $templateCache.put("/analyze-drop-zone/cat-table-new.html", require("../src/analyze-drop-zone/cat-table-new.html"));
+        $templateCache.put("/analyze-drop-zone/cat-table-tabs.html", require("../src/analyze-drop-zone/cat-table-tabs.html"));
         $templateCache.put("/analyze-drop-zone/cat-table-univariate.html", require("../src/analyze-drop-zone/cat-table-univariate.html"));
         $templateCache.put("/analyze-drop-zone/datetime-graph-bivariate.html", require("../src/analyze-drop-zone/datetime-graph-bivariate.html"));
         $templateCache.put("/analyze-drop-zone/datetime-graph-univariate.html", require("../src/analyze-drop-zone/datetime-graph-univariate.html"));

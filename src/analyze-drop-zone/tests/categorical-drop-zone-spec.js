@@ -253,6 +253,30 @@ describe('CategoricalDropZone', function() {
         })
     })
 
+    describe('given a tabs drop zone', function() {
+        beforeEach(buildModule)
+        beforeEach(buildSut)
+        beforeEach(function() {
+            sut.transition('tabs')
+        })
+
+        describe('when a variable is dropped in the tabs zone', function() {
+            var variable
+                ;
+
+            beforeEach(function() {
+                variable = variableData('/var/123')
+                sut.handle('tabs:link', {}, variable)
+            })
+
+            it('should add the dropped variable to the analysis model', function() {
+                analysisMock.handled['replace-variable'].should.be.ok
+                expect(analysisMock.handled['replace-variable'][0][0]).to.equal(2)
+
+            })
+        })
+    })
+
     describe('when refreshing drop zone', function() {
         beforeEach(buildModule)
         beforeEach(buildSut)
@@ -284,8 +308,8 @@ describe('CategoricalDropZone', function() {
                 sut.refreshDropZone()
             })
 
-            it('should transition to new', function() {
-                sut.state.should.be.equal('new')
+            it('should transition to tabs', function() {
+                sut.state.should.be.equal('tabs')
             })
         })
 
