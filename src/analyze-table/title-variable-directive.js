@@ -11,9 +11,7 @@ function TitleVariableDirective(){
             ,type: '@'
         }
         ,templateUrl: '/analyze-table/title-variable.html'
-        ,link: function($scope, $element, $attrs){
-            var position = $scope.position
-
+        ,link: function($scope){
             $scope.$watch('variable', function(varb){
                 if(varb===undefined){return}
                 var name = varb.fullName
