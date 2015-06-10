@@ -500,11 +500,12 @@ module.exports = '<div class="dragcolumn drop-target" dropit dropit-event="colum
 },{}],28:[function(require,module,exports){
 arguments[4][27][0].apply(exports,arguments)
 },{"dup":27}],29:[function(require,module,exports){
-module.exports = '<div class="drag-wrapper drag-measure">\n' +
-    '    <div class="dragrow drop-target" dropit dropit-event="row">\n' +
-    '        <drop-zone-content zone="row" exclude="mean" zone-label="New Table"></drop-zone-content>\n' +
-    '    </div>\n' +
-    '    <div class="dragcell drop-target" dropit dropit-event="mean">\n' +
+module.exports = '<div class="dragcolumn drop-target" dropit dropit-event="tabs">\n' +
+    '    <drop-zone-content zone="tabs" zone-label="Tabs"></drop-zone-content>\n' +
+    '</div>\n' +
+    '<div class="drag-wrapper">\n' +
+    '\n' +
+    '    <div class="dragrow drop-target" dropit dropit-event="mean">\n' +
     '        <drop-zone-content>\n' +
     '            <span class="current">\n' +
     '                Mean\n' +
@@ -518,6 +519,10 @@ module.exports = '<div class="drag-wrapper drag-measure">\n' +
     '                <strong>{{dropZone.current.getVariableName("dragged")}}</strong>\n' +
     '            </span>\n' +
     '        </drop-zone-content>\n' +
+    '    </div>\n' +
+    '\n' +
+    '    <div class="dragtable drop-target" dropit dropit-event="row">\n' +
+    '        <drop-zone-content zone="row" exclude="mean" zone-label="New Table"></drop-zone-content>\n' +
     '    </div>\n' +
     '</div>\n' +
     '';
@@ -744,7 +749,7 @@ module.exports = '<table>\n' +
     '                   data-sort-key=""\n' +
     '                   data-sort-source="labels">\n' +
     '                    <title-variable\n' +
-    '                        variable="xtab.variables.at(0)"\n' +
+    '                        variable="(analysis.dimension <= 2 ? xtab.variables.at(0) : xtab.variables.at(1))"\n' +
     '                        type="row">\n' +
     '                    </title-variable>\n' +
     '                </a>\n' +
@@ -833,14 +838,22 @@ module.exports = '<h3>{{ name }}\n' +
     '</h3>\n' +
     '';
 },{}],37:[function(require,module,exports){
-module.exports = '<ul class="tabs-container" ng-if="analyzeTabs.enabled">\n' +
-    '    <li class="tab" ng-class="{ active : tab.active }"\n' +
-    '        ng-repeat="tab in analyzeTabs.tabs">\n' +
-    '        <a href ng-click="analyzeTabs.handle(\'select-tab\', tab)">\n' +
-    '            {{tab.label}}\n' +
-    '        </a>\n' +
-    '    </li>\n' +
-    '</ul>';
+module.exports = '<a class="page-button" href ng-click="previousPage()">\n' +
+    '    <span class="icon-caret-left"></span>\n' +
+    '</a>\n' +
+    '<div class="pagination-container" ng-if="analyzeTabs.enabled">\n' +
+    '    <ul class="tabs-container">\n' +
+    '        <li class="tab" ng-class="{ active : tab.active }"\n' +
+    '            ng-repeat="tab in analyzeTabs.tabs">\n' +
+    '            <a href ng-click="analyzeTabs.handle(\'select\', tab)">\n' +
+    '                {{tab.label}}\n' +
+    '            </a>\n' +
+    '        </li>\n' +
+    '    </ul>\n' +
+    '</div>\n' +
+    '<a class="page-button" href ng-click="nextPage()">\n' +
+    '    <span class="icon-caret-right"></span>\n' +
+    '</a>';
 },{}],38:[function(require,module,exports){
 module.exports = '<!-- 3rd level. Title and Subtitle, when a variable is selected -->\n' +
     '<h2 class="analysis-title" ng-if="ctrl.visible">\n' +

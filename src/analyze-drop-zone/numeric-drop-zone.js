@@ -3,13 +3,11 @@
 module.exports = NumericDropZoneFactory
 
 NumericDropZoneFactory.$inject = [
-    'lodash'
-    , '$rootScope'
-    , 'TypedDropZone'
+    'TypedDropZone'
     , 'dropZoneUtils'
 ]
 
-function NumericDropZoneFactory(_, $rootScope, TypedDropZone, utils) {
+function NumericDropZoneFactory(TypedDropZone, utils) {
     var getVariableId = utils.getVariableId
         ;
 

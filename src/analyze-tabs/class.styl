@@ -1,21 +1,47 @@
-ul.tabs-container
-    display flex
-    border-bottom 1px solid color-grey2
+analyze-tabs
     margin-right workspace-v-space-l
+    height 33px
+    width 97%
+    display flex
+    align-items center
 
-    li.tab a
-        color font-color-dark-grey
+    .pagination-container
+        position relative
+        overflow hidden
+        display flex
+        height 100%
+        flex-grow 1
+        margin 0 elements-space-s
 
-    li.tab
-        padding elements-space-s
-        overflow-x hidden
-        text-overflow clip
+    a.page-button
+        flex-shrink 0
+        width 21px
+        height 21px
+        display flex
+        align-items center
+        justify-content flex-start
+        background-color #ddd
+        border-radius 50%
+        padding-left 7px
 
-        &.active
-            font-weight font-weight-heavy
-            background-color white
-            margin-bottom -1px
-            border 1px color-grey2 solid
-            border-bottom 0
-            border-radius 3px 3px 0 0
-            overflow-x visible
+    ul.tabs-container
+        display flex
+        border-bottom 1px solid color-grey2
+        position absolute
+
+        li.tab a
+            color font-color-dark-grey
+
+        li.tab
+            padding elements-space-s
+            white-space nowrap
+            flex-shrink 0
+
+            &.active
+                font-weight font-weight-heavy
+                background-color white
+                margin-bottom -1px
+                border 1px color-grey2 solid
+                border-bottom 0
+                border-radius 3px 3px 0 0
+                overflow-x visible
