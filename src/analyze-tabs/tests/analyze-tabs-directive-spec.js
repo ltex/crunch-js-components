@@ -104,8 +104,8 @@ describe('analyzeTabsDirective', function() {
         })
 
         it('should send select-tab message to the analyze', function() {
-            expect(analyzeTabs.handled['select-tab']).to.be.ok
-            expect(analyzeTabs.handled['select-tab'][0][0]).to.deep.contain({ label : 'label 1', active : true})
+            expect(analyzeTabs.handled['select']).to.be.ok
+            expect(analyzeTabs.handled['select'][0][0]).to.deep.contain({ label : 'label 1', active : true})
 
         })
     })

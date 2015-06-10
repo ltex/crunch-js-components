@@ -1,7 +1,7 @@
 <ul class="tabs-container" ng-if="analyzeTabs.enabled">
     <li class="tab" ng-class="{ active : tab.active }"
         ng-repeat="tab in analyzeTabs.tabs">
-        <a href ng-click="analyzeTabs.handle('select-tab', tab)">
+        <a href ng-click="analyzeTabs.handle('select', tab)">
             {{tab.label}}
         </a>
     </li>

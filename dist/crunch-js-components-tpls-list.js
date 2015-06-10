@@ -43,6 +43,7 @@ function buildModule() {
         $templateCache.put("/analyze-table/no-valid-data-table.html", require("../src/analyze-table/no-valid-data-table.html"));
         $templateCache.put("/analyze-table/table.html", require("../src/analyze-table/table.html"));
         $templateCache.put("/analyze-table/title-variable.html", require("../src/analyze-table/title-variable.html"));
+        $templateCache.put("/analyze-tabs/analyze-tabs.html", require("../src/analyze-tabs/analyze-tabs.html"));
         $templateCache.put("/analyze/analyze-title.html", require("../src/analyze/analyze-title.html"));
         $templateCache.put("/analyze/empty-analysis.html", require("../src/analyze/empty-analysis.html"));
         $templateCache.put("/cr-select/cr-select.html", require("../src/cr-select/cr-select.html"));
