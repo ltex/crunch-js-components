@@ -47,7 +47,7 @@ describe('CategoricalDropZone', function() {
         })
     }
 
-    describe('when initializing', function() {
+    context('when initializing', function() {
         beforeEach(buildModule)
         beforeEach(function() {
             analysisMock.isUnivariate = function() {
@@ -56,7 +56,7 @@ describe('CategoricalDropZone', function() {
             buildSut()
         })
 
-        describe('given an analysis with only one variable', function() {
+        context('given an analysis with only one variable', function() {
 
             it('should transition to the "univariate" state', function() {
                 sut.state.should.be.equal('univariate')
@@ -64,11 +64,11 @@ describe('CategoricalDropZone', function() {
         })
     })
 
-    describe('given an univariate drop zone', function() {
+    context('given an univariate drop zone', function() {
         beforeEach(buildModule)
         beforeEach(buildSut)
 
-        describe('when a variable is dropped in the row zone', function() {
+        context('when a variable is dropped in the row zone', function() {
             var variable
                 ;
 
@@ -83,7 +83,7 @@ describe('CategoricalDropZone', function() {
             })
         })
 
-        describe('when a variable is dropped in the column zone', function() {
+        context('when a variable is dropped in the column zone', function() {
             var variable
                 ;
 
@@ -102,7 +102,7 @@ describe('CategoricalDropZone', function() {
             })
         })
 
-        describe('when a variable is dropped in the slice zone', function() {
+        context('when a variable is dropped in the slice zone', function() {
             beforeEach(function() {
                 sut.handle('slice:link', {}, variableData('/var/123'))
             })
@@ -117,7 +117,7 @@ describe('CategoricalDropZone', function() {
             })
         })
 
-        describe('when a variable is dropped in the group zone', function() {
+        context('when a variable is dropped in the group zone', function() {
             beforeEach(function() {
                 sut.handle('group:link', {}, variableData('/var/123'))
             })
@@ -133,14 +133,14 @@ describe('CategoricalDropZone', function() {
         })
     })
 
-    describe('given a bivariate drop zone', function() {
+    context('given a bivariate drop zone', function() {
         beforeEach(buildModule)
         beforeEach(buildSut)
         beforeEach(function() {
             sut.transition('bivariate')
         })
 
-        describe('when a variable is dropped in the row zone', function() {
+        context('when a variable is dropped in the row zone', function() {
             var variable
                 ;
 
@@ -155,7 +155,7 @@ describe('CategoricalDropZone', function() {
             })
         })
 
-        describe('when a variable is dropped in the column zone', function() {
+        context('when a variable is dropped in the column zone', function() {
             var variable
                 ;
 
@@ -174,7 +174,7 @@ describe('CategoricalDropZone', function() {
             })
         })
 
-        describe('when a variable is dropped in the table zone', function() {
+        context('when a variable is dropped in the table zone', function() {
             var variable
                 ;
 
@@ -196,7 +196,7 @@ describe('CategoricalDropZone', function() {
             })
         })
 
-        describe('when a variable is dropped in the slice zone', function() {
+        context('when a variable is dropped in the slice zone', function() {
             beforeEach(function() {
                 sut.handle('slice:link', {}, variableData('/var/123'))
             })
@@ -211,7 +211,7 @@ describe('CategoricalDropZone', function() {
             })
         })
 
-        describe('when a variable is dropped in the group zone', function() {
+        context('when a variable is dropped in the group zone', function() {
             beforeEach(function() {
                 sut.handle('group:link', {}, variableData('/var/123'))
             })
@@ -227,14 +227,14 @@ describe('CategoricalDropZone', function() {
         })
     })
 
-    describe('given a new drop zone', function() {
+    context('given a new drop zone', function() {
         beforeEach(buildModule)
         beforeEach(buildSut)
         beforeEach(function() {
             sut.transition('new')
         })
 
-        describe('when a variable is dropped in the table zone', function() {
+        context('when a variable is dropped in the table zone', function() {
             var variable
                 ;
 
@@ -253,14 +253,14 @@ describe('CategoricalDropZone', function() {
         })
     })
 
-    describe('given a tabs drop zone', function() {
+    context('given a tabs drop zone', function() {
         beforeEach(buildModule)
         beforeEach(buildSut)
         beforeEach(function() {
             sut.transition('tabs')
         })
 
-        describe('when a variable is dropped in the tabs zone', function() {
+        context('when a variable is dropped in the tabs zone', function() {
             var variable
                 ;
 
@@ -269,19 +269,36 @@ describe('CategoricalDropZone', function() {
                 sut.handle('tabs:link', {}, variable)
             })
 
-            it('should add the dropped variable to the analysis model', function() {
-                analysisMock.handled['replace-variable'].should.be.ok
-                expect(analysisMock.handled['replace-variable'][0][0]).to.equal(2)
+            it('should insert the dropped variable at index 0', function() {
+                analysisMock.handled['insert-before'].should.be.ok
+                expect(analysisMock.handled['insert-before'][0][0]).to.equal(0)
+            })
+        })
 
+        context('when a variable is dropped in the tabs zone', function() {
+            var variable
+                ;
+
+            context('given an analysis with three variables', function() {
+                beforeEach(function() {
+                    variable = variableData('/var/123')
+                    sut.analysis.dimension = 3
+                    sut.handle('tabs:link', {}, variable)
+                })
+
+                it('should insert the dropped variable at index 0', function() {
+                    analysisMock.handled['replace-variable'].should.be.ok
+                    expect(analysisMock.handled['replace-variable'][0][0]).to.equal(0)
+                })
             })
         })
     })
 
-    describe('when refreshing drop zone', function() {
+    context('when refreshing drop zone', function() {
         beforeEach(buildModule)
         beforeEach(buildSut)
 
-        describe('given an empty analysis', function() {
+        context('given an empty analysis', function() {
             beforeEach(function() {
                 sut.analysis.isEmpty = function() {
                     return true
@@ -295,7 +312,7 @@ describe('CategoricalDropZone', function() {
             })
         })
 
-        describe('given an analysis with array variables', function() {
+        context('given an analysis with array variables', function() {
             beforeEach(function() {
                 sut.analysis.isEmpty = function() {
                     return false
@@ -313,7 +330,7 @@ describe('CategoricalDropZone', function() {
             })
         })
 
-        describe('given a univariate analysis', function() {
+        context('given a univariate analysis', function() {
             beforeEach(function() {
                 sut.analysis.isUnivariate = function() {
                     return true
@@ -327,7 +344,7 @@ describe('CategoricalDropZone', function() {
             })
         })
 
-        describe('given a bivariate analysis', function() {
+        context('given a bivariate analysis', function() {
             beforeEach(function() {
                 sut.analysis.isBivariate = function() {
                     return true

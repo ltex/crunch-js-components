@@ -154,7 +154,11 @@ function CategoricalDropZoneFactory(_, $rootScope, TypedDropZone, utils) {
 
             , tabs : {
                 'tabs:link' : function(e, data) {
-                    this.analysis.handle('replace-variable', 2, getVariableId(data))
+                    if(this.analysis.dimension > 2) {
+                        this.analysis.handle('replace-variable', 0, getVariableId(data))
+                    } else {
+                        this.analysis.handle('insert-before', 0, getVariableId(data))
+                    }
                 }
                 , 'table:link' : function(e, data) {
                     this.analysis.handle('clean')
