@@ -42,6 +42,7 @@ function NumericDropZoneFactory(_, $rootScope, TypedDropZone, utils) {
             , 'mean:link'
             , 'group:link'
             , 'slice:link'
+            , 'tabs:link'
         ]
 
         , states : {
@@ -119,6 +120,14 @@ function NumericDropZoneFactory(_, $rootScope, TypedDropZone, utils) {
                     this.analysis.handle('measures-count')
                     this.analysis.handle('clean')
                     this.analysis.handle('add-variable', getVariableId(data))
+                }
+
+                , 'tabs:link' : function(e, data) {
+                    if(this.analysis.dimension > 2) {
+                        this.analysis.handle('replace-variable', 0, getVariableId(data))
+                    } else {
+                        this.analysis.handle('insert-before', 0, getVariableId(data))
+                    }
                 }
 
                 , 'mean:link' : function(e, data) {
