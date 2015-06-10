@@ -8,6 +8,7 @@ function buildModule() {
         ;
 
     mod.directive('analyzeTabs', require('./analyze-tabs-directive'))
+    mod.factory('AnalyzeTabs', require('./analyze-tabs'))
 
     return mod
 }
