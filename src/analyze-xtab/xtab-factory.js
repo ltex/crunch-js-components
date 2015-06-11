@@ -25,8 +25,8 @@ function XtabFactory(assert, displayCube, iFetchRelevantComparisons) {
                 , updateCache : params.updateComparisonsCache
             })
             .then(function(comparisons) {
-                var cube = (typeof params.sliceNumber === 'number' && params.sliceMeasure) ?
-                    analysis.data.cube.getSliceFromMeasure(params.sliceMeasure, params.sliceNumber) :
+                var cube = (typeof params.sliceNumber === 'number') ?
+                    analysis.data.cube.getSliceAtIndex(params.sliceNumber) :
                     analysis.data.cube
 
                 return displayCube(cube, {
