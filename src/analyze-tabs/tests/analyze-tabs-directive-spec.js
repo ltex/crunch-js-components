@@ -44,6 +44,9 @@ describe('analyzeTabsDirective', function() {
 
     function flush() {
         scope.$digest()
+        inject(function($timeout) {
+            $timeout.flush()
+        })
     }
 
     beforeEach(buildModule)
@@ -89,7 +92,6 @@ describe('analyzeTabsDirective', function() {
         })
     })
 
-
     context('when a tab is clicked', function() {
         beforeEach(buildSut)
         beforeEach(function() {
@@ -106,7 +108,6 @@ describe('analyzeTabsDirective', function() {
         it('should send select-tab message to the analyze', function() {
             expect(analyzeTabs.handled['select']).to.be.ok
             expect(analyzeTabs.handled['select'][0][0]).to.deep.contain({ label : 'label 1', active : true})
-
         })
     })
 })

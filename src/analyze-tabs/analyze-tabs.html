@@ -1,4 +1,4 @@
-<a class="page-button" href ng-click="previousPage()">
+<a class="page-button page-button-left" ng-if="canGoBack" href ng-click="moveBackward()">
     <span class="icon-caret-left"></span>
 </a>
 <div class="pagination-container" ng-if="analyzeTabs.enabled">
@@ -11,6 +11,6 @@
         </li>
     </ul>
 </div>
-<a class="page-button" href ng-click="nextPage()">
+<a class="page-button page-button-right" ng-if="canGoForward" href ng-click="moveForward()">
     <span class="icon-caret-right"></span>
 </a>
