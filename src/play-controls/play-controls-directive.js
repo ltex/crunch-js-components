@@ -69,11 +69,19 @@ function PlayControlsDirective(_, $timeout, $document) {
                 }
             }, 100)
 
+            function recalculateBoundingBox() {
+                controlsBoundingBox = calculatesBoundingBox($controls)
+            }
 
             if($scope.autoHide) {
                 stoppable = scheduleFadeOut($controls)
                 $document.on('mousemove', handle)
             }
+
+            $scope.$on('$destroy', function() {
+                $document.off('mousemove', handle)
+                $(window).off('resize', recalculateBoundingBox)
+            })
         }
     }
 }
