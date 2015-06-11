@@ -10,9 +10,12 @@
     </a>
     <div class="pagination-container">
         <ul class="tabs-container">
-            <li class="tab" ng-class="{ active : tab.active }"
-                ng-repeat="tab in analyzeTabs.tabs">
-                <a href ng-click="analyzeTabs.handle('select', tab)">
+            <li class="tab" ng-repeat="tab in analyzeTabs.tabs">
+                <a class="tab-link"
+                   href
+                   ng-class="{ active : tab.active }"
+                   ng-click="analyzeTabs.handle('select', tab)"
+                   title="{{tab.label}}">
                     {{tab.label}}
                 </a>
             </li>

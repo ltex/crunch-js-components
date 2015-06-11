@@ -59,23 +59,25 @@ analyze-tabs
 
     ul.tabs-container
         display flex
-        border-bottom 1px solid color-grey2
         position absolute
         transition left ease-out 0.3s
 
-        li.tab a
-            color font-color-dark-grey
-
         li.tab
-            padding elements-space-s
-            white-space nowrap
-            flex-shrink 0
+            margin-right elements-space-s
+            display flex
 
-            &.active
-                font-weight font-weight-heavy
-                background-color white
-                margin-bottom -1px
-                border 1px color-grey2 solid
-                border-bottom 0
-                border-radius 3px 3px 0 0
-                overflow-x visible
+            a.tab-link
+                padding elements-space-s
+                white-space nowrap
+                flex-shrink 0
+                background-color color-card-grey
+                width 100px
+                text-overflow ellipsis
+                overflow-x hidden
+                text-align center
+                font-size font-size-m
+                color font-color-dark-grey
+
+                &.active
+                    font-weight font-weight-heavy
+                    background-color color-grey2

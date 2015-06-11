@@ -15,25 +15,18 @@ function AnalyzeTabsDirective(AnalyzeTabs, $timeout) {
                     analysis : $scope.analysis
                 })
 
-                $timeout(function() {
-                    calculateCanGoBack()
-                    calculateCanGoForward()
-                },50)
+                recalculate(50)
             })
 
             $scope.moveBackward = function() {
                 var $tabsContainer = $el.find('ul.tabs-container')
                     , x = $tabsContainer.position().left
                     , parentWidth = $tabsContainer.parent().width()
-                    , newX = (-x) > parentWidth ? (x + parentWidth) : 0
+                    , newX = (-x) > parentWidth ? (x + (parentWidth / 2)) : 0
                     ;
 
                 $tabsContainer.css('left', newX)
-
-                $timeout(function() {
-                    calculateCanGoBack()
-                    calculateCanGoForward()
-                },350)
+                recalculate()
             }
 
             $scope.moveForward = function() {
@@ -42,15 +35,18 @@ function AnalyzeTabsDirective(AnalyzeTabs, $timeout) {
                     , width = $tabsContainer.width()
                     , parentWidth = $tabsContainer.parent().width()
                     , hiddenSpace = (x + width) - parentWidth
-                    , newX = hiddenSpace > parentWidth ? parentWidth : hiddenSpace
+                    , newX = hiddenSpace > parentWidth ? x - (parentWidth / 2) : x - hiddenSpace
                     ;
 
-                $tabsContainer.css('left', (-newX))
+                $tabsContainer.css('left', newX)
+                recalculate()
+            }
 
+            function recalculate(timeout) {
                 $timeout(function() {
                     calculateCanGoBack()
                     calculateCanGoForward()
-                },350)
+                },(timeout || 350))
             }
 
             function calculateCanGoBack() {
