@@ -87,7 +87,7 @@ describe('analyzeTabsDirective', function() {
             })
 
             it('should set the active class to the active tab', function() {
-                expect(sut.find('li.tab:nth(0)').hasClass('active')).to.be.true
+                expect(sut.find('li.tab:nth(0) a').hasClass('active')).to.be.true
             })
         })
     })
