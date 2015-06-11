@@ -12,7 +12,7 @@ function AnalyzeTabsDirective(AnalyzeTabs, $timeout) {
         , link : function($scope, $el) {
             $scope.$watch('analysis.data.cube', function(cube) {
                 $scope.analyzeTabs = AnalyzeTabs.create({
-                    cube : cube
+                    analysis : $scope.analysis
                 })
 
                 $timeout(function() {

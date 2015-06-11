@@ -110,4 +110,22 @@ describe('analyzeTabsDirective', function() {
             expect(analyzeTabs.handled['select'][0][0]).to.deep.contain({ label : 'label 1', active : true})
         })
     })
+
+    context('when remove button is clicked', function() {
+        beforeEach(buildSut)
+        beforeEach(function() {
+            analyzeTabs.enabled = true
+            analyzeTabs.tabs = [
+                { label : 'label 1', active : true }
+                , { label : 'label 2' }
+                , { label : 'label 3' }
+            ]
+            flush()
+            sut.find('a.remove-dimension').click()
+        })
+
+        it('should send remove message to the analyzeTab model', function() {
+            expect(analyzeTabs.handled['remove']).to.be.ok
+        })
+    })
 })

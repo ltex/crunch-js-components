@@ -4,6 +4,7 @@ require('angular-mocks')
 
 var mainMod = require('../index')
     , mockBus = require('../../test-support/mock-bus')
+    , MockMachine = require('../../test-support/mock-machine')
     ;
 
 describe('AnalyzeTabs', function() {
@@ -41,17 +42,21 @@ describe('AnalyzeTabs', function() {
 
             beforeEach(function() {
                 sut = AnalyzeTabs.create({
-                    cube : {
-                        dimension : 3
-                        , _dimensions : [
-                            {
-                                labels : [
-                                    'label 1'
-                                    , 'label 2'
-                                    , 'label 3'
+                    analysis : {
+                        data : {
+                            cube : {
+                                dimension : 3
+                                , _dimensions : [
+                                    {
+                                        labels : [
+                                            'label 1'
+                                            , 'label 2'
+                                            , 'label 3'
+                                        ]
+                                    }
                                 ]
                             }
-                        ]
+                        }
                     }
                 })
             })
@@ -86,8 +91,12 @@ describe('AnalyzeTabs', function() {
 
             beforeEach(function() {
                 sut = AnalyzeTabs.create({
-                    cube : {
-                        dimension : 2
+                    analysis : {
+                        data : {
+                            cube : {
+                                dimension : 2
+                            }
+                        }
                     }
                 })
             })
@@ -104,17 +113,21 @@ describe('AnalyzeTabs', function() {
 
         beforeEach(function() {
             sut = AnalyzeTabs.create({
-                cube : {
-                    dimension : 3
-                    , _dimensions : [
-                        {
-                            labels : [
-                                'label 1'
-                                , 'label 2'
-                                , 'label 3'
+                analysis : {
+                    data : {
+                        cube : {
+                            dimension : 3
+                            , _dimensions : [
+                                {
+                                    labels : [
+                                        'label 1'
+                                        , 'label 2'
+                                        , 'label 3'
+                                    ]
+                                }
                             ]
                         }
-                    ]
+                    }
                 }
             })
 
@@ -132,6 +145,27 @@ describe('AnalyzeTabs', function() {
         it('should publish analyzeTabs.selectionChanged event', function() {
             expect(bus.assertEventPublished('analyzeTabs.selectionChanged', { selectedTab : 1 }))
                 .to.be.true
+        })
+    })
+
+    context('when removing', function() {
+        var sut
+            , analysis
+            ;
+        beforeEach(function() {
+            analysis = new MockMachine()
+            analysis.data = { cube : { dimension : 3, _dimensions : [{ labels : [] }] } }
+
+            sut = AnalyzeTabs.create({
+                analysis : analysis
+            })
+
+            sut.handle('remove')
+        })
+
+        it('should send remove-variable message to the analysis model', function() {
+            expect(analysis.handled['remove-variable']).to.be.ok
+            expect(analysis.handled['remove-variable'][0][0]).to.equal(0)
         })
     })
 })

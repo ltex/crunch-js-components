@@ -8,12 +8,13 @@ function AnalyzeTabsFactory(machina, bus) {
         states : {
             uninitialized : {
                 initialize : function(cfg) {
-                    if(!cfg.cube) {
-                        throw new Error('provide a cube object')
+                    if(!cfg.analysis) {
+                        throw new Error('provide an analysis object')
                     }
 
-                    this.cube = cfg.cube
-                    this.transition((cfg.cube.dimension > 2 ? 'enabled' : 'disabled'))
+                    this.analysis = cfg.analysis
+                    this.cube = this.analysis.data.cube
+                    this.transition((this.cube.dimension > 2 ? 'enabled' : 'disabled'))
                 }
             }
 
@@ -42,6 +43,10 @@ function AnalyzeTabsFactory(machina, bus) {
                         })
                     }
                 }
+
+                , remove : function() {
+                    this.analysis.handle('remove-variable', 0)
+                }
             }
             , disabled : true
         }
@@ -51,6 +56,12 @@ function AnalyzeTabsFactory(machina, bus) {
         enabled : {
             get : function() {
                 return this.state === 'enabled'
+            }
+        }
+
+        , dimensionName : {
+            get : function() {
+                return this.cube._dimensions[0].name
             }
         }
     })

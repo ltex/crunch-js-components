@@ -1,9 +1,31 @@
 analyze-tabs
-    margin-right workspace-v-space-l
-    height 33px
     width 97%
     display flex
+    margin-right workspace-v-space-l
+
+.analyze-tabs
+    height 33px
+    display flex
     align-items center
+    flex-grow 1
+    padding-left elements-space-s
+
+    .dimension-name-container
+        display flex
+        align-items center
+        flex-shrink 0
+
+        &:hover .icon-remove
+            opacity 1
+            color font-color-dark-grey
+
+        .dimension-name
+            margin-right 3px
+            font-weight font-weight-heavy
+
+        .remove-dimension
+            position relative
+            top -2px
 
     .pagination-container
         position relative
@@ -20,8 +42,14 @@ analyze-tabs
         display flex
         align-items center
         justify-content flex-start
-        background-color #ddd
+        background-color color-grey1
         border-radius 50%
+
+        &:hover
+            background-color color-grey2
+
+        span[class^=icon]
+            color font-color-dark-grey
 
     a.page-button-left
         padding-left 7px

@@ -1,16 +1,24 @@
-<a class="page-button page-button-left" ng-if="canGoBack" href ng-click="moveBackward()">
-    <span class="icon-caret-left"></span>
-</a>
-<div class="pagination-container" ng-if="analyzeTabs.enabled">
-    <ul class="tabs-container">
-        <li class="tab" ng-class="{ active : tab.active }"
-            ng-repeat="tab in analyzeTabs.tabs">
-            <a href ng-click="analyzeTabs.handle('select', tab)">
-                {{tab.label}}
-            </a>
-        </li>
-    </ul>
+<div class="analyze-tabs" ng-if="analyzeTabs.enabled">
+    <span class="dimension-name-container">
+        <span class="dimension-name">{{analyzeTabs.dimensionName}}</span>
+        <a class="remove-dimension" href ng-click="analyzeTabs.handle('remove')">
+            <span class="icon-remove"></span>
+        </a>
+    </span>
+    <a class="page-button page-button-left" ng-if="canGoBack" href ng-click="moveBackward()">
+        <span class="icon-caret-left"></span>
+    </a>
+    <div class="pagination-container">
+        <ul class="tabs-container">
+            <li class="tab" ng-class="{ active : tab.active }"
+                ng-repeat="tab in analyzeTabs.tabs">
+                <a href ng-click="analyzeTabs.handle('select', tab)">
+                    {{tab.label}}
+                </a>
+            </li>
+        </ul>
+    </div>
+    <a class="page-button page-button-right" ng-if="canGoForward" href ng-click="moveForward()">
+        <span class="icon-caret-right"></span>
+    </a>
 </div>
-<a class="page-button page-button-right" ng-if="canGoForward" href ng-click="moveForward()">
-    <span class="icon-caret-right"></span>
-</a>
