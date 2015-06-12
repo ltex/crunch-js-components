@@ -6,11 +6,16 @@ function AnalyzeTableDirective(_) {
 
     function TableCtrl($scope) {
         this.removeColumn = function() {
-            $scope.analysis.handle('remove-variable', 1)
+            var index = $scope.analysis.data.cube.dimension < 3 ? 1 : 2
+                ;
+            $scope.analysis.handle('remove-variable', index)
         }
 
         this.removeRow = function() {
-            $scope.analysis.handle('remove-variable', 0)
+            var index = $scope.analysis.data.cube.dimension < 3 ? 0 : 1
+                ;
+
+            $scope.analysis.handle('remove-variable', index)
         }
 
         this.removeMeanMeasure = function() {

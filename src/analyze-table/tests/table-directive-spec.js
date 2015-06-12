@@ -25,6 +25,7 @@ describe('analyzeTableDirective', function() {
     function buildSut() {
         xtab = { rows : [1,2,3] }
         analysis = new MockMachine()
+        analysis.data = { cube : { dimension : 2 } }
 
         angular.mock.inject(function($rootScope, $templateCache, $compile) {
             scope = $rootScope.$new()
@@ -58,27 +59,49 @@ describe('analyzeTableDirective', function() {
 
 
     context('when clicking remove row button', function() {
-        beforeEach(buildSut)
-        beforeEach(flush)
-        beforeEach(function() {
-            sut.find('.remove-row').trigger('click')
+
+        context('given the analysis has less than 3 dimensions', function() {
+
+            beforeEach(buildSut)
+            beforeEach(flush)
+            beforeEach(function() {
+                sut.find('.remove-row').trigger('click')
+            })
+
+            it('should send remove-variable a index 0 message to the analysis model', function() {
+                expect(analysis.handled['remove-variable']).to.be.ok
+                expect(analysis.handled['remove-variable'][0][0]).to.equal(0)
+            })
         })
 
-        it('should send remove-variable a index 0 message to the analysis model', function() {
-            expect(analysis.handled['remove-variable']).to.be.ok
-            expect(analysis.handled['remove-variable'][0][0]).to.equal(0)
+        context('given the analysis 3 or more dimensions', function() {
 
+            beforeEach(buildSut)
+            beforeEach(function() {
+                analysis.data.cube.dimension = 3
+            })
+            beforeEach(flush)
+            beforeEach(function() {
+                sut.find('.remove-row').trigger('click')
+            })
+
+            it('should send remove-variable a index 1 message to the analysis model', function() {
+                expect(analysis.handled['remove-variable']).to.be.ok
+                expect(analysis.handled['remove-variable'][0][0]).to.equal(1)
+            })
         })
     })
 
-    context('given a bivariate table', function() {
-        beforeEach(buildSut)
-        beforeEach(function() {
-            xtab.showColumnTitle = true
-            flush()
-        })
 
-        context('when clicking remove column button', function() {
+    context('when clicking remove column button', function() {
+
+        context('given the analysis has less than 3 dimensions', function() {
+            beforeEach(buildSut)
+            beforeEach(function() {
+                analysis.data.cube.dimension = 2
+                xtab.showColumnTitle = true
+                flush()
+            })
             beforeEach(function() {
                 sut.find('.remove-column').trigger('click')
             })
@@ -86,6 +109,24 @@ describe('analyzeTableDirective', function() {
             it('should send remove-variable a index 1 message to the analysis model', function() {
                 expect(analysis.handled['remove-variable']).to.be.ok
                 expect(analysis.handled['remove-variable'][0][0]).to.equal(1)
+
+            })
+        })
+
+        context('given the analysis has 3 or more dimensions', function() {
+            beforeEach(buildSut)
+            beforeEach(function() {
+                analysis.data.cube.dimension = 3
+                xtab.showColumnTitle = true
+                flush()
+            })
+            beforeEach(function() {
+                sut.find('.remove-column').trigger('click')
+            })
+
+            it('should send remove-variable a index 2 message to the analysis model', function() {
+                expect(analysis.handled['remove-variable']).to.be.ok
+                expect(analysis.handled['remove-variable'][0][0]).to.equal(2)
 
             })
         })
