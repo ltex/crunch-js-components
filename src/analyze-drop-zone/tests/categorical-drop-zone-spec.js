@@ -174,6 +174,39 @@ describe('CategoricalDropZone', function() {
             })
         })
 
+        context('when a variable is dropped in the tabs zone', function() {
+            var variable
+                ;
+
+            beforeEach(function() {
+                variable = variableData('/var/123')
+                sut.handle('tabs:link', {}, variable)
+            })
+
+            it('should insert the dropped variable at index 0', function() {
+                expect(analysisMock.handled['insert-before']).to.be.ok
+                expect(analysisMock.handled['insert-before'][0][0]).to.equal(0)
+            })
+        })
+
+        context('when a variable is dropped in the tabs zone', function() {
+            var variable
+                ;
+
+            context('given an analysis with three variables', function() {
+                beforeEach(function() {
+                    variable = variableData('/var/123')
+                    sut.analysis.dimension = 3
+                    sut.handle('tabs:link', {}, variable)
+                })
+
+                it('should insert the dropped variable at index 0', function() {
+                    expect(analysisMock.handled['replace-variable']).to.be.ok
+                    expect(analysisMock.handled['replace-variable'][0][0]).to.equal(0)
+                })
+            })
+        })
+
         context('when a variable is dropped in the table zone', function() {
             var variable
                 ;

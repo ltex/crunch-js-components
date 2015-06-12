@@ -106,6 +106,14 @@ function CategoricalDropZoneFactory(_, $rootScope, TypedDropZone, utils) {
                     this.analysis.handle('add-variable', getVariableId(data))
                     this.transition('univariate')
                 }
+
+                , 'tabs:link' : function(e, data) {
+                    if(this.analysis.dimension > 2) {
+                        this.analysis.handle('replace-variable', 0, getVariableId(data))
+                    } else {
+                        this.analysis.handle('insert-before', 0, getVariableId(data))
+                    }
+                }
             }
             , binned : {
                 'row:link' : function(e, data) {
