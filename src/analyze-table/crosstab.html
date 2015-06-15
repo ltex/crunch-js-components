@@ -14,7 +14,7 @@
 </tr>
 
 <tr ng-repeat="row in xtab.rows track by $index"
-    ng-class="{ 'no-zebra' : xtab.showSignif }">
+    ng-class="{ 'no-zebra' : xtab.showSignif }" ng-show="([row.label] | filter:xtab.rowFilter).length">
     <th>{{ row.label }}</th>
 
     <td ng-repeat="preCols in xtab.preCols track by $index"
@@ -39,7 +39,8 @@
 
 <tr ng-repeat="postRow in xtab.postRows track by $index"
     ng-class="{ 'no-zebra' : xtab.showSignif }"
-    class="row-margin-{{$index}}">
+    class="row-margin-{{$index}}"
+    ng-show="!(xtab.rowFilter.length>0)">
     <th class="row-margin-label">
         {{postRow.label | displayLabel}}
     </th>
