@@ -1,0 +1,106 @@
+<div class="toolbar-item {{filterBar.state}}">
+    <h1 ng-class="{ clickable : filterBar.isUnfiltered }" ng-click="appendIfEmpty($event)">Filters</h1>
+    <div ng-switch on="filterBar.isUnfiltered" class="applied-filters">
+        <!--unfiltered state has ONE thing it can do..append the applied filters list-->
+        <ul ng-switch-when="true">
+            <li>
+                <button type="button"
+                    class="none add-filter toolbar-selected-item"
+                    title="Apply a filter"
+                    ng-class="{active: filterBar.state === 'appending'}"
+                    ng-click="appendFilter($event)">None
+                </button>
+            </li>
+        </ul>
+        <!--otherwise we let them do this-->
+        <ul ng-switch-default>
+            <li ng-repeat="applied in filterBar.appliedFilters track by $index" class="applied-filter">
+                <span ng-if="$middle || !$first && $last" class="icon-plus-sign"></span>
+                <button type="button"
+                    class="filter-item toolbar-selected-item"
+                    title="{{applied.name}}"
+                    ng-class="{active: filterBar.activeFilter.self === applied.self }"
+                    ng-click="replaceFilter(applied, $event)">
+                   {{applied.name}}
+                </button>
+                <button type="button"
+                    class="add-filter"
+                    ng-class="{active: filterBar.state==='appending'}"
+                    ng-if="$last && !filterBar.limitReached"
+                    ng-click="appendFilter($event)">
+                    +
+                </button>
+            </li>
+        </ul>
+    </div>
+    <!--this 'activeMenu' attribute will show the menu-->
+    <div ng-if="filterBar.state==='appending' || filterBar.state==='replacing'"
+         class="popup-menu select-filter-menu"
+         ng-style="{ left : menuOffset, height: menuHeight }"
+        >
+        <menu class="toolbar-menu">
+            <div>
+                <menuitem ng-if="filterBar.state==='replacing'">
+                    <button type="button"
+                            name="unapply"
+                            class="toolbar-menu-command"
+                            ng-click="filterBar.handle('unapply')"
+                            title="Clear this filter"
+                            >Clear Filter
+                    </button>
+                </menuitem>
+                <menuitem ng-if="filterBar.state==='replacing'">
+                    <button type="button"
+                            class="toolbar-menu-command"
+                            ng-if="filterBar.activeFilter.editable"
+                            ng-click="filterBar.handle('editFilter', filterBar.activeFilter)"
+                            title="Edit this filter"
+                            >Edit Filter&hellip;
+                    </button>
+                    <button type="button"
+                            class="toolbar-menu-command"
+                            ng-if="!filterBar.activeFilter.editable"
+                            ng-click="filterBar.handle('viewFilter', filterBar.activeFilter)"
+                            title="View this filter"
+                            >View Filter&hellip;
+                    </button>
+                </menuitem>
+                <hr ng-if="filterBar.state==='replacing'"/>
+                <menuitem ng-repeat="filter in filterBar.eligibleFilters | orderBy:['editable','name']">
+                    <button type="button"
+                        class="toolbar-menu-command"
+                        ng-class="{shared: !filter.editable }"
+                        ng-click="filterBar.handle('apply',filter)"
+                        title = "Apply {{filter.name}}">
+                        {{filter.name}}
+                    </button>
+                    <!--this will need to follow the authorization templating rules-->
+                    <a class="toolbar-menu-secondary"
+                       ng-if="filter.editable"
+                       title="Edit {{filter.name}}"
+                       ng-click="filterBar.handle('editFilter', filter)"
+                       >edit</a>
+                    <a class="toolbar-menu-secondary"
+                       ng-if="!filter.editable"
+                       ng-click="filterBar.handle('viewFilter', filter)"
+                       >view</a>
+                </menuitem>
+            </div>
+            <hr ng-if="filterBar.eligibleFilters.length"/>
+            <menuitem ng-class="{disabled: filterBar.limitReached}">
+                <button class="toolbar-menu-command"
+                   ng-if="!filterBar.limitReached"
+                   title="Create a new filter"
+                   ng-click="filterBar.handle('buildFilter')"
+                   >New Filter&hellip;
+                </button>
+                <button class="toolbar-menu-command"
+                   ng-if="filterBar.limitReached"
+                   title="You must unapply a filter to create a new filter"
+                   disabled="disabled"
+                   >New Filter&hellip;
+                </button>
+            </menuitem>
+        </menu>
+    </div>
+</div>

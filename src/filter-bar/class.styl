@@ -1,0 +1,68 @@
+.filter-bar
+    flex 6 1 0px
+
+    .toolbar-menu > div
+        height 95%
+        overflow-y auto
+
+    .select-filter-menu
+        position absolute
+        z-index z-index-popup
+        top 2.5em
+
+        button.shared
+            &:before
+                content '\2022'
+                color inherit
+
+    .applied-filters
+        flex 1 1 0px
+
+        button.none
+            background-color transparent
+
+        ul
+            display flex
+            flex-flow row wrap
+            justify-content flex-start
+            align-content flex-start
+            align-items flex-start
+
+            li
+                flex 0 1 auto
+                display flex
+                flex-flow row wrap
+                justify-content flex-start
+                align-content flex-start
+                align-items center
+                margin-bottom 6px
+
+                span
+                    margin-right elements-space-s
+
+                button
+                    flex 0 1 auto
+                    padding 5px 8px
+                    margin-right elements-space-s
+                    background-color color-card-grey
+
+                    &.active
+                        background-color rollover-background
+
+
+        .add-filter:not(.none)
+            padding 5px elements-space-s
+            background-color transparent
+            visibility hidden
+            opacity 0
+
+    &:hover
+        .add-filter:not(.none)
+            visibility visible
+            opacity 1
+
+    .popup-menu
+        left 0px
+
+        .toolbar-menu .toolbar-menu-command
+            padding-right 40px
