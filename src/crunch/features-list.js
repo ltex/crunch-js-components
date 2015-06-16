@@ -32,6 +32,7 @@ module.exports = function(cfg) {
         , require('../svg-helpers')
         , require('../play-controls')
         , require('../variables-accordion')
+        , require('../filter-bar')
     ]
     .map(function(modFactory) {
         return modFactory(undefined, modFactory[cfg.env])
